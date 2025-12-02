@@ -1,0 +1,18 @@
+book_filename: "gmm_toyama_2025"
+
+rmd_files:
+  - index.Rmd
+  - analysis.Rmd
+  - result.Rmd
+  - reference.Rmd
+
+output_dir: "docs"
+delete_merged_file: true
+
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    df_print: kable
+    config:
+      copy_resources:
+        - analysis/figures/*.png

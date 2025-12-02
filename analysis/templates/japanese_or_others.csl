@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="ja-JP">
+  <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>my_Japanese</title>
+    <id>http://www.zotero.org/styles/my_japanese</id>
+    <link rel="self" href="http://www.zotero.org/styles/my_japanese"/>
+    <link href="http://sti.jst.go.jp/sist/handbook/sist02_2007/main.htm" rel="documentation"/>
+    <contributor>
+      <name>Eriko Amano</name>
+      <uri>http://www.mendeley.com/profiles/eriko-amano/</uri>
+    </contributor>
+    <category citation-format="numeric"/>
+    <updated>2025-09-28T03:27:17+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <link href="http://www.zotero.org/styles/sist02"/>
+  </info>
+  <locale xml:lang="ja">
+    <terms>
+      <term name="open-quote">“</term>
+      <term name="close-quote">”</term>
+    </terms>
+  </locale>
+  <macro name="author">
+    <choose>
+      <if variable="language" match="any">
+        <names variable="author">
+          <name delimiter="・" delimiter-precedes-et-al="always" initialize="false"/>
+          <label form="short" prefix="（" suffix="）"/>
+          <substitute>
+            <names variable="editor"/>
+            <names variable="translator"/>
+          </substitute>
+        </names>
+      </if>
+      <else>
+        <names variable="author" suffix=".">
+          <name delimiter="," initialize-with="." name-as-sort-order="all"/>
+          <label form="short" prefix=", " suffix="."/>
+          <substitute>
+            <names variable="editor" suffix="."/>
+            <names variable="translator" suffix="."/>
+          </substitute>
+        </names>
+      </else>
+    </choose>
+  </macro>
+  <macro name="event">
+    <group delimiter=", ">
+      <text variable="event-place"/>
+      <date variable="event-date">
+        <date-part name="year" suffix="-"/>
+        <date-part name="month" form="numeric-leading-zeros" suffix="-"/>
+        <date-part name="day" form="numeric-leading-zeros"/>
+      </date>
+    </group>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if match="any" variable="language">
+        <choose>
+          <if match="any" type="book">
+            <text variable="title" quotes="false" prefix="『" suffix="』"/>
+            <text variable="collection-title"/>
+          </if>
+          <else>
+            <text variable="title" prefix="「" suffix="」"/>
+            <text variable="container-title" prefix="『" suffix="』"/>
+            <text variable="collection-title" suffix=" "/>
+          </else>
+        </choose>
+      </if>
+      <else>
+        <choose>
+          <if type="book webpage" match="any">
+            <text variable="title" font-style="italic" suffix=". "/>
+            <text variable="collection-title" font-style="italic" suffix=". "/>
+          </if>
+          <else>
+            <text variable="title" suffix=". "/>
+            <text variable="container-title" font-style="italic" suffix=". "/>
+            <text variable="collection-title" suffix=". "/>
+          </else>
+        </choose>
+      </else>
+    </choose>
+  </macro>
+  <macro name="issued">
+    <choose>
+      <if match="any" variable="language">
+        <date date-parts="year" variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <date date-parts="year" variable="issued" suffix=".">
+          <date-part name="year"/>
+        </date>
+      </else>
+    </choose>
+  </macro>
+  <macro name="editor">
+    <names variable="editor">
+      <name delimiter="" initialize="false" initialize-with=". " name-as-sort-order="all" sort-separator=" "/>
+      <label form="short" plural="never"/>
+    </names>
+  </macro>
+  <macro name="locators">
+    <group delimiter=", ">
+      <group>
+        <text term="volume" form="short" font-variant="normal" font-weight="normal" text-decoration="none"/>
+        <text variable="volume"/>
+      </group>
+      <group>
+        <text term="issue" form="short"/>
+        <text variable="issue"/>
+      </group>
+    </group>
+  </macro>
+  <macro name="access">
+    <group>
+      <text variable="URL" prefix=" URL:"/>
+      <group>
+        <text term="accessed" text-case="lowercase" prefix="(" suffix=" "/>
+        <date variable="accessed" suffix=")">
+          <date-part name="year" range-delimiter="-" suffix="-"/>
+          <date-part name="month" form="numeric-leading-zeros" range-delimiter="-" strip-periods="true" suffix="-"/>
+          <date-part name="day" form="numeric-leading-zeros"/>
+        </date>
+      </group>
+    </group>
+  </macro>
+  <macro name="page">
+    <choose>
+      <else>
+        <choose>
+          <if match="any" variable="language">
+            <group prefix=" ">
+              <label variable="page" form="short"/>
+              <text variable="page"/>
+            </group>
+          </if>
+          <else>
+            <group prefix=", ">
+              <label variable="page" form="short"/>
+              <text variable="page"/>
+            </group>
+          </else>
+        </choose>
+      </else>
+    </choose>
+  </macro>
+  <macro name="publisher">
+    <group>
+      <text variable="publisher" prefix=" " suffix=" "/>
+    </group>
+  </macro>
+  <macro name="author_short">
+    <choose>
+      <if variable="language" match="any">
+        <names variable="author">
+          <name form="short" delimiter="・" delimiter-precedes-et-al="never" et-al-min="3" et-al-use-first="1"/>
+          <et-al/>
+        </names>
+      </if>
+      <else>
+        <names variable="author">
+          <name form="short" initialize-with=". " delimiter=", " delimiter-precedes-et-al="never" et-al-min="3" et-al-use-first="1"/>
+          <et-al/>
+        </names>
+      </else>
+    </choose>
+  </macro>
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="（" suffix="）">
+      <choose>
+        <if match="any" variable="language">
+          <group>
+            <text macro="author_short"/>
+            <text macro="issued"/>
+          </group>
+        </if>
+        <else>
+          <group delimiter=", ">
+            <text macro="author_short"/>
+            <text macro="issued"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <sort>
+      <key variable="issued"/>
+    </sort>
+    <layout>
+      <choose>
+        <if match="any" variable="language">
+          <text macro="author"/>
+          <group>
+            <group>
+              <text macro="issued"/>
+              <text macro="title"/>
+            </group>
+            <group delimiter=" ">
+              <text macro="locators"/>
+              <text macro="publisher"/>
+              <text macro="page"/>
+            </group>
+          </group>
+        </if>
+        <else>
+          <text macro="author"/>
+          <group>
+            <group>
+              <text macro="issued"/>
+              <text macro="title"/>
+            </group>
+            <group>
+              <text macro="locators"/>
+              <text macro="page"/>
+            </group>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>

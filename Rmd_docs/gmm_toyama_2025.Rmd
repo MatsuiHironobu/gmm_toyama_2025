@@ -1,0 +1,1749 @@
+---
+title: "Ｒ言語による京都系土師器皿研究"
+author: "松井　広信"
+output: 
+    bookdown::word_document2:
+      fig_caption: yes
+      reference_docx: "analysis/templates/template.docx"
+      toc: false        # 目次が不要なら
+editor_options: 
+  markdown: 
+    wrap: 72
+bibliography: "./analysis/templates/mylib.bib"
+csl: "./analysis/templates/japanese_or_others.csl"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  dpi = 200,
+  fig.path = ".analysis/figures/"
+)
+
+# 必要なパッケージを準備
+load_package <- function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {  # パッケージがインストール済みかどうか
+    install.packages(pkg)
+  }
+  suppressPackageStartupMessages(library(pkg, character.only = TRUE))
+}
+
+sapply(c("tidyverse", "Momocs", "here"), load_package)
+
+# システムのフォントを抜き出して、日本語フォントを探す。
+fonts <- systemfonts::system_fonts()
+jpnfont <- "HiraginoSans-W3"
+
+# ggplotのテーマを自作しておく（任意）
+my_theme <- 
+  theme(text = element_text(family = jpnfont,
+                            size = 8),    # 日本語フォントの設定
+        title = element_text(size = 11),   # タイトルの設定
+        # 軸（axis）関係
+        axis.title = element_text(colour = "black",
+                                  size = 9),   # 軸の名称の設定
+        panel.grid.major = element_line(linetype = "solid",
+                                        colour =  "lightgrey",
+                                        linewidth = 0.2),   # 罫線の主線の設定
+        panel.grid.minor = element_line(linetype = "solid",
+                                        colour =  "lightgrey",
+                                        linewidth = 0.2),   # 罫線の副線の設定
+        panel.background = element_blank(),                 # 背景を空白に設定
+        panel.border = element_rect(linetype = "solid",
+                                    linewidth = 0.5,
+                                    fill = NA),
+        # 凡例（legend）関係
+        legend.direction = "horizontal",         # 水平にする
+        legend.position = "bottom",              # 凡例の位置
+        legend.background = element_blank(), 
+        # キャプション（caption）関係
+        plot.caption = element_text(size = 8),
+        # `facet_wrap`等のタイトル
+        strip.background = element_rect(fill = "white")
+        )
+
+
+# mmをptに変換する式
+mm_to_pt <- function(mm) mm * 72 / 25.4
+
+```
+
+# はじめに {.unnumbered}
+
+Rは統計解析と可視化に広く利用されるオープンソースのプログラミング言語および環境であり、科学的再現性の確保に大きく寄与している。本稿では、このRを用いて京都系土師器皿の分析事例を紹介する。
+
+対象とする富山の中世土師器皿は、高梨[-@takanashi_2006]、越前・高梨[-@echizen_takanashi_2007]により型式が整理されている。本稿では、石名田木舟遺跡B2・C地区[^1]出土資料を新たに「TK」として設定した（表\@ref(fig:type2)）。これらの型式は、調整によって判別することが可能で、その対応関係は表\@ref(tab:type-smooth)に示す。このうちRH・TI・TJが京都の影響を受けた在地型式として理解されるが（広義の京都系土師器皿）、本稿では岩瀬[-@iwase_2019]の石川県における定義[^2]を参考に、TIのみを京都系土師器皿として扱う。
+
+[^1]: 木舟城跡の城下町遺跡であり、天正13年（1586）を上限とする。
+
+[^2]: 岩瀬は京都系土師器皿の特徴を4点提示している。①体部は緩やかに開き、口縁端部をつまみ上げる、または端部内面にヨコナデによる面を形成する。外面は口縁部付近のみをヨコナデする。②内面調整の結果、内底面に凸圏線や凹線が観察される個体がある。内面調整は小型品に「の」字状ナデ、中型品以上に「2」字状ナデを施すものがある。③小・中・大・特大の法量がみられる。小皿にはヘソ皿を含む。④模倣が形骸化したものがみられる。
+
+比較資料として用いる京都の土師器皿については、京都系土師器皿のモデルと考えられるS系列（S・Sb）[^3]のみを対象とする。資料の年代観は基本的に平尾[-@hirao_2019]に準拠するが、京都9B
+段階には1447年の被災資料とされる史跡・名勝嵐山土壙170を追加している[@morishima_2019]。
+
+[^3]: 形が明らかに異なるヘソ皿（Sh）は除外した。
+
+なお、分析は既発表の研究[@matsui_2019; ・
+-@matsui_2022]を基礎とし、一部データを追加した。使用したコードは筆者のGitHubに公開予定である。対象遺跡は表\@ref(tab:site-list)に示した。
+
+```{r type1, echo=FALSE, out.width="145mm", tab.cap='富山県の土師器皿の型式分類（越前・高梨2007にTKを追加）'}
+#### 失敗したが残しておく ####
+# 画像を含む表を作りたかったが、wordで出力するとうまくいかなかった。
+
+library(dplyr)
+library(flextable)
+library(officer)
+
+# # 画像のパスを指定
+# img_files <- c(
+#   "analysis/figures_drafts/fig1-1_RF_Ishinada4764.png",
+#   "analysis/figures_drafts/fig1-2_RH_Ishinada4766.png",
+#   "analysis/figures_drafts/fig1-3_RI_Toyama2005_13.png",
+#   "analysis/figures_drafts/fig1-4_TD_Doujo10025.png",
+#   "analysis/figures_drafts/fig1-5_TG_Doujo10280.png",
+#   "analysis/figures_drafts/fig1-6_TH_Ishinada4768.png",
+#   "analysis/figures_drafts/fig1-7_TI_YatsudukaC76.png",
+#   "analysis/figures_drafts/fig1-8_TJ_Bushouji85.png",
+#   "analysis/figures_drafts/fig1-9_TK_Ishinada2172.png"
+#   )
+
+# データフレームを作成
+type_df <- data.frame(
+  型式分類 = c("RF", "RH", "RI", "TD", "TG", "TH", "TI", "TJ", "TK"),
+  特徴 = c("口径に対する底径の比率が大きく、体部はやや外反し、口縁部は上方へつまみ先細りする。",
+         "ロクロ成形の底部をへらで削り丸底風に仕上げる。体部は直線的に延び口縁部が外反し端部を丸く納める。",
+         "焼成は堅緻で、体部は直線的に延び端部を丸く納める。", "平底で、口縁部を一段ナデ。",
+         "丸底気味の底部から体部が内湾し口縁部は短く外傾する。端部は鋭く納めるものと丸く納めるものが見られる。",
+         "口縁が短く垂直から外反する。端部は丸く納める。丸底と平底が見られる。",
+         "平底で口縁部が外反し端部を内に肥大させながら外反する。丸底と平底が見られ、法量は大中小の３種類ある。",
+         "丸底から体部が内湾気味に立ち上がり端部を外反気味につまみ出す。丸底と平底が見られ、法量は大小の２種類ある。",
+         "丸底と平底があり、底部から体部は緩やかに内湾する。口縁端部はつまみ出し、面を持つものもある。"
+         ), 
+  実測図 = NA,
+  stringsAsFactors = FALSE
+  ) 
+
+# flextableの作成
+ft <- flextable(type_df) %>%
+  # compose(
+  #   j = "実測図",                   # 新しく列を作る
+  #   value = as_paragraph(
+  #     as_image(src = img_files) # 画像を段落に埋め込む
+  #   )
+  # ) %>%
+  autofit() %>% # 列幅を自動調整
+  border_remove() %>%  # 全ての罫線を一旦削除
+  hline_top(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+            part = "all") %>%         # 表の上部の罫線
+  hline(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+        part = "header") %>%          # 列名の下部の罫線
+  hline_bottom(border = fp_border(color = "black", width = mm_to_pt(0.1)), 
+               part = "body") %>%     # 表の下部の罫線
+  border_inner_h(border = fp_border(color = "black", 
+                                    width = mm_to_pt(0.1))) %>%   #内部の横線を設定 
+  fontsize(size = 8, part = "all") %>%     # 全体の文字サイズを設定
+  fontsize(size = 10, part = "header") %>%  # ヘッダーの文字サイズを設定
+  align(j = c("型式分類", "実測図"),
+        align = "center", 
+        part = "body") %>%    # 1列目を中央揃え
+  align(align = "center", 
+        part = "header") %>%  # ヘッダーの1列目を中央揃え
+  bold(part = "header") %>%   # 太字にする
+  bold(j = "型式分類", part = "body") %>%   # 太字にする
+  font(font = jpnfont, part = "all") %>%  # フォントを設定 
+  line_spacing(space = 1.2)
+
+ft
+```
+
+```{r type2, eval=FALSE, fig.cap='富山県の土師器皿の型式分類（越前・高梨2007にTKを追加）', include=FALSE, out.width="145mm"}
+knitr::include_graphics(here("analysis/figures_drafts/tab1_type.png"))
+```
+
+```{r type-smooth, echo=FALSE, tab.cap='型式と主な出土地、調整の関係表'}
+# 必要なライブラリを読み込む
+library(flextable)
+library(officer)
+
+# データフレームの作成
+smoothing_traces <- data.frame(
+  `型式` = 
+    c("TI", "TI", 
+      "TI", "TI", 
+      "TI", "TI", 
+      "TJ", "TJ", 
+      "TJ", "TJ", 
+      "TK", "TK"),
+  `主な出土地` = 
+    c("石名田木舟遺跡\nF3-SD7003", "石名田木舟遺跡\nF3-SD7003", 
+      "石名田木舟遺跡\nF3-SD7030", "石名田木舟遺跡\nF3-SD7030", 
+      "富山城跡\nRS2-SK705・\nRS3-SD54", "富山城跡\nRS2-SK705・\nRS3-SD54",
+      "仏生寺城跡", "仏生寺城跡",
+      "新庄城跡", "新庄城跡",
+      "石名田木舟遺跡\nB2・C地区", "石名田木舟遺跡\nB2・C地区"),
+  `サイズ` = 
+    c("小型品", "中大型品",
+      "小型品", "中大型品", 
+      "小型品", "中大型品",
+      "小型品", "中大型品", 
+      "小型品", "中大型品",
+      "小型品", "中大型品"),
+  `調整` = c(
+    "体部：の字ナデ、見込：指ナデ、口縁部：横ナデ",
+    "見込：一方向ナデ、体部：２字ナデ、口縁部：横ナデ",
+    "体部：２字ナデ、見込：指ナデ、口縁部：横ナデ",
+    "見込：一方向ナデ、体部：２字ナデ、口縁部：横ナデ",
+    "体部：の字ナデ、口縁部：横ナデ　*見込：無調整",
+    "体部：２字ナデ、口縁部：横ナデ　*見込：無調整",
+    "見込：一方向ナデ、体部・口縁部：の字ナデ",
+    "見込・体部：一方向ナデ（斜方向ナデが先行する場合もある）、\n口縁部：の字ナデ",
+    "不明",
+    "見込：一方向ナデ（狭）、（体部：横ナデ）、口縁部：の字ナデ",
+    "見込：体部：Ｄ字ナデ、見込：指ナデ、口縁部：横ナデ　*布目圧痕あり",
+    "見込：一方向ナデ、体部：Ｄ字ナデ、口縁部：横ナデ　*布目圧痕あり"
+    ),
+  stringsAsFactors = FALSE
+)
+
+# flextableの作成
+smoothing_traces_table <- flextable(smoothing_traces) %>%
+  set_header_labels(
+    `型式` = "型式",
+    `主な出土地` = "主な出土地",
+    `サイズ` = "サイズ",
+    `調整` = "調整"
+  ) %>%
+  merge_v(j = ~ `型式`) %>%  # 同じ型式のセルを縦方向に結合
+  merge_v(j = ~ `主な出土地`) %>%  # 主な出土地も結合
+  autofit() %>%        # 列幅を自動調整
+  border_remove() %>%  # 全ての罫線を一旦削除
+  hline_top(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+            part = "all") %>%         # 表の上部の罫線
+  hline(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+        part = "header") %>%          # 列名の下部の罫線
+  hline_bottom(border = fp_border(color = "black", width = mm_to_pt(0.1)), 
+               part = "body") %>%     # 表の下部の罫線
+  border_inner_h(border = fp_border(color = "black", 
+                                    width = mm_to_pt(0.1))) %>%   #内部の横線を設定 
+  fontsize(size = 8, part = "all") %>%     # 全体の文字サイズを設定
+  fontsize(size = 10, part = "header") %>%  # ヘッダーの文字サイズを設定
+  align(j = c("型式", "サイズ"),
+        align = "center", 
+        part = "body") %>%    # 1列目を中央揃え
+  align(align = "center", 
+        part = "header") %>%  # ヘッダーの1列目を中央揃え
+  bold(part = "header") %>%   # 太字にする
+  bold(j = "型式", part = "body") %>%   # 太字にする
+  font(font = jpnfont, part = "all") %>%  # フォントを設定 
+  line_spacing(space = 1.2)
+
+smoothing_traces_table
+```
+
+```{r site-list, echo=FALSE, tab.cap='分析対象とした遺跡の一覧表'}
+# 必要なライブラリを読み込む
+library(flextable)
+library(officer)
+
+# データフレームの作成
+site_list <- data.frame(
+  `所在地` = 
+    c("高岡市\n小矢部市",
+      "高岡市\n小矢部市",
+      "高岡市\n小矢部市",
+      "富山市",
+      "富山市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市"),
+  `遺跡` = 
+    c("石名田木舟遺跡",
+      "石名田木舟遺跡",
+      "石名田木舟遺跡",
+      "富山城跡",
+      "富山城跡",
+      "平安京左京三条四坊七町跡",
+      "平安京左京四条二坊十四町跡",
+      "平安京左京四条二坊十四町跡",
+      "平安京左京四条二坊十四町跡",
+      "平安京左京四条三坊九町跡",
+      "平安京左京四条三坊十二町跡",
+      "平安京左京四条三坊十二町跡",
+      "平安京左京四条三坊十三町跡",
+      "平安京左京五条三坊六町跡",
+      "平安京左京五条三坊九町跡",
+      "平安京左京五条三坊十町跡",
+      "平安京左京六条二坊五町跡・猪熊殿跡・本圀寺跡",
+      "史跡・名勝嵐山",
+      "山科本願寺跡"),
+  `遺構` = 
+    c("F3-SD7003",
+      "F3-SD7030",
+      "B2・C地区",
+      "RS2-SK705",
+      "RS3-SD54",
+      "SK415",
+      "SE0922",
+      "SK2185",
+      "SK0366",
+      "SK144B",
+      "SK145",
+      "SK769",
+      "溝5下層",
+      "SK499",
+      "SK8-18",
+      "土坑170",
+      "SD166上層",
+      "土壙170",
+      "土坑2134"),
+  `時期` = c(
+    "15C後半（SD7030より新しい）",
+    "15C後半（1488年銘木簡）",
+    "16世紀中頃〜後半（1583年銘鰐口）",
+    "16C前半（松井2019）",
+    "16C中頃（松井2019）",
+    "京都9C（15C後）",
+    "京都9C（15C後）",
+    "京都10A（16C前）",
+    "京都9B（15C中）",
+    "京都10A（16C前）",
+    "京都9B（15C中）",
+    "京都9B（15C中）",
+    "京都10B（16C中）",
+    "京都10A（16C前）",
+    "京都10B（16C中）",
+    "京都9C（1493年頃）",
+    "京都10B（1536年頃）",
+    "京都9B（1447年頃）",
+    "京都10A（1532年頃）"
+    ),
+  stringsAsFactors = FALSE
+)
+
+# flextableの作成
+site_table <- flextable(site_list) %>%
+  set_header_labels(
+    `所在地` = "所在地",
+    `遺跡` = "遺跡",
+    `遺構` = "遺構",
+    `時期` = "時期"
+  ) %>%
+  merge_v(j = ~ `遺跡`) %>%  # 同じ遺跡のセルを縦方向に結合
+  merge_v(j = ~ `所在地`) %>%  # 所在地も結合
+  autofit() %>% # 列幅を自動調整
+  border_remove() %>%  # 全ての罫線を一旦削除
+  hline_top(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+            part = "all") %>%      # 表の上部の罫線
+  hline(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+        part = "header") %>%       # 列名の下部の罫線
+  hline_bottom(border = fp_border(color = "black", width = mm_to_pt(0.1)), 
+               part = "body") %>%  # 表の下部の罫線
+  border_inner_h(border = fp_border(color = "black", 
+                                    width = mm_to_pt(0.1))) %>%   # 内部の横線を設定
+  fontsize(size = 8, part = "all") %>%  # 全体の文字サイズを設定
+  fontsize(size = 10, part = "header") %>%  # ヘッダーの文字サイズを設定
+  align(j = c("所在地", "遺構"),
+        align = "center", 
+        part = "body") %>%  # 1列目を中央揃え
+  align(align = "center", 
+        part = "header") %>%  # ヘッダーの1列目を中央揃え
+  bold(part = "header") %>%   # 太字にする
+  # bold(j = "遺跡", part = "body") %>%   # 太字にする
+  font(font = jpnfont, part = "all") %>%  # フォントを設定 
+  line_spacing(space = 1.2)
+
+site_table
+
+# #### ワードで書き出す場合 ####
+# # Wordファイルを新規作成
+# doc <- read_docx()
+# 
+# # 作成済み flextable を本文に追加
+# doc <- body_add_flextable(doc, site_table)
+# 
+# # Wordファイルとして保存
+# print(doc, target = "site_table.docx")
+```
+
+# Ｒ言語による京都系土師器皿研究
+
+## 幾何学的形態測定学 {.unnumbered}
+
+「形態測定学」（morphometrics）は資料を計測して定量的に比較する方法で、大きく2つの系譜がある。一つは「伝統的形態測定学」（traditional
+morphometrics）であり、考古学においては土器の器高や立ち上がりの角度、石器の長さや幅といった距離や角度の計測値を用いて、分析する方法である。他方は「幾何学的形態測定学」（geometric
+morphometrics,
+GMM）であり、標識点（landmarks）や輪郭（outlines）を用い、それらの幾何学的属性を保持したまま分析する点に特色がある。GMMの利点は従来の方法に比べ、形の情報を損なわずに定量化できることにある。
+
+GMMでは「形態」（form）と「形状」（shape）を区別する。位置や回転（向き）によって変化しない幾何学的属性を「形態」と呼び、そのうちサイズ（大きさ）の違いを数学的に処理したものを「形状」と定義する（図\@ref(fig:whats-shape)）。GMMでは、この「形状」を分析対象とする。
+
+さらに、GMMは2つの研究手法に大別される。一つは標識点ベースの方法で、資料の相同な点を選択し、その位置関係を比較するものである。他方は輪郭ベースの方法で、資料の輪郭を数値化して比較するものである。本稿で用いる楕円フーリエ解析（Elliptic
+Fourier Analysis,
+EFA）は輪郭ベースの代表的手法である。この方法は、輪郭が閉曲線であることを利用し、周期関数で近似することで形の特徴を抽出するもので、必要に応じて調和数を設定することで、細部の表現を調整することができる。理論的な背景については生形[-@ubukata_2005]や野下・田村[-@tamura_2017]がまとめた解説を参照されたい。
+
+楕円フーリエ解析にはRのパッケージMomocs
+ver.1.4.1[@Bonhomme_2014]を使用する。Momocsでは2値化した画像から輪郭のデータを抽出することが可能である。画像は報告書等からスキャンした実測図から断面のアウトラインをAdobe
+Photoshopで範囲選択後パスに変換し、黒色で塗りつぶした。解像度が低い場合はAdobe
+IllustratorでトレースしたものをPhotoshopで2値化した。
+輪郭のサイズ・位置・向きの影響を除去するために、Momocsで実測図の中心線と断面図の交点、口縁の端部の3か所にランドマークを設定し（図\@ref(fig:shape-points)）、一般化プロクラステス分析(Generalized
+Procrustes
+Analysis）で規格化・標準化した。必要な調和数をそれぞれ算出したのち、楕円フーリエ解析をした。得られた結果は、主成分分析を行い可視化したほか、平均的な形を描写して比較した。
+
+```{r whats-shape, echo=FALSE, fig.cap='「かたち」とは', out.width="145mm"}
+knitr::include_graphics(here("analysis/figures/1_whats_shape.png"))
+```
+
+```{r shape-points, echo=FALSE, fig.cap='標識点を設定した輪郭線', out.width="145mm"}
+#### 過去のデータを使用する ####
+# データの読み込む
+archive_shape <- readr::read_rds(here("analysis/data/rds/shape_all_combine.rds"))
+
+# 結果を確認
+archive_shape_fac_before <- archive_shape$fac
+
+# 修正用のデータを読み込み、insideとoutsideの列を追加
+archive_shape_fac_fixed <- read_csv("analysis/data/archive_data_fixed.csv")%>%
+  dplyr::select(Site, Report_ID, inside, outside) # 必要な列だけ選択しておくと読みやすい
+
+archive_shape$fac <- archive_shape$fac %>%
+  left_join(archive_shape_fac_fixed,
+            by = c("Site", "Report_ID")       # キーを指定
+  )
+
+# 結果を確認
+archive_shape_fac_after <- archive_shape$fac
+
+# 中身を修正する
+archive_shape$fac <- archive_shape$fac %>%
+  # ` ^\\d+_` は正規表現パターンで、"数字_" の部分にマッチ。 
+  dplyr::mutate(Traces_of_processing = 
+                  str_replace(Traces_of_processing, "^\\d+_", "")) %>%
+  # remains列の修正
+  dplyr::mutate(remains = case_when(
+    stringr::str_detect(Site, "富山城") ~
+      str_c("RS", str_sub(remains, 1, 1), "-", str_sub(remains, 2)),  # "2SK705"を"RS2-SK705"にする
+    stringr::str_detect(Site, "石名田") & str_detect(remains, "SD") ~
+      str_c("F3-", remains), #
+    TRUE ~ remains)   # それ以外はそのまま
+  ) %>%
+  # Site列の修正
+  dplyr::mutate(Site = str_replace(Site, "富山城跡（レガートスクエア）", "富山城跡")) %>%
+  # 列の型を変更
+  dplyr::mutate_at(c("Prefecture", "Site", "remains", 
+                     "type", "Reference", "Traces_of_processing", 
+                     "Phase"), as.factor) %>%
+  dplyr::mutate_at(c("ID", "Report_ID"), as.integer) %>%
+  dplyr::mutate_at(c("rim_diameter", "hight"), as.numeric) %>%
+  dplyr::mutate_at(c("Target"), as.logical) %>%
+  droplevels() # 不要なfactorの削除
+
+# 保存
+saveRDS(archive_shape, here::here("analysis/data/rds/archive_shape.rds"))
+
+# 結果を確認
+archive_shape_fac_final <- archive_shape$fac
+
+#### 標識点をプロットした結果 ####
+png(here("analysis/figures/2_points.png"), 
+    width = 157, height = 125, res = 300, units = "mm")
+
+# 標識点をプロットした結果を表示
+coo_plot(archive_shape[200], xy.axis = FALSE)
+
+# 標識点を打った位置を表示
+points(archive_shape[200][archive_shape$ldk[[200]],], 
+       pch = "*",
+       col = "red", 
+       cex = 1.5)
+
+# 順番を追記
+text(archive_shape[200][archive_shape$ldk[[200]],], 
+     labels = 1:3, 
+     col = "red", 
+     pos = c(3, 3 ,1), 
+     cex = 1.0)
+
+invisible(dev.off())
+
+# 描写
+knitr::include_graphics(here("analysis/figures/2_points.png"))
+
+```
+
+### 主成分分析 {.unnumbered}
+
+```{r pca-prepare1, include=FALSE}
+#### 追加データの読み込み ####
+library(Momocs)
+
+# 選択してから"shift+comand+C"で"#"を外して実行
+# 今回は読み込み時間が長いので省略
+
+# # パスを定義
+# img_dir <- here("analysis/data/additional_jpg")
+# csv_path <- here("analysis/data/additional_jpg/additional_data.csv")
+# 
+# # 分類情報を読み込み
+# additional_database <- readr::read_csv(csv_path)
+# 
+# # .jpgファイルのパス一覧を取得
+# additional_jpg_files <- list.files(img_dir,
+#                                    pattern = "\\.jpg$",  # .jpgのみを明示的に指定
+#                                    full.names = TRUE)    # フルパスを取得
+# # 画像から輪郭を読み込む
+# additional_coo <- import_jpg(additional_jpg_files)
+# 
+# # 輪郭データと分類情報を結合してOutオブジェクトを作成
+# additional_out <- Out(additional_coo,
+#                       fac = additional_database)
+# 
+# # 読み込んだデータを確認
+# panel(additional_out)
+# stack(additional_out)
+# 
+# # facの中を修正
+# fac <- additional_out$fac
+# 
+# fixed_fac <- fac %>%
+#   dplyr::mutate(
+#     Traces_of_processing = case_when(
+#       # --- TK、一方向ナデ+指ナデがあるもの ---
+#       str_detect(type, "TK") & 
+#         str_detect(inside, "見込：一方向ナデ") &
+#         str_detect(inside, "指ナデ") &
+#         str_detect(inside, "体部：D字ナデ") ~ "一方向・指ナデ+D字ナデ",
+#       # --- TK、一方向ナデがあるもの ---
+#       str_detect(type, "TK") & 
+#         str_detect(inside, "見込：一方向ナデ") &
+#         str_detect(inside, "体部：D字ナデ") ~ "一方向+D字ナデ",
+#       # --- TK、体部：D字ナデ、見込：指ナデがあるもの ---
+#       str_detect(type, "TK") & 
+#         str_detect(inside, "見込：指ナデ") &
+#         str_detect(inside, "体部：D字ナデ") ~ "指ナデ+D字ナデ",
+#       # --- それ以外は"不明・不明瞭"とする ---
+#       TRUE ~ "不明・不明瞭"))
+# 
+# # facを入れ替え
+# additional_out$fac <- fixed_fac
+# 
+# # RDSファイルを保存する。
+# saveRDS(additional_out, here::here("analysis/data/rds/additional_out.rds"))
+
+
+#### 形状に変換：規格化（標準化） ####
+library(Momocs)
+
+# # データの読み込み
+# additional_out <- readr::read_rds(here::here("analysis/data/rds/additional_out.rds"))
+# 
+# # 標識点を設置（コンソールに入力）
+# additional_shape <- def_ldk(additional_out, 3) # 輪郭に標識点を設定
+# 
+# # RDSファイルを保存する。
+# saveRDS(additional_shape,
+#         here::here("analysis/data/rds/additional_shape.rds"))
+
+
+#### データの統合 ####
+library(Momocs)
+
+# データの読み込み
+archive_shape <- 
+  readr::read_rds(here::here("analysis/data/rds/archive_shape.rds"))
+
+additional_shape <- 
+  readr::read_rds(here::here("analysis/data/rds/additional_shape.rds")) 
+
+# 確認用
+fac1 <- archive_shape$fac
+fac2 <- additional_shape$fac
+
+# データを統合する
+merged_shape <- combine(archive_shape, 
+                        additional_shape)
+
+# 標識点2を基準に規格化
+merged_shape <- merged_shape %>%
+  coo_slide(ldk = 2) %>%
+  fgProcrustes()
+
+# facの順番を変更する
+merged_shape$fac <- merged_shape$fac %>%
+  # Traces_of_processing列の修正
+  dplyr::mutate(Traces_of_processing = 
+                  factor(Traces_of_processing,
+                         levels = c("指ナデ+の字ナデ", 
+                                    "指ナデ+2字ナデ",
+                                    "指ナデ+D字ナデ",
+                                    "無調整+の字ナデ",
+                                    "無調整+2字ナデ",
+                                    "一方向ナデ+の字ナデ",
+                                    "一方向ナデ+2字ナデ",
+                                    "一方向ナデ+D字ナデ",
+                                    "一方向・指ナデ+D字ナデ",
+                                    "その他",
+                                    "不明・不明瞭")))
+
+# # 確認用
+# merged_shape_fac <- merged_shape$fac
+
+# RDSファイルを保存する。
+saveRDS(merged_shape,
+        here::here("analysis/data/rds/merged_shape.rds"))
+
+```
+
+小型品の主成分分析（図\@ref(fig:small-pca)）では、PC1は相対的な厚さ、PC2は体部～口縁部の外反度合、PC3は腰部の屈曲度合を特徴として捉えている。
+
+京都では9Bから10B段階にかけて体部〜口縁部の外反度合と腰部の屈曲度合ともに弱くなり、10段階の皿Sの丸底化を指摘する先行研究と一致する[@komori_uemura_1996;
+、 @morishima_2019]。
+
+富山では、石名田木舟遺跡において15C後半のF3-SD7030からF3-SD7003にかけて体部〜口縁部の外反度合が減少し、16世紀中頃〜後半のB2・C地区になると厚くなり、体部〜口縁部の外反度合はさらに減少する。この地区では主体となる型式がTIからTKに置き換わるが[^4]、このことが形からも理解できる。富山城跡では、RS3-SD54に比べRS2-SK705は厚手であり、この点と後述する調整（図\@ref(fig:bar-plot)）を根拠に堀内[-@horiuchi_2019]の年代観に疑義を呈した[@matsui_2019]。
+
+[^4]: TIはB2・C地区で3点しか出土せず、胎土（焼成）や調整が不明瞭で、後段階の様相を示す。紀年銘資料と共伴することから、16世紀第4四半期まで存続していたようである。
+
+京都と富山を比較すると、石名田木舟遺跡F3-SD7003・F3-SD7030および富山城跡RS3-SD54は、京都9C～10B段階と近似するが、富山城跡RS2-SK705はより隔たっている。特にPC2において、15世紀後半の石名田木舟遺跡F3-SD7030は15世紀後葉の京都9C段階に近接し、後出するF3-SD7003では離れる傾向にある。小型品において両地域の形は完全に一致しないが、外反度合が減少する傾向は共通する。
+
+中大型品（図\@ref(fig:large-pca)）では、PC1は相対的な厚さ、PC2は体部（底部）の相対的な長さ、PC3は腰部の屈曲度合を特徴として捉えている。
+
+京都では9Bから10B段階にかけて体部が短縮し、皿形化（器高の低下、体部～口縁部の矮小化）を指摘している先行研究と一致する[@komori_uemura_1996]。
+
+富山では、石名田木舟遺跡でも15C後半のF3-SD7030からF3-SD7003にかけて体部が短縮し、16世紀中頃〜後半のB2・C地区は厚手となる。富山城跡の資料も同様に厚手化する。
+
+両地域を比較すると、京都9C～10B段階と石名田木舟遺跡F3-SD7003・F3-SD7030が近接し、京都9B段階や石名田木舟遺跡B2・C地区、富山城跡の資料は分離する。小型品と同様に、特にPC2において、15世紀後半の石名田木舟遺跡F3-SD7030は15世紀後葉の京都9C段階に近接し、後出するF3-SD7003では離れる傾向にある。
+
+```{r pca-prepare2, include=FALSE}
+#### 小型品に絞る ####
+# データ全体をロード
+merged_shape <- 
+  readr::read_rds(here::here("analysis/data/rds/merged_shape.rds"))
+
+# データを微修正する。
+# AB_Cで遺跡&調査年or地区or遺構名_時期を示す。M16Cはmid 16th century、FH16Cはfirst half of 16th centuryを示す。
+merged_shape$fac <- 
+  merged_shape$fac %>%
+  mutate(Phase = case_when(
+    stringr::str_detect(remains, "B2-|C-") ~ "IS-B2/C",
+    stringr::str_detect(remains, "SD7030") ~ "IS-F3-SD7030",
+    stringr::str_detect(remains, "SD7003") ~ "IS-F3-SD7003",
+    # 富山城跡の年代観は松井2019に準拠
+    stringr::str_detect(remains, "SD54") ~ "TY-RS3-SD54",
+    stringr::str_detect(remains, "SK705") ~ "TY-RS2-SK705",
+    stringr::str_detect(Site, "仏生寺城跡") ~ "BS-2005",
+    stringr::str_detect(Site, "井口城跡") ~ "IN-SK15",
+    Phase == "BS_L15C" ~ "BS-2000",
+    TRUE ~ Phase  # その他は元の値をそのまま残す
+  ),
+  Phase = str_replace(Phase, "^SJ_", "新庄城跡"),
+  Phase = str_replace(Phase, "^KD_", "小出城跡")
+  )
+
+fac_all <- merged_shape$fac  # facの中身を書き出しておく（確認用）
+
+# case_whenで場合分けをしてfilter
+small_shape <- merged_shape %>%
+  Momocs::filter(case_when(
+    Prefecture == "Kyoto" & rim_diameter <= 10.5 ~ TRUE,
+    type == "TI" & stringr::str_detect(Site, "石名田") &
+      rim_diameter <= 10.5 ~ TRUE,
+    type == "TI" & stringr::str_detect(Site, "富山城") &
+      rim_diameter < 10.7 ~ TRUE,
+    type == "TI" & !stringr::str_detect(Site, "石名田|富山城") &
+      rim_diameter < 10.7 ~ TRUE,
+    stringr::str_detect(type, "TJ") &
+      rim_diameter <= 10.9 ~ TRUE,
+    type == "TK" & 
+      rim_diameter <= 10.6 ~ TRUE,
+    type == "RF" ~ TRUE,
+    TRUE ~ FALSE
+    ))
+
+
+#### 大型品に絞る ####
+# small_shape の名前を取得
+small_names <- names(small_shape)
+
+# merged_shape の名前を取得
+all_names <- names(merged_shape)
+
+# 大型品のインデックスを取得
+large_idx <- which(!(all_names %in% small_names))
+
+# slice() で抽出
+large_shape <- Momocs::slice(merged_shape, large_idx)
+
+
+# rdsで保存しておく
+saveRDS(small_shape, here::here("analysis/data/rds/small_shape.rds"))
+saveRDS(large_shape, here::here("analysis/data/rds/large_shape.rds"))
+
+```
+
+```{r small-pca-prepare, include=FALSE}
+#### カラーか白黒か設定 ####
+
+# TRUE ならカラー、FALSE なら白黒
+use_color <- FALSE   # 必要に応じて切り替え
+
+# 条件で選択
+palette_choice <- if (use_color) col_solarized else col_black
+
+
+#### 楕円フーリエ分析（小型品；TI） ####
+small_shape <- 
+  readr::read_rds(here::here("analysis/data/rds/small_shape.rds"))
+
+# 分析対象を抽出
+small_shape_1 <- small_shape %>%
+  filter(!stringr::str_detect(Site, "仏生寺|新庄|小出")) %>%
+  Momocs::filter(case_when(
+    Prefecture == "Kyoto" ~ TRUE,
+    type == "TI" & stringr::str_detect(remains, "B2-|C-") ~ FALSE,
+    str_detect(type, "TI|TK") & stringr::str_detect(Site, "石名田") ~ TRUE,
+    type == "TI" & stringr::str_detect(Site, "富山城") ~ TRUE,
+    type == "TI" & stringr::str_detect(Site, "仏生寺城") ~ TRUE,
+    type == "TI" & stringr::str_detect(Site, "仏生寺城") ~ TRUE,
+    TRUE ~ FALSE
+    ))
+
+# 未使用のレベルを削除
+small_shape_1$fac <- droplevels(small_shape_1$fac)
+
+# 分析でグルーピングしたい列を因子型に変換しておく
+small_shape_1$fac$Phase <- factor(small_shape_1$fac$Phase)
+
+# # 確認用にfacの中身を書き出す
+# fac_small_2 <- small_shape_1$fac
+
+# 必要な調和数を特定
+calibrate_harmonicpower_efourier(small_shape_1, nb.h = 30)
+
+# 楕円フーリエ
+small_shape_1_efourier <- efourier(small_shape_1, 
+                                   nb.h = 16, 
+                                   norm = FALSE)
+
+##### 主成分分析（小型品；TI） ####
+small_shape_1_pca <- small_shape_1_efourier %>% PCA
+
+# 外れ値を特定
+which_out(small_shape_1_pca$x[, 1], conf = 0.5)
+
+# 外れ値を赤色にしてプロット
+small_shape_1_cols <- rep("black", nrow(small_shape_1_pca$x))
+small_shape_1_cols_outliers <- which_out(small_shape_1_pca$x[, 1], conf = 0.5)
+small_shape_1_cols[small_shape_1_cols_outliers] <- "red"
+
+png(here("analysis/figures_drafts/pca_small_1_outlier.png"), width = 2000, height = 1500, res = 300, units = "px")
+plot(small_shape_1_pca, col = small_shape_1_cols)
+invisible(dev.off())
+
+# 外れ値を除外する実施
+small_shape_1_pca_2 <- 
+  small_shape_1_efourier %>% 
+  slice(-small_shape_1_cols_outliers) %>%
+  PCA
+
+# 主成分分析の結果の表示
+png(here("analysis/figures_drafts/pca_small_1_PCcontrib.png"), 
+    width = 2000, height = 1500, res = 300, units = "px")
+PCcontrib(small_shape_1_pca_2, nax = 1:5) 
+invisible(dev.off())
+
+# 主成分分析の結果をプロットする（PC1 vs PC2）
+png(here("analysis/figures_drafts/pca_small_1_PC1vs2.png"), 
+    width = 2000, height = 1500, res = 300, units = "px")
+par(family = jpnfont)
+small_PC1vsPC2 <- 
+  plot_PCA(small_shape_1_pca_2, ~Phase,
+           morphospace_position = "full",
+           axes = c(1, 2),
+           legend = FALSE,
+           points = FALSE,
+           chull = FALSE,
+           center_origin = FALSE,
+           labelpoints = FALSE,   # TRUEにするとファイル名で表示する
+           palette = palette_choice) %>%
+  layer_ellipses(conf = 0.5, lwd = 2) %>%
+  layer_ellipsesaxes(conf = 0.9, lwd = 0.5) %>%
+  layer_labelgroups(rect = TRUE, cex = 1/2, alpha = 1/3)
+
+# カラーの場合だけ layer_points を追加
+if (use_color) {
+  small_PC1vsPC2 <- small_PC1vsPC2 %>% layer_points(
+    cex = 0.3,
+    pch = as.integer(factor(small_shape_1_pca_2$fac$type))
+  )
+}
+
+# 表示
+small_PC1vsPC2
+
+invisible(dev.off())
+
+
+# 主成分分析の結果をプロットする（PC1 vs PC3）
+png(here("analysis/figures_drafts/pca_small_1_PC1vs3.png"),
+    width = 2000, height = 1500, res = 300, units = "px")
+par(family = jpnfont)
+small_PC1vsPC3 <- 
+  plot_PCA(small_shape_1_pca_2, ~Phase,
+           morphospace_position = "full",
+           axes = c(1, 3),
+           legend = FALSE,
+           points = FALSE,
+           chull = FALSE,
+           center_origin = FALSE,
+           labelpoints = FALSE,   # TRUEにするとファイル名で表示する
+           palette = palette_choice) %>%
+  layer_ellipses(conf = 0.5, lwd = 2) %>%
+  layer_ellipsesaxes(conf = 0.9, lwd = 0.5) %>%
+  layer_labelgroups(rect = TRUE, cex = 1/2, alpha = 1/3)
+
+# カラーの場合だけ layer_points を追加
+if (use_color) {
+  small_PC1vsPC3 <- small_PC1vsPC3 %>% layer_points(
+    cex = 0.3,
+    pch = as.integer(factor(small_shape_1_pca_2$fac$type))
+  )
+}
+
+# 表示
+small_PC1vsPC3
+
+invisible(dev.off())
+
+```
+
+```{r small-pca, echo=FALSE, fig.cap='小型品の主成分分析の結果。A：PC1 vs PC2、B：PC1 vs PC3。楕円と十字線はそれぞれ50%と90%の信頼区間を示す。', out.width="145mm"}
+#### 図の統合（小型品） ####
+library(magick)
+
+# 小型品（左上に文字を入れる）
+small_pca_1 <-
+  image_read(here("analysis/figures_drafts/pca_small_1_PC1vs2.png")) %>%
+  image_annotate(text = "A",
+                 size = 80,             # 文字サイズ
+                 color = "black",
+                 location = "+30+20"    # 左上からの位置（x, y）
+                 )
+
+small_pca_2 <- 
+  image_read(here("analysis/figures_drafts/pca_small_1_PC1vs3.png")) %>%
+  image_annotate(text = "B",
+                 size = 80,             # 文字サイズ
+                 color = "black",
+                 location = "+30+20"    # 左上からの位置（x, y）
+                 )
+
+# 縦に並べて合成
+pca_small_merged <-image_append(c(small_pca_1, small_pca_2), stack = TRUE)
+
+
+# 保存
+image_write(pca_small_merged,
+            path = here("analysis/figures/3_pca_small_merged.png"))
+
+# 描写
+knitr::include_graphics(here("analysis/figures/3_pca_small_merged.png"))
+
+```
+
+```{r large-pca-prepare, include=FALSE}
+#### 楕円フーリエ分析（大型品；TI） ####
+large_shape <- 
+  readr::read_rds(here::here("analysis/data/rds/large_shape.rds"))
+  
+# 分析対象を抽出
+large_shape_1 <- large_shape %>%
+  filter(!stringr::str_detect(Site, "仏生寺|新庄|小出")) %>%
+  Momocs::filter(case_when(
+    Prefecture == "Kyoto" ~ TRUE,
+    type == "TI" & stringr::str_detect(remains, "B2-|C-") ~ FALSE,
+    str_detect(type, "TI|TK") & stringr::str_detect(Site, "石名田") ~ TRUE,
+    type == "TI" & stringr::str_detect(Site, "富山城") ~ TRUE,
+    TRUE ~ FALSE
+    ))
+
+# 未使用のレベルを削除
+large_shape_1$fac <- droplevels(large_shape_1$fac)
+
+# 分析でグルーピングしたい列を因子型に変換しておく
+large_shape_1$fac$Phase <- factor(large_shape_1$fac$Phase)
+
+# 確認用にfacの中身を書き出す
+fac_large_2 <- large_shape_1$fac
+
+# 必要な調和数を特定
+calibrate_harmonicpower_efourier(large_shape_1, nb.h = 30)
+
+# 楕円フーリエ
+large_shape_1_efourier <- 
+  efourier(large_shape_1, nb.h = 17, norm = FALSE)
+
+##### 主成分分析（大型品；TI） ####
+large_shape_1_pca <- large_shape_1_efourier %>% PCA
+
+# 外れ値を特定
+which_out(large_shape_1_pca$x[, 1], conf = 0.5)
+
+# 外れ値を赤色にしてプロット
+large_shape_1_cols <- rep("black", nrow(large_shape_1_pca$x))
+large_shape_1_cols_outliers <- which_out(large_shape_1_pca$x[, 1], conf = 0.5)
+large_shape_1_cols[large_shape_1_cols_outliers] <- "red"
+
+png(here("analysis/figures_drafts/pca_large_1_outlier.png"), width = 2000, height = 1500, res = 300, units = "px")
+plot(large_shape_1_pca, col = large_shape_1_cols)
+invisible(dev.off())
+
+# 外れ値を除外する実施
+large_shape_1_pca_2 <- 
+  large_shape_1_efourier %>% 
+  slice(-large_shape_1_cols_outliers) %>%
+  PCA
+
+# 主成分分析の結果の表示
+png(here("analysis/figures_drafts/pca_large_1_PCcontrib.png"), width = 2000, height = 1500, res = 300, units = "px")
+PCcontrib(large_shape_1_pca_2, nax = 1:5) 
+invisible(dev.off())
+
+
+# 主成分分析の結果をプロットする（PC1 vs PC2）
+png(here("analysis/figures_drafts/pca_large_1_PC1vs2.png"), width = 2000, height = 1500, res = 300, units = "px")
+par(family = jpnfont)
+large_PC1vsPC2 <- 
+  plot_PCA(large_shape_1_pca_2, ~Phase,
+           morphospace_position = "full",
+           axes = c(1, 2),
+           zoom = 1.2,
+           legend = FALSE,
+           points = FALSE,
+           chull = FALSE,
+           center_origin = FALSE,
+           labelpoints = FALSE,   # TRUEにするとファイル名で表示する
+           palette = palette_choice) %>%
+  layer_ellipses(conf = 0.5, lwd = 2) %>%
+  layer_ellipsesaxes(conf = 0.9, lwd = 0.5) %>%
+  layer_labelgroups(rect = TRUE, cex = 1/2, alpha = 1/3)
+
+# カラーの場合だけ layer_points を追加
+if (use_color) {
+  large_PC1vsPC2 <- large_PC1vsPC2 %>% layer_points(
+    cex = 0.3,
+    pch = as.integer(factor(large_shape_1_pca_2$fac$type))
+  )
+}
+
+# 表示
+large_PC1vsPC2
+invisible(dev.off())
+
+# 主成分分析の結果をプロットする（PC1 vs PC3）
+png(here("analysis/figures_drafts/pca_large_1_PC1vs3.png"), width = 2000, height = 1500, res = 300, units = "px")
+par(family = jpnfont)
+large_PC1vsPC3 <- 
+  plot_PCA(large_shape_1_pca_2, ~Phase,
+           morphospace_position = "full",
+           axes = c(1, 3),
+           zoom = 1.2,
+           legend = FALSE,
+           points = FALSE,
+           chull = FALSE,
+           center_origin = FALSE,
+           labelpoints = FALSE,   # TRUEにするとファイル名で表示する
+           palette = palette_choice) %>%
+  layer_ellipses(conf = 0.5, lwd = 2) %>%
+  layer_ellipsesaxes(conf = 0.9, lwd = 0.5) %>%
+  layer_labelgroups(rect = TRUE, cex = 1/2, alpha = 1/3)
+
+# カラーの場合だけ layer_points を追加
+if (use_color) {
+  large_PC1vsPC3 <- large_PC1vsPC3 %>% layer_points(
+    cex = 0.3,
+    pch = as.integer(factor(large_shape_1_pca_2$fac$type))
+  )
+}
+
+# 表示
+large_PC1vsPC3
+invisible(dev.off())
+```
+
+```{r large-pca, echo=FALSE, fig.cap='中大型の主成分分析の結果。A：PC1 vs PC2、B：PC1 vs PC3。楕円と十字線はそれぞれ50%と90%の信頼区間を示す。', out.width="145mm"}
+#### 図の統合（中大型品） ####
+library(magick)
+
+# 大型品（左上に文字を入れる）
+large_pca_1 <- 
+  image_read(here("analysis/figures_drafts/pca_large_1_PC1vs2.png")) %>%
+  image_annotate(text = "A",
+                 size = 80,             # 文字サイズ
+                 color = "black",
+                 location = "+30+20"    # 左上からの位置（x, y）
+                 )
+
+large_pca_2 <- 
+  image_read(here("analysis/figures_drafts/pca_large_1_PC1vs3.png")) %>%
+  image_annotate(text = "B",
+                 size = 80,             # 文字サイズ
+                 color = "black",
+                 location = "+30+20"    # 左上からの位置（x, y）
+                 )
+
+# 縦に並べて合成
+pca_large_merged <- image_append(c(large_pca_1, large_pca_2), stack = TRUE)
+
+# 保存
+image_write(pca_large_merged,
+            path = here("analysis/figures/4_pca_large_merged.png"))
+
+# 描写
+knitr::include_graphics(here("analysis/figures/4_pca_large_merged.png"))
+
+```
+
+### 平均的な形 {.unnumbered}
+
+主成分分析のほかに、楕円フーリエ解析の結果から平均的な形を描写することもできる。薄板スプライン法（Thin
+Plate Splines,
+TPS）による平均的な形の比較（図\@ref(fig:mean-shape)）では、小型品において、石名田木舟遺跡F3-SD7030（15世紀後半）は京都9C段階と類似するが、富山城跡RS2-SK705は京都10B段階よりも厚手で異なる。中大型品では、石名田木舟遺跡F3-SD7030が京都9C段階、同遺跡F3-SD7003が京都10A段階と類似する一方、富山城跡の資料は京都10A・10B段階と明確に異なる。
+
+```{r include=FALSE}
+#### カラーか白黒か設定 ####
+
+# TRUE ならカラー、FALSE なら白黒
+use_color <- FALSE   # 必要に応じて切り替え
+
+# 条件で選択
+border_colors <- if (use_color) {
+  c("red", "blue")
+  } else {
+    c("black", "gray60")
+}
+
+#### 平均的な形を比較する（準備） ####
+# Phaseごとの平均的な形を書き出す
+mean_small_shapes <-  
+  small_shape_1_efourier %>% 
+  slice(-small_shape_1_cols_outliers) %>%
+  MSHAPES(~Phase)
+
+mean_large_shapes <-  
+  large_shape_1_efourier %>% 
+  slice(-large_shape_1_cols_outliers) %>%
+  MSHAPES(~Phase)
+
+# 各段階のものを書き出す。"-"がある場合は``で明示的にしておく必要あり。
+`small_IS-F3-SD7030` <- mean_small_shapes$shp$`IS-F3-SD7030`
+`small_IS-F3-SD7003` <- mean_small_shapes$shp$`IS-F3-SD7003`
+`small_IS-B2/C` <- mean_small_shapes$shp$`IS-B2/C`
+`small_TY-RS2-SK705` <- mean_small_shapes$shp$`TY-RS2-SK705`
+`small_TY-RS3-SD54` <- mean_small_shapes$shp$`TY-RS3-SD54`
+`small_kyoto9B` <- mean_small_shapes$shp$京都9B段階
+`small_kyoto9C` <- mean_small_shapes$shp$京都9C段階
+`small_kyoto10A` <- mean_small_shapes$shp$京都10A段階
+`small_kyoto10B` <- mean_small_shapes$shp$京都10B段階
+
+`large_IS-F3-SD7030` <- mean_large_shapes$shp$`IS-F3-SD7030`
+`large_IS-F3-SD7003` <- mean_large_shapes$shp$`IS-F3-SD7003`
+`large_IS-B2/C` <- mean_large_shapes$shp$`IS-B2/C`
+`large_TY-RS2-SK705` <- mean_large_shapes$shp$`TY-RS2-SK705`
+`large_TY-RS3-SD54` <- mean_large_shapes$shp$`TY-RS3-SD54`
+large_kyoto9B <- mean_large_shapes$shp$京都9B段階
+large_kyoto9C <- mean_large_shapes$shp$京都9C段階
+large_kyoto10A <- mean_large_shapes$shp$京都10A段階
+large_kyoto10B <- mean_large_shapes$shp$京都10B段階
+
+#### 平均的な形を比較する（小型品） ####
+# TPSグリッド上に表示する。
+png(here("analysis/figures_drafts/mshape_small_1.png"), 
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(small_kyoto9B, `small_IS-F3-SD7030`, 
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都9B段階", "石名田木舟遺跡F3-SD7030"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_small_2.png"),
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(small_kyoto9C, `small_IS-F3-SD7030`,
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都9C段階", "石名田木舟遺跡F3-SD7030"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_small_3.png"),
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(small_kyoto9C, `small_IS-F3-SD7003`,
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都9C段階", "石名田木舟遺跡F3-SD7003"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_small_4.png"),
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(small_kyoto10A, `small_IS-F3-SD7003`,
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都10A段階", "石名田木舟遺跡F3-SD7003"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_small_5.png"), 
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(small_kyoto10A, `small_TY-RS3-SD54`, 
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都10A段階", "富山城跡RS3-SD54"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_small_6.png"), 
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(small_kyoto10B, `small_TY-RS2-SK705`,
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都10B段階", "富山城跡RS2-SK705"))
+invisible(dev.off())
+
+```
+
+```{r include=FALSE}
+#### 平均的な形を比較する（大型品） ####
+png(here("analysis/figures_drafts/mshape_large_1.png"), 
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(large_kyoto9B, `large_IS-F3-SD7030`, 
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都9B段階", "石名田木舟遺跡F3-SD7030"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_large_2.png"), 
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(large_kyoto9C, `large_IS-F3-SD7030`, 
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都9C段階", "石名田木舟遺跡F3-SD7030"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_large_3.png"), 
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(large_kyoto9C, `large_IS-F3-SD7003`,
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都9C段階", "石名田木舟遺跡F3-SD7003"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_large_4.png"),
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(large_kyoto10A, `large_IS-F3-SD7003`,
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都10A段階", "石名田木舟遺跡F3-SD7003"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_large_5.png"),
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(large_kyoto10B, `large_TY-RS2-SK705`, 
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都10B段階", "富山城跡RS2-SK705"))
+invisible(dev.off())
+
+png(here("analysis/figures_drafts/mshape_large_6.png"), 
+    res = 200, w = 800, h = 450, units = "px")
+par(family = jpnfont)
+tps_grid(large_kyoto10A, `large_TY-RS3-SD54`,
+         shp.lwd = c(1.5, 2),
+         shp.border = border_colors,
+         amp = 1,
+         grid.size = 10,
+         grid.col = "grey80",,   # グリッド線の色（薄いグレー）
+         grid.lwd = 0.5,        # グリッド線の太さ（細め）
+         legend.text = c("京都10A段階", "富山城跡RS3-SD54"))
+invisible(dev.off())
+
+
+
+```
+
+```{r mean-shape, echo=FALSE, fig.cap='京都と富山の平均的な形の比較（A:小型品、B:中大型品）', out.width="145mm"}
+
+#### 画像を統合 ####
+library(magick)
+
+# 小型品
+small_1 <- image_read(here("analysis/figures_drafts/mshape_small_1.png"))
+small_2 <- image_read(here("analysis/figures_drafts/mshape_small_2.png"))
+small_3 <- image_read(here("analysis/figures_drafts/mshape_small_3.png"))
+small_4 <- image_read(here("analysis/figures_drafts/mshape_small_4.png"))
+small_5 <- image_read(here("analysis/figures_drafts/mshape_small_5.png"))
+small_6 <- image_read(here("analysis/figures_drafts/mshape_small_6.png"))
+
+# 中大型品
+large_1 <- image_read(here("analysis/figures_drafts/mshape_large_1.png"))
+large_2 <- image_read(here("analysis/figures_drafts/mshape_large_2.png"))
+large_3 <- image_read(here("analysis/figures_drafts/mshape_large_3.png"))
+large_4 <- image_read(here("analysis/figures_drafts/mshape_large_4.png"))
+large_5 <- image_read(here("analysis/figures_drafts/mshape_large_5.png"))
+large_6 <- image_read(here("analysis/figures_drafts/mshape_large_6.png"))
+
+# 横に並べる
+mshape_small <- image_append(c(small_1, small_2, small_3),
+                             stack = FALSE)
+mshape_small_2 <- image_append(c(small_4, small_5, small_6),
+                               stack = FALSE)
+
+mshape_large <- image_append(c(large_1, large_2, large_3),
+                             stack = FALSE)
+mshape_large_2 <- image_append(c(large_4, large_5, large_6),
+                             stack = FALSE)
+
+# 縦に並べて合成。左上に文字を配置。
+mshape_small_merged <-
+  image_append(c(mshape_small, mshape_small_2),
+               stack = TRUE) %>%
+  image_annotate(text = "A",
+                 size = 80,             # 文字サイズ
+                 color = "black",
+                 location = "+30+20"    # 左上からの位置（x, y）
+                 )
+
+mshape_large_merged <-
+  image_append(c(mshape_large, mshape_large_2),
+               stack = TRUE) %>%
+  image_annotate(text = "B",
+                 size = 80,             # 文字サイズ
+                 color = "black",
+                 location = "+30+20"    # 左上からの位置（x, y）
+                 )
+# 保存
+image_write(mshape_small_merged,
+            path = here("analysis/figures_drafts/mshape_small_merged.png"))
+
+image_write(mshape_large_merged,
+            path = here("analysis/figures_drafts/mshape_large_merged.png"))
+
+# AとBを縦に並べて合成
+final_image <- image_append(c(mshape_small_merged, 
+                              mshape_large_merged),
+                            stack = TRUE)
+# 保存
+image_write(final_image,
+            path = here("analysis/figures/5_mshape_final_merged.png"))
+
+# 描写
+knitr::include_graphics(here("analysis/figures/5_mshape_final_merged.png"))
+
+```
+
+## 口径分布 {.unnumbered}
+
+図\@ref(fig:rim-diameter)は京都と富山の口径分布を示したヒストグラムである。富山の分布は京都に比べ、小型品の密度が偏重し、中大型品は密度が低い。富山の小型品の分布は単峰性を示すが、京都9C・10B段階で確認される二峰性の分布であり、両地域に相違がある。
+
+表\@ref(tab:summary-table)と図\@ref(fig:box-plot)は富山の小型品に限定した概要表と箱ひげ図である。富山城跡RS3-SD54と石名田木舟遺跡B2・C地区のCV[^5]がそのほかよりも大きく、平均値が同程度であっても四分位範囲が大きいことから、分布にばらつきがある。前者は遺構の性格[^6]、後者は包含層を含む地区全体の資料であることから、その結果が反映されている可能性が高い。
+
+[^5]: 変動係数(coefficient of
+    variance)。標準偏差を平均値で割った値。データのばらつきを相対的に示すもので、単位や平均値が異なるものの比較で用いられる。
+
+[^6]: RS3-SD54は複数の遺構の存在や時期幅があることが示唆されている。
+
+```{r fac-prepare, include=FALSE}
+#### 準備 ####
+# facの中身を抜き出す。"pca-prepare2"チャンクを起動してから。
+fac_data <- fac_all %>%
+  dplyr::mutate(size_class = case_when(
+    Prefecture == "Kyoto" & rim_diameter <= 10.5 ~ "小型品",
+    type == "TI" & str_detect(Site, "石名田") & rim_diameter <= 10.5 ~ "小型品",
+    type == "TI" & str_detect(Site, "富山城") & rim_diameter < 10.7 ~ "小型品",
+    type == "TI" & !str_detect(Site, "石名田|富山城") & rim_diameter < 10.7 ~ "小型品",
+    str_detect(type, "TJ") & rim_diameter <= 10.9 ~ "小型品",
+    type == "TK" & rim_diameter <= 10.6 ~ "小型品",
+    type == "RF" ~ "小型品",
+    TRUE ~ "中大型品"
+  ))
+
+# 場合分け
+fac_data_kyoto_toyama <- fac_data %>%
+  # 対象を「京都」か「石名田/富山城」に絞る
+  filter(str_detect(Prefecture, "Kyoto") | str_detect(Site, "石名田|富山城")) %>%
+    # 京都と富山で Phase を場合分け
+  mutate(
+    Phase = case_when(
+      # --- 京都府 ---
+      str_detect(Prefecture, "Kyoto") & 
+        Phase %in% c("京都9B段階", 
+                     "京都9C段階", 
+                     "京都10A段階", 
+                     "京都10B段階") ~ Phase,
+      # --- 富山県（TI/TK） ---
+      str_detect(Site, "石名田|富山城") & 
+        str_detect(type, "TI|TK") & 
+        str_detect(remains, "SD7030") ~ "石名田木舟遺跡F3-SD7030\n（15C後半（古））",
+      str_detect(Site, "石名田|富山城") &
+        str_detect(type, "TI|TK") &
+        str_detect(remains, "SD7003") ~ "石名田木舟遺跡F3-SD7003\n（15C後半（新））",
+      str_detect(Site, "石名田|富山城") &
+        str_detect(type, "TI|TK") &
+        str_detect(remains, "SD54")   ~ "富山城跡RS3-SD54\n（16C前半）",
+      str_detect(Site, "石名田|富山城") & 
+        str_detect(type, "TI|TK") &
+        str_detect(remains, "SK705")  ~ "富山城跡RS2-SK705\n（16C中頃）",
+      str_detect(Site, "石名田|富山城") &
+        str_detect(type, "TI|TK") & 
+        str_detect(remains, "B2-|C-") ~ "石名田木舟遺跡B2・C\n（16C中頃〜後半）",
+      TRUE ~ NA
+    )
+  ) %>%
+  # 該当しないものを削除
+  filter(!is.na(Phase)) %>%
+  # 並び順を指定（両地域まとめて順序付け）
+  mutate(Phase = fct_relevel(Phase,
+      # 富山
+      "石名田木舟遺跡F3-SD7030\n（15C後半（古））", 
+      "石名田木舟遺跡F3-SD7003\n（15C後半（新））",
+      "富山城跡RS3-SD54\n（16C前半）",
+      "富山城跡RS2-SK705\n（16C中頃）",
+      "石名田木舟遺跡B2・C\n（16C中頃〜後半）",
+      # 京都
+      "京都9B段階", 
+      "京都9C段階", 
+      "京都10A段階", 
+      "京都10B段階",
+    )
+  ) %>%
+  droplevels()
+
+```
+
+```{r rim-diameter, echo=FALSE, fig.cap='富山と京都の口径分布。ビン幅は0.5。', fig.width=6, fig.height=2.5, dpi=300, out.width="145mm"}
+#### ヒストグラム ####
+
+library(ggplot2)
+library(forcats)
+
+# facet_wrapの順番を左と富山、右を京都にする。
+# desired_levels <- c(
+#   "石名田木舟遺跡F3-SD7030\n（15C後半（古））", "京都9B段階",
+#   "石名田木舟遺跡F3-SD7003\n（15C後半（新））", "京都9C段階",
+#   "富山城跡RS3-SD54\n（16C前半）", "京都10A段階",
+#   "富山城跡RS2-SK705\n（16C中頃）", "京都10B段階",
+#   "石名田木舟遺跡B2・C\n（16C中頃〜後半）"
+# )
+# 
+# fac_data_kyoto_toyama <- fac_data_kyoto_toyama %>%
+#   dplyr::mutate(Phase = forcats::fct_relevel(Phase, desired_levels))
+
+# ヒストグラム
+hist_kyoto_toyama <- fac_data_kyoto_toyama %>%
+  ggplot() +
+  geom_histogram(aes(x = rim_diameter, 
+                     y = after_stat(density)),
+                 binwidth = 0.5, fill = "grey40", boundary = 0) +
+  labs(x = "diameter（cm）") +
+  scale_x_continuous(breaks = seq(0, 25, 2), limits = c(6, 22)) +
+  my_theme +
+  # メモリと各タイトルの文字の大きさを変更
+  theme(axis.text.x = element_text(size = 5),  # x軸目盛ラベルの文字サイズ
+        axis.text.y = element_text(size = 5),  # y軸目盛ラベルの文字サイズ
+        strip.text = element_text(size = 5, 
+                                  margin = margin(t = 0.5, b = 0.5)))+
+  facet_wrap(~ Phase, ncol = 5, scales = "free_y")
+
+# 保存
+png(here("analysis/figures/6_hist_kyoto_toyama.png"), 
+    res = 300, w = 157, h = 65, units = "mm")
+
+hist_kyoto_toyama
+
+invisible(dev.off())
+
+# 描写
+knitr::include_graphics(here("analysis/figures/6_hist_kyoto_toyama.png"))
+```
+
+```{r summary-table, echo=FALSE, tab.cap='石名田木舟遺跡と富山城跡の口径概要表'}
+
+#### summarise()で概要表を作成 ####
+library(dplyr)
+library(stringr)
+
+# 小型品に絞る
+fac_data_toyama_small <- fac_data_kyoto_toyama %>%
+  dplyr::filter(Prefecture == "Toyama") %>%
+  filter(size_class == "小型品") 
+
+# 概要表を作成する
+summary_table_small <- fac_data_toyama_small %>%
+  dplyr::group_by(Phase) %>%
+  dplyr::summarise(n = n(),
+                   Mean = round(mean(rim_diameter),1),
+                   Var = round(var(rim_diameter),1),
+                   SD = round(sd(rim_diameter),1),
+                   CV = round(sd(rim_diameter)/mean(rim_diameter),2),
+                   .groups = "drop") 
+
+####flextableパッケージで見やすい表にする####
+# border_style = officer::fp_border(color="black", width=0.5) #罫線の設定
+
+flex_table_small <- summary_table_small %>%
+  flextable() %>%
+  width(j=1, width = 2.0) %>%         # 1列目の幅を設定
+  width(j=2:ncol(summary_table_small), 
+        width = 0.6) %>%             # 2-列目の幅を設定
+  add_header_row(
+    top = TRUE,                       # 既存のヘッダ列の上に新しいヘッダを配置
+    values = c("Diameter（cm）", 
+               rep("", 
+                   ncol(summary_table_small) - 1))) %>%   # 統合する列名は""とする。
+   merge_at(i = 1, 
+            part = "header") %>%      # 1行目を結合
+  set_header_labels(                  # 元のヘッダ行の名称を変更。
+    Phase = "出土地（時代）") %>%
+  border_remove() %>%                 # 既存の水平線を削除
+  theme_booktabs() %>%                # 規定のまま水平線を設定
+  hline_top(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+            part = "all") %>%         # 表の上部の罫線
+  # hline(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+  #       part = "header") %>%          # 列名の下部の罫線
+  hline_bottom(border = fp_border(color = "black", width = mm_to_pt(0.1)), 
+               part = "body") %>%           # 表の下部の罫線
+  fontsize(size = 8, part = "all") %>%      # 全体の文字サイズを設定
+  fontsize(size = 10, part = "header") %>%  # ヘッダーの文字サイズを設定
+  align(align = "center",                   # headerの1-2列目以外を中央揃えに
+        i = 1:2,
+        part = "header")  %>%
+  align(align = "center",             # bodyの1-2列目以外を中央揃えに
+        j = 2:ncol(summary_table_small),
+        part = "body")  %>%
+  italic(j = 2:nrow(summary_table_small), 
+         italic = TRUE, part = "header") %>%        # イタリックにする。
+  bold(i = 1:2, bold = TRUE, part = "header") %>%   # 太字にする。
+  bold(i = 1:nrow(summary_table_small), j = 1,
+       bold = TRUE, part = "body")                  # 太字にする。
+  
+flex_table_small
+
+```
+
+```{r box-plot, echo=FALSE, fig.cap='石名田木舟遺跡と富山城跡の口径分布（箱ひげ図）', fig.width=6, fig.height=3, dpi=300, out.width="145mm"}
+#### PMLの箱ひげ図を作成する ####
+
+#箱ひげ図
+box_plot <- fac_data_toyama_small %>%
+  mutate(Phase = fct_rev(Phase)) %>%   # factor順を逆転させる
+  ggplot(aes(x = Phase, y = rim_diameter)) +
+  geom_violin(trim = TRUE,     # 確率密度曲線を描写する場合
+              fill = "black",
+              linetype = "blank",
+              alpha = 0.3,
+              width = 1.0) +
+  # ggbeeswarm::geom_quasirandom(size = 0.25,    # beeswarmを描写する場合
+  #                              alpha = 0.5) +
+  geom_boxplot(width = 0.3, fill = NA) +
+  stat_summary(fun = mean, 
+               geom = "point",
+               shape = 21, 
+               size = 1.0,
+               color = "red", 
+               fill = "white") +          # 平均を描写する場合
+  labs(x = "Site & Period", 
+       y = "PML (mm)") +
+  coord_flip() +
+  my_theme +  #x軸の変数名の下に個数を追加
+  # 左側：NとMean
+  geom_text(
+    data = summary_table_small,
+    aes(
+      x = Phase,
+      y = 7.0,   # 左端近く
+      label = paste0("N = ", n, "\nMean = ", round(Mean, 2))
+    ),
+    hjust = 0,       # 1にすると右寄せ
+    vjust = 0.5,
+    size = 3.0,
+    lineheight = 0.9
+  ) +
+  # 右側：SDとCV
+  geom_text(
+    data = summary_table_small,
+    aes(
+      x = Phase,
+      y = 10.8,  # 右端近く（スケールに合わせて調整）
+      label = paste0("SD = ", round(SD, 2), "\nCV = ", round(CV, 2))
+    ),
+    hjust = 0,       # 1にすると右寄せ
+    vjust = 0.5,
+    size = 3.0,
+    lineheight = 0.9
+  ) +
+  # 軸設定
+  scale_y_continuous(
+    breaks = seq(0, 25, 1),
+    limits = c(7, 11.5)
+  )
+
+# 保存
+png(here("analysis/figures/7_box_plot.png"), 
+    res = 300, w = 157, h = 78, units = "mm")
+
+box_plot
+
+invisible(dev.off())
+
+# 描写
+knitr::include_graphics(here("analysis/figures/7_box_plot.png"))
+```
+
+## 定性データの可視化 {.unnumbered}
+
+資料の観察から得られた所見は「定性データ」と呼ばれる。数値化が難しい多様な特徴を、文章で記録するもので、「定量データ」よりも豊富な情報を持つ。しかし、そのままでは俯瞰的な分析に活用しにくいため、考古学では分類を通じて「記号化」し、数値データと同様に扱える形式へ整理することが一般的である。
+
+図\@ref(fig:bar-plot)は、表\@ref(tab:type-smooth)で示した調整の特徴を簡略化し、欠損や摩滅によって「不明・不明瞭」と判断した資料を除いたうえで、各遺跡・遺構における調整の比率を示したものである。
+
+石名田木舟遺跡ではF3-SD7030とF3-SD7003の小型品で調整の比率が異なり、体部において「2字ナデ」から「の字ナデ」への移行が確認できる。B2・C地区では、小型品と中大型品の体部に共通して「D字ナデ」が施され、見込では小型品で半数、中大型品の全てが「一方向ナデ・指ナデ」を示している。
+
+富山城跡では、小型品の見込「指ナデ」の比率がRS3-SD54で高い。一方、小型品・大型品ともに見込「無調整」の比率は両遺構で半数以上を占め、特にRS2-SK705で顕著である。RS3-SD54にはRS2-SK705に先行する土師器皿を含まれていると理解できる[^7]。
+
+[^7]: 註6と同じ。
+
+```{r bar-plot, echo=FALSE, fig.cap='石名田木舟遺跡と富山城跡の調整。', fig.width=6, fig.height=3, dpi=300, out.width="145mm"}
+#### 時期毎の集計表を作成し、割り付けるラベルを作成 ####
+# 一度集計表を作ってから帯グラフにしたほうが効率的らしい
+band_summarize <- fac_data_kyoto_toyama %>%
+  dplyr::filter(Prefecture == "Toyama") %>%
+  dplyr::filter(!is.na(Traces_of_processing)) %>%
+  dplyr::filter(Traces_of_processing != "不明・不明瞭") %>%
+  droplevels() %>%                          # 不要なレベルを削除（重要）
+  dplyr::group_by(Phase, 
+                  size_class,
+                  Traces_of_processing) %>% # グループ化
+  dplyr::summarize(count = n(),             # 個数をカウント
+                   .groups = "drop"         # グループ解除する
+                   ) %>%
+  dplyr::group_by(Phase,
+                  size_class) %>%           # 再度グループ化
+  dplyr::mutate(pct = count / sum(count),   # 時期毎の割合を算出
+                cum_pct = cumsum(pct),      # 時期毎の累積割合を算出
+                pct_label = format(         # 時期毎のラベルを作成
+                  round(pct * 100, 1),      # `fotmat()`で小数点第1位まで表示
+                  nsmall = 1)
+                ) %>% 
+  ungroup() %>%                             # グループ解除する。
+  # ラベル用に全体数を計算しておく。
+  dplyr::group_by(Phase, size_class) %>%
+  dplyr::mutate(total_count = sum(count)) %>%     # 個数の合計
+  ungroup() %>%                             # グループ解除する。
+  # 順番を変更しておく
+  dplyr::mutate(size_class = fct_relevel(size_class,
+                                         "小型品",
+                                         "中大型品")) %>%
+  arrange(Phase)                       # `desc()`関数がない場合は昇順になる。
+
+
+##### 論文風にする ####
+
+# `band_summarize`にパターンを整理しておく
+## fill
+manual_fill <- 
+  c("grey35","white","grey55","white","grey95","white","grey75","white","white")
+## pattern
+manual_pattern <- 
+  c("none", "stripe", "none", "stripe", "none", "circle", "none", "crosshatch", "none")
+## angle
+manual_angle <- 
+  c(0, 45, 0, 135, 0, 0, 0, 45, 0, 0)
+## density
+manual_density <- 
+  c(NA, 0.1, NA, 0.1, NA, 0.3, NA, 0.1, NA)
+## spacing
+manual_spacing <- 
+  c(NA, 0.05, NA, 0.05, NA, 0.025, NA, 0.05, NA)
+
+# 作図
+library(ggpattern)
+band <- band_summarize%>%
+  ggplot() +
+  ggpattern::geom_bar_pattern(aes(x = Phase,
+                                  # `geom_bar_pattern`ではyを指定する必要がある。
+                                  y = pct,  
+                                  fill = Traces_of_processing,
+                                  pattern = Traces_of_processing,
+                                  pattern_spacing = Traces_of_processing, 
+                                  pattern_density = Traces_of_processing,
+                                  pattern_angle = Traces_of_processing
+                                  ),
+                              color = "black",             # グラフの線の色を設定
+                              pattern_fill = "black",      # パターンの線の色を設定
+                              pattern_color = NA,
+                              stat = "identity",
+                              position = "fill") +
+  # 帯グラフのパターンを設定する
+  ggplot2::scale_fill_manual(name = "調整",
+                               values = manual_fill,
+                               guide = guide_legend(byrow = TRUE)) +
+  ggpattern::scale_pattern_manual(name = "調整",
+                                  values = manual_pattern,
+                                  guide = guide_legend(byrow = TRUE)) +
+  ggpattern::scale_pattern_density_manual(name = "調整",
+                                          values = manual_density,
+                                          guide = guide_legend(byrow = TRUE))  +
+  ggpattern::scale_pattern_spacing_manual(name = "調整",
+                                          values = manual_spacing,
+                                          guide = guide_legend(byrow = TRUE)) +
+  ggpattern::scale_pattern_angle_manual(name = "調整",
+                                        values = manual_angle,
+                                          guide = guide_legend(byrow = TRUE)) +
+  # `scale_y_reverse()` はグラフのy軸を逆順に表示するための関数（見た目のみ）。
+  # `breaks=`部分：y軸の目盛りを0から1まで、0.2刻みで設定します。
+  # `labels=`部分：0から80まで、20刻みで目盛りを設定し、
+  # それを逆順にしています（`rev()`関数を使用）
+  scale_y_reverse(breaks = seq(0, 1.0, by = 0.2),
+                  labels = c("100 %", rev(seq(0, 80, by = 20)))) + 
+  my_theme +
+  theme(axis.title.x = element_blank(),    # x軸のタイトルを消す
+        axis.title.y = element_blank(),    # y軸のタイトルを消す
+        ) +
+  coord_flip() +
+  facet_wrap(~size_class)
+
+# 帯グラフに配置するラベルと座標を設定する。
+band_summarize <- band_summarize %>%
+  ungroup() %>%                                   # グループを解除しておく。
+  mutate(y = round((1 - cum_pct) + pct / 2 , 3),  # `scale_y_reverse()` で見た目が反転しているので1から引く。
+    pct_label_with_count = paste0(pct_label, 
+                                  " %<br>(N=", count, ")")   # 割合 + 改行 + 個数
+  )
+
+
+# ラベルを貼り付ける
+band <- band + 
+  ggtext::geom_richtext(aes(x = band_summarize$Phase,
+                            y = band_summarize$y,
+                            label = band_summarize$pct_label_with_count),
+                        fill = "white",                   # ラベルの塗りの設定
+                        label.color = NA,                 # ラベルの枠線の設定
+                        size = 1.25,                       # 文字の大きさ
+                        fontface = "bold",                # 文字の太さ
+                        hjust = 0.5,                      # 上下の位置を設定
+                        vjust = 0.5,                      # 左右の位置を設定
+                        label.padding = unit(c(0.1, 0.05, 0.05, 0.05), "lines"),  # ラベルの余白を設定
+                        label.r = unit(0, "lines")) +     # ラベルの角の丸みを設定
+  theme(
+    legend.key.size = unit(1.0, "lines"),   # 凡例の枠サイズを小さく
+    legend.text = element_text(size = 4),   # 凡例ラベルの文字サイズを小さく
+    legend.title = element_text(size = 6)   # 凡例タイトルの文字サイズを調整
+  )
+
+# 保存
+png(here("analysis/figures/8_band.png"), 
+    res = 300, w = 157, h = 80, units = "mm")
+
+band
+
+invisible(dev.off())
+
+# 描写
+knitr::include_graphics(here("analysis/figures/8_band.png"))
+```
+
+# 考察
+
+楕円フーリエ解析に基づく主成分分析および平均的な形の比較結果から、富山の京都系土師器皿は京都9C段階の影響を強く受けて成立したと考えられる。
+
+まず、15世紀後半の石名田木舟遺跡F3-SD7030では、京都9C段階の土師器皿と密接な関係を持ち、特に中大型品において京都の影響が顕著に認められる。一方で、小型品については口径分布や調整に京都との相違がみられ、さらにへそ皿が少ないことから、京都の情報を直接的に踏襲していなかったと推測される。
+
+次に、石名田木舟遺跡F3-SD7030よりも後出のF3-SD7003までの資料では、調整に変化が認められることから、この段階までは京都の影響が及んでいたと考えられる。しかし、16世紀に入ると、形が京都から乖離し、調整も単純化（退化）傾向が明瞭となる。特に16世紀後半の石名田木舟遺跡では、主要な型式が京都系土師器皿からTKに変化している。このことは、京都からの影響力が弱まり、富山独自の発展過程へと移行したことを示している。
+
+# 結論
+
+本稿では、Rを用いて中世土師器皿の分析事例を提示した。幾何学的形態測定学による断面形状の分析、口径分布の統計的比較、さらに定性データの可視化を組み合わせることで、従来の型式分類を定量的に補強するとともに、地域間や遺跡間の比較をより明示することが可能であることを示した。
+
+方法論的に重要なのは、第一に、Rで記述したスクリプトを公開することで、分析の再現性と透明性を担保できる点である。第二に、幾何学的形態測定学を導入することで、従来は定性的な記述または直線的な距離で表現してきた形そのものの違いを比較可能な点にある。第三は、可視化を組み合わせることで、結果を解釈に直結する資料の傾向や差異を明示できる。
+
+これらのメリットは、土器以外の資料や異なる時期・地域の資料にも応用可能である。さらにデータとコードを共有することで、個別の研究事例を超えた比較や連携も可能となりうる。
+
+
+# 参考文献 {.unnumbered}
+
+
+```{r eval=FALSE, include=FALSE}
+# コンソールで以下のコマンドを入力
+bookdown::render_book("gmm_toyama_HTML.Rmd", output_dir="./docs")
+
+```
+
+```{r eval=FALSE, include=FALSE}
+# pdfで出力する場合
+# pagedown::chrome_print("docs/filename.html", "docs/index.pdf")
+
+```
+

@@ -1,0 +1,4059 @@
+{
+    "sources": [
+        {
+            "abstract": "A modern, beautiful, and easily configurable blog theme for Hugo.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        27
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Álvarez",
+                    "given": "Adolfo"
+                }
+            ],
+            "container-title": "Adolfo Álvarez",
+            "id": "Adolfo_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        9
+                    ]
+                ]
+            },
+            "title": "Plumbers, chains, and famous painters: The (updated) history of the pipe operator in R",
+            "title-short": "Plumbers, chains, and famous painters",
+            "type": ""
+        },
+        {
+            "DOI": "10.1537/ase1911.77.154",
+            "author": [
+                {
+                    "family": "赤沢",
+                    "given": "威"
+                }
+            ],
+            "container-title": "人類學雜誌",
+            "id": "akazawa_1969",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        1969
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "154-178",
+            "publisher": "日本人類学会",
+            "title": "縄文貝塚産魚類の体長組成並びにその先史漁撈学的意味：縄文貝塚民の漁撈活動の復原に関する一試論",
+            "type": "article-journal",
+            "volume": "77"
+        },
+        {
+            "DOI": "10.2307/2682899",
+            "ISSN": "0003-1305",
+            "URL": "https://www.jstor.org/stable/2682899",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        6
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Anscombe",
+                    "given": "Francis John"
+                }
+            ],
+            "container-title": "The American Statistician",
+            "id": "Anscombe_1973",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1973
+                    ]
+                ]
+            },
+            "page": "17-21",
+            "publisher": "[American Statistical Association, Taylor & Francis, Ltd.]",
+            "title": "Graphs in Statistical Analysis",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "author": [
+                {
+                    "literal": "アジア水中考古学研究所"
+                }
+            ],
+            "collection-number": "7",
+            "id": "aziaShuiZhongKaoGuXueYanJiuSuoNEWSLETTERaziaShuiZhongKaoGuXueYanJiuSuoHuiBao2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "title": "NEWSLETTER;アジア水中考古学研究所会報",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "アジア水中考古学研究所"
+                }
+            ],
+            "collection-number": "9",
+            "id": "aziaShuiZhongKaoGuXueYanJiuSuoNEWSLETTERaziaShuiZhongKaoGuXueYanJiuSuoHuiBao2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "title": "NEWSLETTER;アジア水中考古学研究所会報",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "東",
+                    "given": "洋一"
+                }
+            ],
+            "container-title": "洛史 : 研究紀要",
+            "id": "azuma_2018",
+            "issue": "11",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        8
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "65-75",
+            "publisher": "京都市埋蔵文化財研究所",
+            "title": "木野・幡枝カワラケ (土師器皿 )製作技法の復元的研究",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "中世北陸のカワラケと輸入陶磁器・瀬戸美濃製品 北陸中世考古学研究会(福井県)編集 （北陸中世考古学研究会資料集, 第19回） 北陸中世考古学研究会, 2006.11",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "editor": [
+                {
+                    "literal": "北陸中世考古学研究会"
+                }
+            ],
+            "id": "beiluzhongshikaoguxueyanjiuhuiZhongShiBeiLunokawaraketoShuRuTaoCiQiLaiHuMeiNongZhiPin2006",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006
+                    ]
+                ]
+            },
+            "keyword": "中世,考古学",
+            "language": "ja-JP",
+            "publisher": "北陸中世考古学研究会",
+            "title": "中世北陸のカワラケと輸入陶磁器・瀬戸美濃製品",
+            "type": "book"
+        },
+        {
+            "abstract": "中世前期北陸のカワラケと輸入陶磁器・施釉陶器・瀬戸美濃製品 北陸中世考古学研究会(新潟県)編集 （北陸中世考古学研究会資料集, 第20回） 北陸中世考古学研究会, 2007.11",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "editor": [
+                {
+                    "literal": "北陸中世考古学研究会"
+                }
+            ],
+            "id": "beiluzhongshikaoguxueyanjiuhuiZhongShiQianQiBeiLunokawaraketoShuRuTaoCiQiShiYouTaoQiLaiHuMeiNongZhiPin2007",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007
+                    ]
+                ]
+            },
+            "keyword": "中世,考古学",
+            "language": "ja-JP",
+            "publisher": "北陸中世考古学研究会",
+            "title": "中世前期北陸のカワラケと輸入陶磁器・施釉陶器・瀬戸美濃製品",
+            "type": "book"
+        },
+        {
+            "abstract": "We introduce here Momocs, a package intended to ease and popularize modern mor- phometrics with R, and particularly outline analysis, which aims to extract quantitative variables from shapes. It mostly hinges on the functions published in the book entitled Modern Morphometrics Using R by Claude (2008). From outline extraction from raw data to multivariate analysis, Momocs provides an integrated and convenient toolkit to students and researchers who are, or may become, interested in describing the shape and its variation. The methods implemented so far in Momocs are introduced through a simplistic case study that aims to test if two sets of bottles have different shapes.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        22
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Bonhomme",
+                    "given": "Vincent"
+                },
+                {
+                    "family": "Picq",
+                    "given": "Sandrine"
+                },
+                {
+                    "family": "Claude",
+                    "given": "Julien"
+                },
+                {
+                    "family": "Gaucherel",
+                    "given": "Cedric"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "Bonhomme_2014",
+            "issue": "13",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "1-24",
+            "title": "Momocs : Outline analysis using R",
+            "title-short": "Momocs",
+            "type": "article-journal",
+            "volume": "56"
+        },
+        {
+            "abstract": "仏生寺城跡発掘調査報告 : 富山県舟橋村 富山県埋蔵文化財センター編集 舟橋村教育委員会, 2001.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        1,
+                        2
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "富山県埋蔵文化財センター"
+                }
+            ],
+            "id": "bushouji_2001",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "舟橋村教育委員会",
+            "title": "仏生寺城跡発掘調査報告 : 富山県舟橋村",
+            "title-short": "仏生寺城跡発掘調査報告",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "越前",
+                    "given": "慎子"
+                }
+            ],
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "container-title": "梅原胡摩堂遺跡発掘調査報告（遺物編）",
+            "id": "echizen_1996",
+            "issued": {
+                "date-parts": [
+                    [
+                        1996,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "353-369",
+            "publisher": "（財）富山県文化振興財団埋蔵文化財調査事務所",
+            "publisher-place": "富山",
+            "title": "梅原胡摩堂遺跡出土中世土師器皿の編年",
+            "type": "chapter",
+            "volume": "1"
+        },
+        {
+            "author": [
+                {
+                    "family": "越前",
+                    "given": "慎子"
+                },
+                {
+                    "family": "高梨",
+                    "given": "清志"
+                }
+            ],
+            "container-title": "中世前期北陸のカワラケと輸入陶磁器・施釉陶器・瀬戸美濃製品",
+            "id": "echizen_takanashi_2007",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007,
+                        11
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "137-150",
+            "publisher": "北陸中世考古学研究会",
+            "title": "富山県の様相",
+            "type": "article-journal"
+        },
+        {
+            "editor": [
+                {
+                    "literal": "東京都江戸東京博物館"
+                },
+                {
+                    "literal": "名古屋市美術館"
+                },
+                {
+                    "literal": "山口県立萩美術館・浦上記念館"
+                },
+                {
+                    "literal": "東京新聞"
+                }
+            ],
+            "id": "edo-tokyo_2007",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "東京新聞",
+            "title": "北斎 Siebold & Hokusai and hid Tradition",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1086/317394",
+            "author": [
+                {
+                    "family": "Eerkens",
+                    "given": "Jelmer"
+                }
+            ],
+            "container-title": "Current Anthropology - CURR ANTHROPOL",
+            "id": "Eerkens_2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000,
+                        8
+                    ]
+                ]
+            },
+            "page": "663-668",
+            "title": "Practice Makes Within 5% of Perfect: Visual Perception, Motor Skills, and Memory in Artifact Variation",
+            "title-short": "Practice Makes Within 5% of Perfect",
+            "type": "article-journal",
+            "volume": "41"
+        },
+        {
+            "DOI": "10.2307/2694247",
+            "ISSN": "0002-7316, 2325-5064",
+            "abstract": "The study of artifact standardization is an important line of archaeological inquiry that continues to be plagued by the lack of an independent scale that would indicate what a highly variable or highly standardized assemblage should look like. Related to this problem is the absence of a robust statistical technique for comparing variation between different kinds of assemblages. This paper addresses these issues. The Weber fraction for line-length estimation describes the minimum difference that humans can perceive through unaided visual inspection. This value is used to derive a constant for the coefficient of variation (CV = 1.7 percent) that represents the highest degree of standardization attainable through manual human production of artifacts. Random data are used to define a second constant for the coefficient of variation that represents variation expected when production is random (CV = 57.7 percent). These two constants can be used to assess the degree of standardization in artifact assemblages regardless of kind. Our analysis further demonstrates that CV is an excellent measure of standardization and provides a robust statistical technique for comparing standardization in samples of artifacts. , Résumé El estudio de estandarización y variación ha sido una importante y valiosa linea de interés en los análisis arqueológicos. Sin embargo, aún persisten dos problemas que son el enfoque de este estudio. En primer lugar, faltan medidas independientes para evaluar problemas de estandarización y variación. En otros términes, no hay nada que indica cómo se debe hacer una muestra arqueológica bien estandardizada  bien variable. En segundo lugar, no existe una técnica estadistica segura para hacer comparaciones cuantitativas. El ’Weberfraction,’ utilizado para la estimación de una línea amplia describe la diferencia mínima que seres humanos pueden percibir con solo una inspección ocular. Este valor es utilizado para derivar una constante (CV = 1.7percent) que représenta la variación minima obtenida a través de la producción manual de artefactos por seres humanos. Datas aleatorios son utilizados para determinar una segunda constante que représenta la variación esperada bajo condiciones aleato-rias (CV = 57.7 percent). De este modo, estas dos constantes pueden estar utilizadas para determinar el grado de estandarización en las colecciones de artefactos. También, este estudio proporciona una técnica estadistica segura para compararla estandarización en muestras de artefactos.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        11,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Eerkens",
+                    "given": "Jelmer W."
+                },
+                {
+                    "family": "Bettinger",
+                    "given": "Robert L."
+                }
+            ],
+            "container-title": "American Antiquity",
+            "id": "Eerkens_Bettinger_2001",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001,
+                        7
+                    ]
+                ]
+            },
+            "page": "493-504",
+            "publisher": "Cambridge University Press",
+            "title": "Techniques for Assessing Standardization in Artifact Assemblages: Can We Scale Material Variability?",
+            "title-short": "Techniques for Assessing Standardization in Artifact Assemblages",
+            "type": "article-journal",
+            "volume": "66"
+        },
+        {
+            "ISSN": "0286-7400",
+            "abstract": "近年，中世窯業史の研究は，文献史学，考古学等各方面から積極的なアプローチが試みられており，なかでも特に中世陶器（焼物）の生産経営形態についての論考には注目すべきものがある。これまでのところ，中世窯業の基本的生産経営形態を農閑副業とし，専業度の低い半農半工の生産者像を想定する見解が支配的であるが，その論拠となる資料解釈については，様々な問題点が指摘されており，一概にそれを農閑副業と規定することができないのが現状である。 そこで，本稿では，文献史料，考古資料の両面から検討可能な瀬戸・美濃系大窯の生産経営形態について考察した。それによって，まず文献史料からは，16世紀後半から17世紀前半にかけてみられる発給文書に登場する竈屋は，戦国大名をはじめとする為政者から，当該期の職人と同様に諸役免許等の特権を与えられる代わりに，焼物臨時御用，営業税の支払い等の竈屋独特の負担が課せられていたこと，竈屋は商業活動や農業生産に係わりつつも職人（専業集団）として自立した存在であったことを明らかにした。 次に考古資料からは，瀬戸・美濃系大窯の分布状況の分析を通して，大窯生産技術の拡散現象は，文献史料の竃屋と同様，一般の工人集団についても専業集団として生産を行っていたことを示すこと，また窯跡の分布は，大窯成立の直前には既に村落部に集中しはじめており，工人集団の専業集団としての性格は，遅くとも15世紀後半までは遡ることを明らかにした。 そして，瀬戸・美濃窯の大窯の群構成は，織田信長の統一以前と以降とでは大きく異なっていることから，瀬戸・美濃窯の工人集団は，信長政権による領国の内外を含めた流通システムの掌握を主眼とする経済政策に直接組み込まれていった可能性を指摘した。",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        1
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "藤澤",
+                    "given": "良祐"
+                }
+            ],
+            "container-title": "国立歴史民俗博物館研究報告",
+            "id": "fujisawa_1992",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992,
+                        12
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "179-236",
+            "publisher": "国立歴史民俗博物館",
+            "title": "大窯期工人集団の史的考察 : 瀬戸・美濃系大窯を中心に",
+            "title-short": "大窯期工人集団の史的考察",
+            "type": "article-journal",
+            "volume": "46"
+        },
+        {
+            "abstract": "鞆の伝統産業 : 鉄鋼・醸造・保命酒 福山市教育委員会編 （鞆町民俗資料調査報告） 福山市教育委員会, 1979.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        8
+                    ]
+                ]
+            },
+            "collection-title": "鞆町民俗資料調査報告",
+            "container-title": "鞆の伝統産業 : 鉄鋼・醸造・保命酒",
+            "editor": [
+                {
+                    "literal": "福山市教育委員会"
+                }
+            ],
+            "id": "fukuyamashi_1979",
+            "issued": {
+                "date-parts": [
+                    [
+                        1979
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "13-54",
+            "publisher": "福山市教育委員会",
+            "title": "第2編鉄鋼",
+            "type": "chapter"
+        },
+        {
+            "abstract": "富山市の遺跡物語 富山市教育委員会埋蔵文化財センター編 （富山市教育委員会埋蔵文化財センター所報, 第5-6, 8-20号） 富山市教育委員会埋蔵文化財センター, 2004.3- [1] [2] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "collection-number": "16",
+            "editor": [
+                {
+                    "literal": "富山市教育委員会埋蔵文化財センター"
+                }
+            ],
+            "id": "fushanshijiaoyuweiyuanhuimaizangwenhuacaisentaFuShanShinoYiJiWuYu2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "publisher": "富山市教育委員会埋蔵文化財センター",
+            "title": "富山市の遺跡物語",
+            "type": "book"
+        },
+        {
+            "abstract": "境A遺跡 富山県埋蔵文化財センター編 （北陸自動車道遺跡調査報告 / 富山県埋蔵文化財センター編, 朝日町編 4-7） 富山県教育委員会, 1989.3-1992.3 遺構編 石器編 第1分冊 本文 石器編 第2分冊 計測表 石器編 第3分冊 写真図版 土器編 第1分冊 本文 土器編 第2分冊 写真図版 総括編",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "editor": [
+                {
+                    "literal": "富山県埋蔵文化財センター"
+                }
+            ],
+            "id": "fushanxianmaizangwenhuacaisentaBeiLuZiDongCheDaoYiJiDiaoChaBaoGaoZhaoRiTingBian4JingAYiJiYiGouBian1989",
+            "issued": {
+                "date-parts": [
+                    [
+                        1989
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "publisher": "富山県教育委員会",
+            "title": "北陸自動車道遺跡調査報告（朝日町編4）境A遺跡遺構編",
+            "type": "book"
+        },
+        {
+            "abstract": "境A遺跡 富山県埋蔵文化財センター編 （北陸自動車道遺跡調査報告 / 富山県埋蔵文化財センター編, 朝日町編 4-7） 富山県教育委員会, 1989.3-1992.3 遺構編 石器編 第1分冊 本文 石器編 第2分冊 計測表 石器編 第3分冊 写真図版 土器編 第1分冊 本文 土器編 第2分冊 写真図版 総括編",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "editor": [
+                {
+                    "literal": "富山県埋蔵文化財センター"
+                }
+            ],
+            "id": "fushanxianmaizangwenhuacaisentaBeiLuZiDongCheDaoYiJiDiaoChaBaoGaoZhaoRiTingBian5JingAYiJiShiQiBian1990",
+            "issued": {
+                "date-parts": [
+                    [
+                        1990
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "publisher": "富山県教育委員会",
+            "title": "北陸自動車道遺跡調査報告（朝日町編5）境A遺跡石器編",
+            "type": "book"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "collection-number": "6",
+            "editor": [
+                {
+                    "literal": "富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "id": "fushanxianwenhuazhenxingcaituanmaizangwenhuacaidiaochashiwusuoFuShanKaoGuXueYanJiuJiYao2003",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003,
+                        6
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "title": "富山考古学研究 : 紀要",
+            "title-short": "富山考古学研究",
+            "type": "book"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "collection-number": "8",
+            "editor": [
+                {
+                    "literal": "富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "id": "fushanxianwenhuazhenxingcaituanmaizangwenhuacaidiaochashiwusuoFuShanKaoGuXueYanJiuJiYao2005",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005,
+                        6
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "title": "富山考古学研究 : 紀要",
+            "title-short": "富山考古学研究",
+            "type": "book"
+        },
+        {
+            "abstract": "梅原胡摩堂遺跡発掘調査報告 富山県文化振興財団埋蔵文化財調査事務所編集 （富山県文化振興財団埋蔵文化財発掘調査報告, 第5, 7集 . 東海北陸自動車道建設に伴う埋蔵文化財発掘報告トウカイ ホクリク ジドウシャドウ ケンセツ ニ トモナウ マイゾウ ブンカザイ ハックツ ホウコク ; 1-2） 富山県文化振興財団埋蔵文化財調査事務所, 1994.3- 遺構編 遺物編 第1分冊 遺物編 第2分冊 遺物編 第3分冊",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "editor": [
+                {
+                    "literal": "富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "id": "fushanxianwenhuazhenxingcaituanmaizangwenhuacaidiaochashiwusuoMeiYuanHuMoTangYiJiFaJueDiaoChaBaoGao1994",
+            "issued": {
+                "date-parts": [
+                    [
+                        1994
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "富山県文化振興財団埋蔵文化財調査事務所",
+            "title": "梅原胡摩堂遺跡発掘調査報告",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1016/S0146-664X(77)80029-4",
+            "ISSN": "0146-664X",
+            "abstract": "Closed contours in two dimensions are approximated by harmonioally related rotating vectors with elliptical loci. Aa easy to use method for determining the number of vectors needed in the approximation is given. Specification of bandwidth requirements for transmission of a contour, either continuous or quantized, can then be made in terms of the desired accuracy of reproduction. The technique has application to graphics and pattern recognition problems.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Giardina",
+                    "given": "Charles R."
+                },
+                {
+                    "family": "Kuhl",
+                    "given": "Frank P."
+                }
+            ],
+            "container-title": "Computer Graphics and Image Processing",
+            "id": "giardinaAccuracyCurveApproximation1977",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1977,
+                        6
+                    ]
+                ]
+            },
+            "page": "277-285",
+            "title": "Accuracy of curve approximation by harmonically related vectors with elliptical loci",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "ISBN": "978-4-87311-715-7",
+            "abstract": "「統計を使わずに、Rを純粋にプログラミング言語として学ぼう」というコンセプトに基づいて書かれた本書は、統計学についての難しい知識がなくても、また、プログラミングの経験があまりなくても、プログラミングを学んでみようという意欲さえあれば読むことのできる、画期的な書籍です。サイコロを作る、トランプゲームを作る、スロットマシンを作る、という3つの簡単なプロジェクトに取り組む過程で、Rのプログラミング統合環境、RStudioを活用し、楽しみながら効率的にRのプログラミングスキルを身に付けていきます。統計だけに使うのはもったいない、Rのプログラミング言語としての隠れた魅力と可能性、さらにはデータサイエンスの基礎としてのデータ分析を紹介します。",
+            "author": [
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                }
+            ],
+            "id": "grolemund_2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "オライリージャパン",
+            "publisher-place": "東京",
+            "title": "RStudioではじめるRプログラミング入門",
+            "translator": [
+                {
+                    "family": "大橋",
+                    "given": "真也"
+                },
+                {
+                    "family": "長尾",
+                    "given": "高弘"
+                }
+            ],
+            "type": "book"
+        },
+        {
+            "ISSN": "00824755",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "林",
+                    "given": "夫門"
+                },
+                {
+                    "family": "溝口",
+                    "given": "優司"
+                }
+            ],
+            "container-title": "国立科学博物館専報",
+            "id": "hayashi_mizoguchi_1985",
+            "issue": "18",
+            "issued": {
+                "date-parts": [
+                    [
+                        1985,
+                        12
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "p225-241",
+            "publisher": "国立科学博物館",
+            "title": "富山県朝日・小竹両貝塚出土の縄文時代人骨について (北陸・山陰地域の自然史科学的総合研究-1-)",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "平尾",
+                    "given": "正幸"
+                }
+            ],
+            "container-title": "洛史 : 研究紀要",
+            "id": "hirao_2019",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        10
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "9-150",
+            "publisher": "京都市埋蔵文化財研究所",
+            "title": "土師器再考",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.11369/jji1950.2.134",
+            "abstract": "The experiment was undertaken so as to see that the size of fishing hook and the skill of angler might have effect to the average size of fish caught, Acanthogobius flavirnanus, a common game fish in Tokyo Bay.The two sizes of hook for this bait fishing (Fig. 1) are used by twelve anglers, which can be classified to the three degrees of skill, (expert, middle class and beginners) the according to their careers in sports fishing. All the anglers, on the same boat, fished at same fishing ground, where supposed to have the same group of fish, having the same size composition.The size of fish caught by them was measured, and the figures were examined by statistical method.As it is clear even in the graphs and the table of size distribution of fish caught, the remarkable differences of average size were found by the difference of size of hook used (Fig. 2). And by the degree of skill of anglers some difference of average size of fish caught was recognized between experts and others (Fig. 3).",
+            "author": [
+                {
+                    "family": "檜山",
+                    "given": "義夫"
+                },
+                {
+                    "family": "草下",
+                    "given": "孝也"
+                },
+                {
+                    "family": "能勢",
+                    "given": "幸雄"
+                }
+            ],
+            "container-title": "魚類学雑誌",
+            "id": "hiyama_1952",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1952
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "134-137",
+            "publisher": "The Ichthyological Society of Japan",
+            "title": "釣鈎の大小、及び技倆の差によるマハゼ釣りの魚体長の撰擇に就いで",
+            "type": "article-journal",
+            "volume": "2"
+        },
+        {
+            "author": [
+                {
+                    "family": "堀内",
+                    "given": "大介"
+                }
+            ],
+            "container-title": "北陸にみる近世成立期の土器・陶磁器様相ー城下町とその周辺遺跡の土師器皿（かわらけ）を中心にー",
+            "id": "horiuchi_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "43-69",
+            "publisher": "（公財）石川県埋蔵文化財センター",
+            "title": "越中における近世成立期の土師器皿の諸様相：富山城跡出土資料から",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "開馞大滝遺跡・地崎遺跡発掘調査報告 富山県文化振興財団埋蔵文化財調査事務所編 （富山県文化振興財団埋蔵文化財発掘調査報告, 第11集 . 能越自動車道建設に伴う埋蔵文化財発掘報告ノウエツ ジドウシャドウ ケンセツ ニ トモナウ マイゾウ ブンカザイ ハックツ ホウコク ; 2） 富山県文化振興財団埋蔵文化財調査事務所, 2000.3 第1分冊 第2分冊",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        2,
+                        15
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "池野",
+                    "given": "正男"
+                }
+            ],
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "container-title": "開馞大滝遺跡・地崎遺跡発掘調査報告",
+            "id": "ikeno_2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "348-354",
+            "publisher": "（財）富山県文化振興財団埋蔵文化財調査事務所",
+            "publisher-place": "富山",
+            "title": "2 開馞大滝遺跡の中世土器・陶磁器について",
+            "type": "chapter",
+            "volume": "1"
+        },
+        {
+            "author": [
+                {
+                    "family": "伊野",
+                    "given": "近富"
+                }
+            ],
+            "container-title": "概説　中世の土器・陶磁器",
+            "editor": [
+                {
+                    "family": "中世土器研究会"
+                }
+            ],
+            "id": "ino_1995",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "225-244",
+            "publisher": "真陽社",
+            "title": "土師器皿",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "石井",
+                    "given": "謙治"
+                }
+            ],
+            "container-title": "図説和船史話",
+            "id": "ishii_1983",
+            "issued": {
+                "date-parts": [
+                    [
+                        1983,
+                        7
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "322-326",
+            "publisher": "至誠堂",
+            "title": "第3編8節　碇",
+            "type": "chapter"
+        },
+        {
+            "ISBN": "978-4-588-20761-7",
+            "author": [
+                {
+                    "family": "石井",
+                    "given": "謙治"
+                }
+            ],
+            "collection-number": "76-1",
+            "collection-title": "ものと人間の文化史",
+            "id": "ishii_1995a",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995,
+                        7
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "法政大学出版局",
+            "publisher-place": "Tokyo",
+            "title": "和船1",
+            "type": "book"
+        },
+        {
+            "ISBN": "978-4-588-20762-4",
+            "author": [
+                {
+                    "family": "石井",
+                    "given": "謙治"
+                }
+            ],
+            "collection-number": "76-2",
+            "collection-title": "ものと人間の文化史",
+            "id": "ishii_1995b",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995,
+                        7
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "法政大学出版局",
+            "publisher-place": "Tokyo",
+            "title": "和船2",
+            "type": "book"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "石井",
+                    "given": "淳平"
+                }
+            ],
+            "container-title": "奈良文化財研究所研究報告",
+            "id": "ishii_2020",
+            "issue": "24",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        2
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "独立行政法人国立文化財機構奈良文化財研究所",
+            "title": "考古学のためのデータビジュアライゼーション",
+            "type": "article-journal"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        8,
+                        14
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "石丸",
+                    "given": "恵利子"
+                }
+            ],
+            "container-title": "考古論集: 川越哲志先生退官記念論文集",
+            "id": "ishimaru_2005",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005,
+                        11
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "689-704",
+            "publisher": "川越哲志先生退官記念事業会",
+            "title": "魚類の体長復元と中世の調理方法",
+            "type": "article-journal"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        2,
+                        14
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "富山県埋蔵文化財センター"
+                }
+            ],
+            "id": "ishinada_1996",
+            "issued": {
+                "date-parts": [
+                    [
+                        1996,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "福岡町教育委員会",
+            "title": "富山県福岡町石名田木舟遺跡第3次発掘調査報告書",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "（財）富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "id": "ishinada_2002",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "富山",
+            "title": "石名田木舟遺跡発掘調査報告",
+            "type": "book",
+            "volume": "2"
+        },
+        {
+            "author": [
+                {
+                    "family": "岩瀬",
+                    "given": "由美"
+                }
+            ],
+            "container-title": "北陸にみる近世成立期の土器・陶磁器様相ー城下町とその周辺遺跡の土師器皿（かわらけ）を中心にー",
+            "id": "iwase_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "71-102",
+            "publisher": "（公財）石川県埋蔵文化財センター",
+            "title": "加賀・能登における15世紀後半〜17世紀の土器・陶磁器様相",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "開馞大滝遺跡・地崎遺跡発掘調査報告 富山県文化振興財団埋蔵文化財調査事務所編 （富山県文化振興財団埋蔵文化財発掘調査報告, 第11集 . 能越自動車道建設に伴う埋蔵文化財発掘報告ノウエツ ジドウシャドウ ケンセツ ニ トモナウ マイゾウ ブンカザイ ハックツ ホウコク ; 2） 富山県文化振興財団埋蔵文化財調査事務所, 2000.3 第1分冊 第2分冊",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        2,
+                        15
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "（財）富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "id": "kaihotsu_2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "富山",
+            "title": "開馞大滝遺跡・地崎遺跡発掘調査報告",
+            "type": "book",
+            "volume": "1"
+        },
+        {
+            "author": [
+                {
+                    "family": "金田",
+                    "given": "明大"
+                }
+            ],
+            "collection-title": "奈良文化財研究所学報",
+            "container-title": "文化財論叢IV：奈良文化財研究所創立60周年記念論文集",
+            "id": "kaneda_2012",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "1355-1366",
+            "title": "うつわの形をわける:EFDを利用した土器形態の分類の試行",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "木舟城跡発掘調査報告 : 範囲確認調査報告 福岡町教育委員会編 福岡町教育委員会, 2002.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        10,
+                        16
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "福岡町教育委員会"
+                }
+            ],
+            "id": "kifune_2002",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "木舟城跡発掘調査報告 : 範囲確認調査報告",
+            "title-short": "木舟城跡発掘調査報告",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "木村",
+                    "given": "博"
+                },
+                {
+                    "family": "松野",
+                    "given": "進"
+                },
+                {
+                    "family": "吉松",
+                    "given": "隆司"
+                },
+                {
+                    "family": "石田",
+                    "given": "祐司"
+                },
+                {
+                    "family": "河村",
+                    "given": "和寛"
+                }
+            ],
+            "container-title": "平成16年度山口県水産研究センター事業報告",
+            "id": "kimura_matsuno_2005",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005,
+                        11
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "98-131",
+            "publisher": "山口県水産研究センター",
+            "title": "市場に水揚げされた主要魚種の体長等に関する調査",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "literal": "（財）石川県埋蔵文化財センター"
+                }
+            ],
+            "collection-title": "街路事業都市計画道路川原松百線に係る埋蔵文化財発掘調査報告書",
+            "id": "kojimanishi_2008",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "石川",
+            "title": "七尾市小島西遺跡",
+            "title-short": "小島西遺跡",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1537/asj.113.119",
+            "abstract": "縄文時代の内湾漁撈は，スズキとタイを主な漁獲対象に展開したと考えられている。しかし，東関東の内湾沿岸部にある9ケ所の中後期貝塚から任意に採取した104本の柱状貝層サンプルを水洗したところ，アジ，イワシ，ウナギ，フナなどの小型魚類遺存体が高い頻度で分離された。内湾貝塚産魚類の主体は，従来の発掘で見落とされたこれらの小型魚が構成すると考えられる。ただし，魚種構成は地域差が顕著で，臨海部の遺跡では沿岸性小型魚が，内陸の遺跡では淡水魚が，そして，それらの中間域の遺跡では汽水魚が優占する。遺跡産魚類相を決定する1次要因が縄文人の漁撈にあるとすれば，この地域の内湾漁撈の主体は想定領域内に出現する小型魚の漁獲と消費に適応したシステムだったと推定される。しかし，想定領域内に海が存在しない遺跡からも大量の小型海魚のほか，タイなどの高級魚がしばしば出土することから，特定の海産物が経済的な取引をつうじて集団間を頻繁に移動した可能性がある。したがって，今回のデータは漁撈だけにとどまらず，魚類資源利用にかかわる当時の経済や社会のしくみを再検討する材料としても重要と思われる。",
+            "author": [
+                {
+                    "family": "小宮",
+                    "given": "孟"
+                }
+            ],
+            "container-title": "Anthropological Science (Japanese Series)",
+            "id": "komiya_2005",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "119-137",
+            "publisher": "川越哲志先生退官記念事業会",
+            "title": "貝塚産魚類組成から復元する縄文時代中後期の東関東内湾漁撈",
+            "type": "article-journal",
+            "volume": "113"
+        },
+        {
+            "DOI": "10.4116/jaqua.16.71",
+            "abstract": "In this paper the writers deal with the method and technique for providing a more accurate representation of the body size composition of Jomon shell-midden fish. The specimens analysed here are Acanthopagrus schlegeli (black sea bream) obtained during 1971’s excavation of Kamitakatsu shell-midden, Ibaragi Pref. The size frequency distribution of black sea bream premaxillary from the same units, but one derived from laboratory analysis of core samples and another recovered in the trench, were compared (Fig. 2 and Table 1) and, in the former, there occurred a considerable amount of small size specimens of black sea bream which had been missed in the trench. The result shows that the application of core sampling and wet-screening technique furnishes more reliable data on the representation of the body size composition in any prehistoric fishes.",
+            "author": [
+                {
+                    "family": "小宮",
+                    "given": "孟"
+                },
+                {
+                    "family": "鈴木",
+                    "given": "公雄"
+                }
+            ],
+            "container-title": "第四紀研究",
+            "id": "komiya_suzuki_1977",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1977
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "71-75",
+            "publisher": "日本第四紀学会",
+            "title": "貝塚産魚類の体長組成復元における標本採集法の影響について",
+            "type": "article-journal",
+            "volume": "16"
+        },
+        {
+            "ISSN": "0918-5283",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2025,
+                        7,
+                        13
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "小森",
+                    "given": "政嗣"
+                },
+                {
+                    "family": "川村",
+                    "given": "智"
+                },
+                {
+                    "family": "横山",
+                    "given": "卓未"
+                }
+            ],
+            "container-title": "日本包装学会誌",
+            "id": "komori_kawamura_yokoyama_2012",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "479-491",
+            "publisher": "東京 : 日本包装学会",
+            "title": "楕円フーリエ記述子を用いたボディソープボトル形状の分析と評価",
+            "type": "article-journal",
+            "volume": "21"
+        },
+        {
+            "author": [
+                {
+                    "family": "小森",
+                    "given": "俊寛"
+                },
+                {
+                    "family": "上村",
+                    "given": "憲章"
+                }
+            ],
+            "container-title": "研究紀要",
+            "id": "komori_uemura_1996",
+            "issued": {
+                "date-parts": [
+                    [
+                        1996
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "京都市埋蔵文化財研究所",
+            "title": "京都の都市遺跡から出土する土器の編年的研究",
+            "type": "article-journal",
+            "volume": "3"
+        },
+        {
+            "abstract": "仏生寺城跡発掘調査報告 : 富山県舟橋村 富山県埋蔵文化財センター編集 舟橋村教育委員会, 2001.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        1,
+                        2
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "久保",
+                    "given": "尚文"
+                }
+            ],
+            "container-title": "仏生寺城跡発掘調査報告 : 富山県舟橋村",
+            "id": "kubo_2001",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "62-64",
+            "publisher": "舟橋村教育委員会",
+            "title": "高野荘と細川氏 「仏生寺城」細川氏系譜考",
+            "type": "chapter"
+        },
+        {
+            "DOI": "10.1016/0146-664X(82)90034-X",
+            "ISSN": "0146-664X",
+            "abstract": "A direct procedure for obtaining the Fourier coefficients of a chain-encoded contour is presented. Advantages of the procedure are that it does not require integration or the use of fast Fourier transform techniques, and that bounds on the accuracy of the image contour reconstruction are easy to specify. Elliptic properties of the Fourier coefficients are shown and used for a convenient and intuitively pleasing procedure of normalizing a Fourier contour representation. Extension of the contour representation to arbitrary objects at arbitrary aspect angle is discussed. The procedures have direct application to a variety of pattern recognition problems that involve analysis of well-defined image contours.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Kuhl",
+                    "given": "Frank P"
+                },
+                {
+                    "family": "Giardina",
+                    "given": "Charles R"
+                }
+            ],
+            "container-title": "Computer Graphics and Image Processing",
+            "id": "kuhlEllipticFourierFeatures1982",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1982,
+                        3
+                    ]
+                ]
+            },
+            "page": "236-258",
+            "title": "Elliptic Fourier features of a closed contour",
+            "type": "article-journal",
+            "volume": "18"
+        },
+        {
+            "abstract": "木舟城跡発掘調査報告 : 範囲確認調査報告 福岡町教育委員会編 福岡町教育委員会, 2002.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        10,
+                        16
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "栗山",
+                    "given": "雅夫"
+                }
+            ],
+            "container-title": "木舟城跡発掘調査報告 : 範囲確認調査報告",
+            "id": "kuriyama_2002",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "55-57",
+            "publisher": "福岡町教育委員会",
+            "title": "中世土師器内面の格子状布目痕跡について",
+            "type": "chapter"
+        },
+        {
+            "abstract": "黒橋貝塚 : 浜戸川中小河川改良事業に伴う埋蔵文化財の調査 熊本県教育委員会編 （熊本県文化財調査報告, 第166集） 熊本県教育委員会, 1998.3",
+            "author": [
+                {
+                    "literal": "熊本県教育委員会"
+                }
+            ],
+            "id": "kurobashi_1998",
+            "issued": {
+                "date-parts": [
+                    [
+                        1998
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "黒橋貝塚 : 浜戸川中小河川改良事業に伴う埋蔵文化財の調査",
+            "title-short": "黒橋貝塚",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "（財）京都市埋蔵文化財研究所"
+                }
+            ],
+            "collection-number": "2003-5",
+            "collection-title": "京都市埋蔵文化財研究所発掘調査概報",
+            "id": "KY_2003",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "京都",
+            "title": "平安京左京四条二坊十四町跡",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "（財）京都市埋蔵文化財研究所"
+                }
+            ],
+            "id": "KY_2004",
+            "issued": {
+                "date-parts": [
+                    [
+                        2004
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "京都",
+            "title": "史跡・名勝　嵐山",
+            "type": "book"
+        },
+        {
+            "container-title": "京都市内遺跡発掘調査報告平成23年度",
+            "editor": [
+                {
+                    "literal": "京都市文化市民局"
+                }
+            ],
+            "id": "KY_2012a",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "京都",
+            "title": "4　山科本願寺跡",
+            "type": "chapter"
+        },
+        {
+            "container-title": "昭和54年度京都市埋蔵文化財調査概要",
+            "editor": [
+                {
+                    "literal": "（財）京都市埋蔵文化財研究所"
+                }
+            ],
+            "id": "KY_2012b",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "55-66",
+            "publisher-place": "京都",
+            "title": "25　平安京左京六条二坊五町・猪熊殿跡・本圀寺跡",
+            "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "literal": "（公財）京都市埋蔵文化財研究所"
+                }
+            ],
+            "id": "KY_2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "京都",
+            "title": "平安京左京五条三坊十町跡・烏丸綾小路遺跡",
+            "type": "book"
+        },
+        {
+            "abstract": "北前船の研究 牧野隆信著 （叢書・歴史学研究） 法政大学出版局, 1989.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "牧野",
+                    "given": "隆信"
+                }
+            ],
+            "id": "makino_1989",
+            "issued": {
+                "date-parts": [
+                    [
+                        1989,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "法政大学出版局",
+            "title": "北前船の研究",
+            "type": "book"
+        },
+        {
+            "abstract": "This is the book site for “Archaeological Science with R”.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        20
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Marwick",
+                    "given": "Ben"
+                }
+            ],
+            "id": "Marwick_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        5
+                    ]
+                ]
+            },
+            "publisher": "https://benmarwick.github.io/aswr/",
+            "title": "Archaeological Science with R",
+            "type": ""
+        },
+        {
+            "ISSN": "0919-2573",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "松井",
+                    "given": "広信"
+                }
+            ],
+            "container-title": "金沢大学考古学紀要",
+            "id": "matsui_2013",
+            "issue": "34",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "27-52",
+            "publisher": "金沢大学人文学類考古学研究室",
+            "title": "四爪鉄錨の基礎的研究 : 船に関わるモノの型式学的考察",
+            "title-short": "四爪鉄錨の基礎的研究",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "松井",
+                    "given": "広信"
+                }
+            ],
+            "container-title": "中近世陶磁器の考古学",
+            "id": "matsui_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "37-54",
+            "publisher": "雄山閣",
+            "title": "中世土師器皿の楕円フーリエ解析",
+            "type": "article-journal",
+            "volume": "11"
+        },
+        {
+            "author": [
+                {
+                    "family": "松井",
+                    "given": "広信"
+                }
+            ],
+            "container-title": "富山史壇",
+            "id": "matsui_2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "76",
+            "publisher": "越中史壇会",
+            "title": "R言語を利用した京都系土師器皿の研究",
+            "type": "article-journal",
+            "volume": "194"
+        },
+        {
+            "ISSN": "0919-2573",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        8,
+                        16
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "松井",
+                    "given": "広信"
+                }
+            ],
+            "container-title": "金沢大学考古学紀要",
+            "id": "matsui_2022",
+            "issue": "43",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "9-22",
+            "publisher": "金沢大学人文学類考古学研究室",
+            "title": "富山県における京都系土師器皿の受容と展開：統計解析言語Rを利用した考古学的研究",
+            "type": "article-journal"
+        },
+        {
+            "ISBN": "978-4-7741-9853-8",
+            "abstract": "RStudioを使ってデータ分析を効率化しよう! RStudioはR言語のIDE(開発環境)です。 エディタ、コンソール、グラフなどを1つの画面内で確認できるほか、 データ分析プロジェクトをスムーズに進めるための機能が豊富に用意されているので、 RユーザにとってRStudioを利用したデータ分析はスタンダードになっています。 本書はRStudioの基本的な機能を解説したあとに、データ分析ワークフローを一通り解説していきます。 データの収集(2章)、データの整形(3章)、可視化(4章)、レポーティング(5章)など、 データ分析に欠かせないこれらの要素の基礎を押さえることができます。 また、本書はtidyverseパッケージを用いてこれらのデータ分析ワークフローを解説している側面を持ちます。 tidyverseの考えに触れ、モダンなデータ分析をはじめましょう。",
+            "author": [
+                {
+                    "family": "松村",
+                    "given": "優哉"
+                },
+                {
+                    "family": "湯谷",
+                    "given": "啓明"
+                },
+                {
+                    "family": "紀ノ定",
+                    "given": "保礼"
+                },
+                {
+                    "family": "前田",
+                    "given": "和寛"
+                }
+            ],
+            "id": "matsumura_yutani_2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        6
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "技術評論社",
+            "publisher-place": "東京",
+            "title": "RユーザのためのRStudio[実践]入門-tidyverseによるモダンな分析フローの世界-",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "宮田",
+                    "given": "進一"
+                }
+            ],
+            "container-title": "富山県上市町弓庄城跡第4次緊急発掘調査概要",
+            "id": "miyata_1984",
+            "issued": {
+                "date-parts": [
+                    [
+                        1984,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "24-25",
+            "publisher": "上市町教育委員会",
+            "title": "2. 土師質土器について",
+            "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "family": "宮田",
+                    "given": "進一"
+                }
+            ],
+            "container-title": "大境",
+            "id": "miyata_1988",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        1988,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "105-126",
+            "publisher": "富山考古学会",
+            "title": "越中瀬戸の窯資料(1)",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "宮田",
+                    "given": "進一"
+                }
+            ],
+            "container-title": "概説　中世の土器・陶磁器",
+            "editor": [
+                {
+                    "family": "中世土器研究会"
+                }
+            ],
+            "id": "miyata_1995",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "53-66",
+            "publisher": "真陽社",
+            "title": "北陸",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "宮田",
+                    "given": "進一"
+                }
+            ],
+            "container-title": "中・近世の北陸　考古学が語る社会史",
+            "id": "miyata_1997",
+            "issued": {
+                "date-parts": [
+                    [
+                        1997
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "358-363",
+            "publisher": "桂書房",
+            "title": "越中国における土師器の編年",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "宮田",
+                    "given": "進一"
+                }
+            ],
+            "container-title": "中近世の北陸：考古学が語る社会史",
+            "id": "miyata_1997b",
+            "issued": {
+                "date-parts": [
+                    [
+                        1997,
+                        10
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "369-380",
+            "publisher": "桂書房",
+            "title": "第4節 越中瀬戸の変遷と分布",
+            "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "family": "森",
+                    "given": "隆"
+                }
+            ],
+            "container-title": "富山考古学研究",
+            "id": "mori_2003",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003,
+                        6
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "71-110",
+            "publisher": "（財）富山県文化振興財団埋蔵文化財調査事務所",
+            "title": "富山県の中世土器（資料編）：県東部・富山平野を中心とした地域における",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "author": [
+                {
+                    "family": "森",
+                    "given": "隆"
+                }
+            ],
+            "container-title": "富山考古学研究",
+            "id": "mori_2005",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005,
+                        6
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "45-58",
+            "publisher": "（財）富山県文化振興財団埋蔵文化財調査事務所",
+            "title": "富山県の中世土器（資料編2）：道場I遺跡出土資料の検討と中名遺跡群出土資料の総括",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "author": [
+                {
+                    "family": "森島",
+                    "given": "康雄"
+                }
+            ],
+            "container-title": "北陸にみる近世成立期の土器・陶磁器様相ー城下町とその周辺遺跡の土師器皿（かわらけ）を中心にー",
+            "id": "morishima_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "1-14",
+            "publisher": "（公財）石川県埋蔵文化財センター",
+            "title": "京都",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.15024/00001201",
+            "abstract": "source:https://www.rekihaku.ac.jp/outline/publication/ronbun/ronbun5/index.html#no111",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        26
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "村木",
+                    "given": "二郎"
+                }
+            ],
+            "container-title": "国立歴史民俗博物館研究報告 = Bulletin of the National Museum of Japanese History",
+            "id": "muraki_2004a",
+            "issued": {
+                "date-parts": [
+                    [
+                        2004,
+                        2
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "147-159",
+            "publisher": "国立歴史民俗博物館",
+            "title": "石塔造立からみた惣墓の形成過程",
+            "type": "article-journal",
+            "volume": "111"
+        },
+        {
+            "DOI": "10.15024/00001216",
+            "abstract": "奈良県天理市中山念仏寺墓地には中世から現代に至る九千基を越える石塔が存在する。これらは、一六〜一七世紀は背光五輪塔、一八世紀は舟形、一九世紀は櫛形、二〇世紀は角柱形と、時代とともに主要形式が変化していく。なかでも二〇〇年にわたって立てられる背光五輪塔は、中世から近世への転換期に盛行し、惣墓（共同墓地）形成過程をたどる好資料である。そこで、本稿では背光五輪塔に着目し、まず三型式一八類に分類する。そしてそれを基礎に、他形式の舟形、櫛形との比較を通し、石塔の形式・型式が多様化する現象を捉える。次に、石塔の大きさ、刻まれた法名（戒名）の分析によって、石塔形式（型式）の違いは格差を表現しており、それは石塔の造立数が増加する一七世紀末から起こる現象であることを示す。すなわち、誰もが石塔を立てられなかった当初は、石塔を立てることによって格差を表現していた。しかし造立数が増えるにつれ、人とは違った石塔を立てることにより格差を表すようになるのである。庶民層の墓で捉えられたこの現象は、この時期に庶民層の階層分化が進んでいることを考古学的に示している。また、ひとつの石塔に書かれる法名の数（人数）を手がかりに、石塔が個人のものから複数人のものに変わっていくにつれ、背光五輪塔が消滅していくことを示す。石塔には宗教的側面と機能的側面がある。いずれも重要であるが、機能面により大きな要因があり、ある形式が消滅していく過程をたどる。 There are gravestones on more than 9,000 graves in the graveyard of the Nakayama Nembutsu temple in Tenri City, Nara Prefecture that date from the Medieval period through to the modern day. The main forms of the gravestones changed with the passing of time, as haiko-gorinto gravestones (gravestones depicting an image of five-tiered gravestones) were erected in the 16th and 17th centuries, boat-shaped gravestones in the 18th century, comb-shaped gravestones in the 19th century, and square pillar-shaped gravestones in the 20th century. Among these are haiko-gorinto gravestones that were built over a period of 200 years and were popular during the transitional period between the Medieval and Early Modern periods. These gravestones provide excellent source materials for tracing the process of the formation of communal graveyards. This paper focuses on the haiko-gorinto gravestones, firstly classifying them into three types and 18 different kinds. Then, on the basis of these classifications I discuss the phenomenon of the diversification in the form and types of gravestones by way of a comparison with the different boat-shaped and comb-shaped gravestones. Next, through an analysis of the size of the gravestones and the inscribed Buddhist names (posthumous Buddhist names) we learn that the differences in the shape (type) of gravestones demonstrate differences in social ranking, and that this phenomenon first occurred at the end of the 17th century when there was an increase in the number of gravestones erected. In other words, in the beginning when everyone was not able to erect a gravestone, the erection of a gravestone signified social ranking. However, as more and more gravestones were erected, people began to express their social ranking by erecting gravestones that were different from those of others. This phenomenon is seen in the graves of commoners, and shows in archeological terms the evolution of class differentiation that was occurring amongst commoners during this period. Further, the number of Buddhist names (people) inscribed on gravestones provides a useful clue as we learn that the more gravestones came to represent a number of people instead of an individual the more these haiko-gorinto gravestones began to disappear. Gravestones possess both a religious aspect and a functional aspect. While both are important, there are more contributing factors that affect the functional aspect, which helps trace the extinction of a particular form. source:https://www.rekihaku.ac.jp/outline/publication/ronbun/ronbun5/index.html#no112",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        26
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "村木",
+                    "given": "二郎"
+                }
+            ],
+            "container-title": "国立歴史民俗博物館研究報告 = Bulletin of the National Museum of Japanese History",
+            "id": "muraki_2004b",
+            "issued": {
+                "date-parts": [
+                    [
+                        2004,
+                        2
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "25-62",
+            "publisher": "国立歴史民俗博物館",
+            "title": "石塔の多様化と消長 : 天理市中山念仏寺墓地の背光五輪塔から（第一部 地域社会におけるカミ祭祀と葬墓制）",
+            "title-short": "石塔の多様化と消長",
+            "type": "article-journal",
+            "volume": "112"
+        },
+        {
+            "DOI": "10.14989/shirin_83_380",
+            "ISSN": "0386-9369",
+            "abstract": "中世の土師器は出土量の多さや特異な廃棄から非日常的な儀器とする見解が出され、一五～一六世紀に全国各地で出現する京都系土師器も、その延長で武家儀礼の器とみられてきた。これは必ずしも武家儀礼の実態をふまえた見解ではなく、本稿では京都系土師器の出土について、あらたに法量分化という視点から整理し、同時に式三献をはじめとする献盃儀礼の実態や普及を文献史料から検討した。京都で成立する献盃儀礼や酒宴は多法量の土師器皿を必要とし、一六世紀には地方にも同じスタイルの儀礼や酒宴が普及していた。一方、各地の京都系土師器は武家儀礼で必要とする法量を満たさない例が多く、土師器の多法量化が儀器としての用途を示す鍵になることを指摘するとともに、武家儀礼の導入が京都系土師器生産の前提ではなかったと論じた。儀器とは土師器の用途のあくまでもひとつでしかなく、土師器の文化的評価は用途論の深化を経たうえでおこなう必要がある。",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "中井",
+                    "given": "淳史"
+                }
+            ],
+            "container-title": "史林",
+            "id": "nakai_2000",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000,
+                        5
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "380-423",
+            "publisher": "史学研究会",
+            "title": "武家儀礼と土師器",
+            "type": "article-journal",
+            "volume": "83"
+        },
+        {
+            "author": [
+                {
+                    "family": "中井",
+                    "given": "淳史"
+                }
+            ],
+            "collection-title": "北陸中世考古学研究会資料集",
+            "container-title": "中世北陸のカワラケと輸入陶磁器・瀬戸美濃製品",
+            "id": "nakai_2006",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006,
+                        11
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "1-25",
+            "publisher": "北陸中世考古学研究会",
+            "title": "京都産土師器の編年と地方への展開",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "日本中世土師器の研究 中井淳史著 中央公論美術出版, 2011.1",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        10,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "中井",
+                    "given": "淳史"
+                }
+            ],
+            "id": "nakai_2011",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "中央公論美術出版",
+            "title": "日本中世土師器の研究",
+            "type": "book"
+        },
+        {
+            "abstract": "中世かわらけ物語 : もっとも身近な日用品の考古学 中井淳史著 （歴史文化ライブラリー, 540） 吉川弘文館, 2022.1",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        10,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "中井",
+                    "given": "淳史"
+                }
+            ],
+            "id": "nakai_2022",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "吉川弘文館",
+            "title": "中世かわらけ物語 : もっとも身近な日用品の考古学",
+            "title-short": "中世かわらけ物語",
+            "type": "book"
+        },
+        {
+            "editor": [
+                {
+                    "literal": "七尾市教育委員会"
+                }
+            ],
+            "id": "nanao_1992",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "石川",
+            "title": "七尾城跡シッケ地区遺跡発掘調査報告書",
+            "title-short": "七尾城跡シッケ地区",
+            "type": "book"
+        },
+        {
+            "ISSN": "2186-0556",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "納屋内",
+                    "given": "高史"
+                },
+                {
+                    "family": "町田",
+                    "given": "賢一"
+                }
+            ],
+            "container-title": "大境",
+            "id": "nayauchi_machida_2019",
+            "issue": "38",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "43-50",
+            "publisher": "富山考古学会",
+            "title": "北陸地方における縄文後晩期の動物遺存体",
+            "type": "article-journal"
+        },
+        {
+            "ISSN": "04541634",
+            "abstract": "月刊考古学ジャーナル = The archaeological journal ニュー・サイエンス社 [編] ニュー・サイエンス社, 1966. 10- No. 1 (1966. 10)-",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "collection-number": "623",
+            "editor": [
+                {
+                    "literal": "ニュー・サイエンス社"
+                }
+            ],
+            "id": "niyusaiensusheYueKanKaoGuXueziyanaruArchaeologicalJournal2012",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012,
+                        1
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "ニュー・サイエンス社",
+            "title": "月刊考古学ジャーナル = The archaeological journal",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "collection-number": "60",
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "id": "odake_2014_1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "小竹貝塚発掘調査報告（第1分冊：本文編）",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "collection-number": "60",
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "id": "odake_2014_2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "小竹貝塚発掘調査報告（第2分冊：自然科学分析編）",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "collection-number": "60",
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "id": "odake_2014_3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "小竹貝塚発掘調査報告（第3分冊：人骨分析編）",
+            "type": "book"
+        },
+        {
+            "ISSN": "02867400",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "岡田",
+                    "given": "保良"
+                },
+                {
+                    "family": "浜崎",
+                    "given": "一志"
+                }
+            ],
+            "container-title": "国立歴史民俗博物館研究報告",
+            "id": "okada_hamasaki_1985",
+            "issue": "8",
+            "issued": {
+                "date-parts": [
+                    [
+                        1985,
+                        12
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "25-113",
+            "publisher": "国立歴史民俗博物館",
+            "title": "山科寺内町の遺跡調査とその復原 (共同研究「中世の地方政治都市」)",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "情報学広場 情報処理学会電子図書館",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        3
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "奥村",
+                    "given": "晴彦"
+                }
+            ],
+            "container-title": "情報教育シンポジウム2013論文集",
+            "id": "okumura_2013",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        8
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "93-98",
+            "title": "「ネ申Excel」問題",
+            "type": "article-journal",
+            "volume": "2013"
+        },
+        {
+            "DOI": "10.2331/suisan.10.249",
+            "abstract": "Sparus swinhonis GÜNTHER is an important, commercial as well as game fish found in inshore regions all around Japan. In the present paper description is made about some ecological points of the fish, viz. breeding season, habits of the post-larval and immature fish, age and growth, protandric nature and sex-conversion with age.",
+            "author": [
+                {
+                    "family": "大島",
+                    "given": "泰雄"
+                }
+            ],
+            "container-title": "日本水産学会誌",
+            "id": "ooshima_1942",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        1942
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "249-255",
+            "publisher": "日本水産学会",
+            "title": "クロダヒの生態に關する二・三に就て",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
+            "abstract": "於下貝塚 : 発掘調査報告書 加藤晋平 [ほか] 編 麻生町教育委員会, 1992.3",
+            "author": [
+                {
+                    "literal": "麻生町教育委員会"
+                }
+            ],
+            "id": "oshita_1992",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "於下貝塚 : 発掘調査報告書",
+            "title-short": "於下貝塚",
+            "type": "book"
+        },
+        {
+            "DOI": "10.3154/jvs.14.71",
+            "author": [
+                {
+                    "family": "小澤",
+                    "given": "かおる"
+                }
+            ],
+            "container-title": "可視化情報学会誌",
+            "id": "ozawa_1994",
+            "issue": "53",
+            "issued": {
+                "date-parts": [
+                    [
+                        1994
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "71-73",
+            "title": "考古学における可視化",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "DOI": "10.1007/s00362-009-0224-x",
+            "abstract": "Traditionally, when applying the two-sample t test, some pre-testing occurs. That is, the theory-based assumptions of normal distributions as well as of homogeneity of the variances are often tested in applied sciences in advance of the tried-for t test. But this paper shows that such pre-testing leads to unknown final type-I- and type-II-risks if the respective statistical tests are performed using the same set of observations. In order to get an impression of the extension of the resulting misinterpreted risks, some theoretical deductions are given and, in particular, a systematic simulation study is done. As a result, we propose that it is preferable to apply no pre-tests for the t test and no t test at all, but instead to use the Welch-test as a standard test: its power comes close to that of the t test when the variances are homogeneous, and for unequal variances and skewness values $\\gamma$ 1 $<$ 3, it keeps the so called 20% robustness whereas the t test as well as Wilcoxon’s U test cannot be recommended for most cases. KeywordsPre-tests–Two-sample t test–Welch-test–Wilcoxon-U test",
+            "author": [
+                {
+                    "family": "Rasch",
+                    "given": "Dieter"
+                },
+                {
+                    "family": "Kubinger",
+                    "given": "Klaus"
+                },
+                {
+                    "family": "Moder",
+                    "given": "Karl"
+                }
+            ],
+            "container-title": "Stat. Pap.",
+            "id": "Rasch_et_al_2001",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011,
+                        2
+                    ]
+                ]
+            },
+            "page": "219-231",
+            "title": "The two-sample t test: Pre-testing its assumptions does not pay off",
+            "title-short": "The two-sample t test",
+            "type": "article-journal",
+            "volume": "52"
+        },
+        {
+            "author": [
+                {
+                    "literal": "R Core Team"
+                }
+            ],
+            "id": "rcoreteam_2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "publisher-place": "Vienna, Austria",
+            "title": "R: A Language and Environment for Statistical Computing",
+            "title-short": "R",
+            "type": ""
+        },
+        {
+            "author": [
+                {
+                    "literal": "R Core Team"
+                }
+            ],
+            "id": "rcoreteam_2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "publisher-place": "Vienna, Austria",
+            "title": "R: A Language and Environment for Statistical Computing",
+            "title-short": "R",
+            "type": ""
+        },
+        {
+            "abstract": "貿易陶磁研究 日本貿易陶磁研究会 [編] 日本貿易陶磁研究会, 1981-",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "collection-number": "23",
+            "editor": [
+                {
+                    "literal": "日本貿易陶磁研究会"
+                }
+            ],
+            "id": "ribenmaoyitaociyanjiuhuiMaoYiTaoCiYanJiu2003",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "日本貿易陶磁研究会",
+            "title": "貿易陶磁研究",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1042/CS20220287",
+            "ISSN": "0143-5221",
+            "abstract": "Recent work has raised awareness about the need to replace bar graphs of continuous data with informative graphs showing the data distribution. The impact of these efforts is not known. The present observational meta-research study examined how often scientists in different fields use various graph types, and assessed whether visualization practices have changed between 2010 and 2020. We developed and validated an automated screening tool, designed to identify bar graphs of counts or proportions, bar graphs of continuous data, bar graphs with dot plots, dot plots, box plots, violin plots, histograms, pie charts, and flow charts. Papers from 23 fields (approximately 1000 papers/field per year) were randomly selected from PubMed Central and screened (n=227998). F1 scores for different graphs ranged between 0.83 and 0.95 in the internal validation set. While the tool also performed well in external validation sets, F1 scores were lower for uncommon graphs. Bar graphs are more often used incorrectly to display continuous data than they are used correctly to display counts or proportions. The proportion of papers that use bar graphs of continuous data varies markedly across fields (range in 2020: 4–58%), with high rates in biochemistry and cell biology, complementary and alternative medicine, physiology, genetics, oncology and carcinogenesis, pharmacology, microbiology and immunology. Visualization practices have improved in some fields in recent years. Fewer than 25% of papers use flow charts, which provide information about attrition and the risk of bias. The present study highlights the need for continued interventions to improve visualization and identifies fields that would benefit most.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        26
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Riedel",
+                    "given": "Nico"
+                },
+                {
+                    "family": "Schulz",
+                    "given": "Robert"
+                },
+                {
+                    "family": "Kazezian",
+                    "given": "Vartan"
+                },
+                {
+                    "family": "Weissgerber",
+                    "given": "Tracey"
+                }
+            ],
+            "container-title": "Clinical Science",
+            "id": "Riedel_et_al_2022",
+            "issue": "15",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022,
+                        8
+                    ]
+                ]
+            },
+            "page": "1139-1156",
+            "title": "Replacing bar graphs of continuous data with more informative graphics: Are we making progress?",
+            "title-short": "Replacing bar graphs of continuous data with more informative graphics",
+            "type": "article-journal",
+            "volume": "136"
+        },
+        {
+            "author": [
+                {
+                    "family": "坂田",
+                    "given": "邦洋"
+                },
+                {
+                    "family": "野口",
+                    "given": "圭美"
+                },
+                {
+                    "family": "渡名喜",
+                    "given": "令子"
+                }
+            ],
+            "container-title": "別府大学紀要",
+            "id": "sakata_noguchi_1992",
+            "issue": "33",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "18-32",
+            "publisher": "別府大学会",
+            "title": "縄文時代の漁撈活動に関する研究-クロダイの体長組成-",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "富山県砺波市厳照寺遺跡緊急発掘調査概要 富山県教育委員会, 1977.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "神保",
+                    "given": "孝造"
+                },
+                {
+                    "family": "岡上",
+                    "given": "進一"
+                },
+                {
+                    "family": "松本",
+                    "given": "幸治"
+                }
+            ],
+            "editor": [
+                {
+                    "literal": "富山県教育委員会"
+                }
+            ],
+            "id": "shenbaoFuShanXianLiBoShiYanZhaoSiYiJiJinJiFaJueDiaoChaGaiYao1977",
+            "issued": {
+                "date-parts": [
+                    [
+                        1977
+                    ]
+                ]
+            },
+            "keyword": "縄文土器,縄文時代,考古学",
+            "language": "ja-JP",
+            "publisher": "富山県教育委員会",
+            "title": "富山県砺波市厳照寺遺跡緊急発掘調査概要",
+            "type": "book"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "editor": [
+                {
+                    "literal": "石川県埋蔵文化財センター"
+                }
+            ],
+            "id": "shichuanxianmaizangwenhuacaisentaBeiLunimiruJinShiChengLiQinoTuQiTaoCiQiYangXiangChengXiaTingtosonoZhouBianYiJinoTuShiQiMin2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "keyword": "中世,陶磁器",
+            "language": "ja-JP",
+            "title": "北陸にみる近世成立期の土器・陶磁器様相 : 城下町とその周辺遺跡の土師器皿 (かわらけ) を中心に",
+            "title-short": "北陸にみる近世成立期の土器・陶磁器様相",
+            "type": "book"
+        },
+        {
+            "abstract": "石川県埋蔵文化財情報 石川県埋蔵文化財センター編 石川県埋蔵文化財センター, 1999.3- 創刊号 第2号 第3号 第4号 第5号 第6号 第7号 第8号 第9号 第10号 第11号 第12号 第13号 第14号 第15号 第16号 第17号 第18号 第19号 第20号 第21号 第22号 第23号 第24号 第25号 第26号 第27号 第28号 第29号 第30号 第31号 第32号 第33号 第34号 第35号 第36号 第37号 第38号 第39号 第40号",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        14
+                    ]
+                ]
+            },
+            "collection-number": "39",
+            "editor": [
+                {
+                    "literal": "石川県埋蔵文化財センター"
+                }
+            ],
+            "id": "shichuanxianmaizangwenhuacaisentaShiChuanXianMaiZangWenHuaCaiQingBao1999",
+            "issued": {
+                "date-parts": [
+                    [
+                        1999
+                    ]
+                ]
+            },
+            "keyword": "考古学",
+            "language": "ja-JP",
+            "publisher": "石川県埋蔵文化財センター",
+            "title": "石川県埋蔵文化財情報",
+            "type": "book"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        1,
+                        2
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "富山市教育委員会埋蔵文化財センター"
+                }
+            ],
+            "id": "shinjo_2014",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "富山市新庄城跡発掘調査概報 : 新庄小学校体育館改築工事に伴う埋蔵文化財発掘調査概報",
+            "title-short": "富山市新庄城跡発掘調査概報",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1080/10618600.2017.1366914",
+            "ISSN": "1061-8600",
+            "abstract": "Recent developments in data-driven science have led researchers to integrate data from several sources, over diverse experimental procedures, or databases. This alone poses a major challenge in truthfully visualizing data, especially when the number of data points varies between classes. To aid the representation of datasets with differing sample size, we have developed a new type of plot overcoming limitations of current standard visualization charts. SinaPlot is inspired by the strip chart and the violin plot and operates by letting the normalized density of points restrict the jitter along the x-axis. The plot displays the same contour as a violin plot but resembles a simple strip chart for a small number of data points. By normalizing jitter over all classes, the plot provides a fair representation for comparison between classes with a varying number of samples. In this way, the plot conveys information of both the number of data points, the density distribution, outliers and data spread in a very simple, comprehensible, and condensed format. The package for producing the plots is available for R through the CRAN network using base graphics package and as geom for ggplot through ggforce. We also provide access to a web-server accepting excel sheets to produce the plots (http://servers.binf.ku.dk:8890/sinaplot/).",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        26
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Sidiropoulos",
+                    "given": "Nikos"
+                },
+                {
+                    "family": "Sohi",
+                    "given": "Sina Hadi"
+                },
+                {
+                    "family": "Pedersen",
+                    "given": "Thomas Lin"
+                },
+                {
+                    "family": "Porse",
+                    "given": "Bo Torben"
+                },
+                {
+                    "family": "Winther",
+                    "given": "Ole"
+                },
+                {
+                    "family": "Rapin",
+                    "given": "Nicolas"
+                },
+                {
+                    "family": "Bagger",
+                    "given": "Frederik Otzen"
+                }
+            ],
+            "container-title": "Journal of Computational and Graphical Statistics",
+            "id": "Sidiropoulos_et_al_2018",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        7
+                    ]
+                ]
+            },
+            "page": "673-676",
+            "publisher": "Taylor & Francis",
+            "title": "SinaPlot: An Enhanced Chart for Simple and Truthful Representation of Single Observations Over Multiple Classes",
+            "title-short": "SinaPlot",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "DOI": "10.18919/jkg.65.11_470",
+            "abstract": "現代社会を生きる我々は,知らないうちに無数の情報に巡りあう。データの持っている「質」も複雑なものになり,それらのデータ群から「意味」を見出すのは困難を極める。近年,「ビッグデータ」という言葉がメディアに取り上げられて久しいが,データの集合自体はとても「無機質」なものである。そこから意味を見つけ,正しい解釈を行い,有効活用したいものの,それは専門的知識を有する一握りの特権となっている。万人が平等に,データから意味を見出すには,旧来のグラフでは,表現に限界があるだろう。見たい尺度で,別視点での描画を行う操作性・機能性を保持したグラフに出会うことは少ない。膨大なデータ群が今後も増えていく状況の中で,インタラクションを伴う「データビジュアライゼーション」と呼ばれる可視化技法について,その意義や手法について解説したい。",
+            "author": [
+                {
+                    "family": "鈴木",
+                    "given": "雅彦"
+                },
+                {
+                    "family": "鈴村",
+                    "given": "嘉右"
+                }
+            ],
+            "container-title": "情報の科学と技術",
+            "id": "suzuki_suzumura_2015",
+            "issue": "11",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "470-475",
+            "title": "データ可視化の必要性と意義: データビジュアライゼーションとは($<$特集$>$情報をわかりやすくするデザイン)",
+            "title-short": "データ可視化の必要性と意義",
+            "type": "article-journal",
+            "volume": "65"
+        },
+        {
+            "abstract": "田柄貝塚 （宮城県文化財調査報告書 / 宮城県教育委員会 [編], 第111集） 宮城県教育委員会, 1986.3 1 遺構・土器編 2 土製品,石器・石製品編 3 骨角牙貝製品・自然遺物編",
+            "author": [
+                {
+                    "literal": "宮城県教育委員会"
+                }
+            ],
+            "id": "tagara_1986",
+            "issued": {
+                "date-parts": [
+                    [
+                        1986
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "田柄貝塚",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "高梨",
+                    "given": "清志"
+                }
+            ],
+            "container-title": "中世北陸のカワラケと輸入陶磁器・瀬戸美濃製品",
+            "id": "takanashi_2006",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006,
+                        11
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "130-141",
+            "publisher": "北陸中世考古学研究会",
+            "title": "富山県の様相",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "仏生寺城跡発掘調査報告 : 富山県舟橋村 富山県埋蔵文化財センター編集 舟橋村教育委員会, 2001.3",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        1,
+                        2
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "高岡",
+                    "given": "徹"
+                }
+            ],
+            "container-title": "仏生寺城跡発掘調査報告 : 富山県舟橋村",
+            "id": "takaoka_2001",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "65-70",
+            "publisher": "舟橋村教育委員会",
+            "title": "仏生寺城と竹内館 細川氏の本拠地をめぐって",
+            "type": "chapter"
+        },
+        {
+            "abstract": "遊楽・誰カ袖 武田恒夫 [ほか] 著 ; 第一出版センター編 （日本屏風絵集成, 第14巻 . 風俗画フウゾクガ） 講談社, 1977.9",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "武田",
+                    "given": "恒夫"
+                }
+            ],
+            "collection-number": "14",
+            "collection-title": "日本屏風絵集成",
+            "editor": [
+                {
+                    "literal": "第一出版センター"
+                }
+            ],
+            "id": "takeda_1977",
+            "issued": {
+                "date-parts": [
+                    [
+                        1977,
+                        9
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "講談社",
+            "title": "遊楽・誰カ袖",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "田村",
+                    "given": "善次郎"
+                }
+            ],
+            "container-title": "広島県史：民俗編",
+            "id": "tamura_1978",
+            "issued": {
+                "date-parts": [
+                    [
+                        1978
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "709-716",
+            "publisher": "広島県",
+            "title": "鞆の錨と釘",
+            "type": "chapter"
+        },
+        {
+            "ISBN": "978-4-326-24845-2",
+            "author": [
+                {
+                    "family": "野下",
+                    "given": "浩司"
+                },
+                {
+                    "family": "田村",
+                    "given": "光平"
+                }
+            ],
+            "container-title": "文化進化の考古学",
+            "id": "tamura_2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        8
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "177-216",
+            "publisher": "勁草書房",
+            "title": "補遺：幾何学的形態測定学とRを使った解析例",
+            "type": "chapter"
+        },
+        {
+            "abstract": "文化進化の数理 = Mathematics of cultural evolution 田村光平著 森北出版, 2020.4",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        1,
+                        9
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "田村",
+                    "given": "光平"
+                }
+            ],
+            "id": "tamura_2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        4
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "森北出版",
+            "title": "文化進化の数理",
+            "type": "book"
+        },
+        {
+            "ISBN": "978-4-326-24845-2",
+            "author": [
+                {
+                    "family": "田村",
+                    "given": "光平"
+                },
+                {
+                    "family": "有松",
+                    "given": "唯"
+                },
+                {
+                    "family": "山口",
+                    "given": "雄治"
+                },
+                {
+                    "family": "松本",
+                    "given": "直子"
+                }
+            ],
+            "container-title": "文化進化の考古学",
+            "id": "tamura_arimatsu_yamaguchi_matsumoto_2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        8
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "35-62",
+            "publisher": "勁草書房",
+            "title": "第2章：遠賀川式土器の楕円フーリエ解析",
+            "type": "chapter"
+        },
+        {
+            "DOI": "10.20848/kontyu.14.3_194",
+            "abstract": "近年の幾何学的形態測定学の発達によって,生物の形態的特徴を「シェイプ」と「サイズ」に明確に区分して解析できるようになり,多数の標識点間の相対的な位置関係の変異(歪み)も評価できるようになった.そのため,従来検出が難しかった微妙な形態の違いや部分的な形態の歪みなどを量的に検出する精度が飛躍的に向上した.ここでは利用頻度が高い 1)多変量形態測定学,2)標識点の配置に基づく形態測定学,3)輪郭記述法の特徴を大まかに解説し,特に利用価値が高いと考えられる昆虫およびクモ・ダニ類を材料とした近年の幾何学的な標識点測定法と輪郭記述法の研究例を総説した.",
+            "author": [
+                {
+                    "family": "立田",
+                    "given": "晴記"
+                },
+                {
+                    "family": "坂巻",
+                    "given": "祥孝"
+                }
+            ],
+            "container-title": "昆蟲．ニューシリーズ",
+            "id": "tatsuta_sakamaki_2011",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "194-205",
+            "title": "形態測定学で何ができるのか?: 昆虫学における事例",
+            "title-short": "形態測定学で何ができるのか?",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "author": [
+                {
+                    "family": "樋泉",
+                    "given": "岳二"
+                },
+                {
+                    "family": "西野",
+                    "given": "雅人"
+                }
+            ],
+            "container-title": "千葉県文化財センター研究紀要",
+            "id": "toizumi_1999",
+            "issued": {
+                "date-parts": [
+                    [
+                        1999,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "財団法人千葉県文化財センター",
+            "title": "千葉市矢作貝塚の動物遺存体分析",
+            "type": "article-journal",
+            "volume": "19"
+        },
+        {
+            "abstract": "藝備國郡志・三原めくり・鞆記・行水之記・草戸記・あくた川のまき・鞆浦志・備後古城記 得能正通編 （備後叢書, 第4巻） 備後郷土史会會, 1930",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        8
+                    ]
+                ]
+            },
+            "collection-title": "備後叢書",
+            "container-title": "藝備國郡志・三原めくり・鞆記・行水之記・草戸記・あくた川のまき・鞆浦志・備後古城記",
+            "editor": [
+                {
+                    "family": "得能",
+                    "given": "正通"
+                }
+            ],
+            "id": "tokunou_1930",
+            "issued": {
+                "date-parts": [
+                    [
+                        1930
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "備後郷土史会會",
+            "title": "あくた川のまき",
+            "type": "chapter",
+            "volume": "4"
+        },
+        {
+            "abstract": "本調査区は富山藩の重臣屋敷があった富山城三ノ丸南西部の調査である。 調査の結果、三ノ丸となる以前にも室町時代・戦国時代の遺構が広がっており、中世荘園「富山郷」の集落から富山城三ノ丸の近世城郭への変遷が明らかとなった。 　室町時代中期の区画溝は、『吉見詮頼寄進状』（応永5(1398)年）が記された時期と一致することから、中世荘園「富山郷」の遺構と考えられると同時に、富山郷にはN-10～12$^\\circ$-Eを主軸とする条里地割が施工されていたことが分かった。室町時代や戦国時代の溝・堀、重複する近世の区画溝、慶長期富山城外堀が富山郷の条里地割と同じ主軸方向を持つことから、条里地割が踏襲されていたと考えられる。 　調査区中央で16世紀前半の武家居館の堀を検出した。調査区南北端で中世富山城の堀であった可能性がある16世紀後半～17世紀初頭の堀を検出し、城の範囲が本調査区まで拡がっていたことが考えられる。また、居館や曲輪内部で行われた宴会の片付け痕跡と考えられる16世紀代のかわらけ廃棄土坑を複数検出した。 　江戸時代の廃棄土坑や井戸等からは大量の陶磁器類が出土しており、重臣屋敷での陶磁器の使用状況が分かる好資料と言える。 　多発する火事への対策として18世紀に構築された石組の水溜状遺構を検出するとともに、洪水による埋没と縮小再開削の変遷を確認した。また、調査区南東で江戸時代後期の絵図に描かれる馬場にあったと考えられる馬屋を検出した。 　調査区全体の出土遺物の観察結果は下記のとおりである。中世の遺構の主体を成すのは珠洲衰退後の16世紀であることから、中世を代表する調理具・貯蔵具である珠洲が極めて少なく、越前が多い。16世紀末の越中瀬戸窯の成立と流通を境に、土師器皿の生産が漸減し、越中瀬戸素焼皿が17世紀末～18世紀前半に向けて急増する。16世紀末～17世紀中頃に輸入され流通した、組成の中国漳州窯染付が一定量出土する。富山城下町遺跡と同様、18世紀前半には越中瀬戸・唐津等とともに、京・信楽系の供膳具が一定量搬入し、使用される。",
+            "author": [
+                {
+                    "literal": "富山市教育委員会埋蔵文化財センター"
+                }
+            ],
+            "collection-title": "富山市埋蔵文化財調査報告",
+            "id": "toyama_2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "富山",
+            "title": "富山城跡発掘調査報告書",
+            "type": "book",
+            "volume": "1"
+        },
+        {
+            "ISSN": "0003-4851",
+            "URL": "https://www.jstor.org/stable/2237638",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Tukey",
+                    "given": "John Wilder"
+                }
+            ],
+            "container-title": "The Annals of Mathematical Statistics",
+            "id": "tukey_1962",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1962
+                    ]
+                ]
+            },
+            "page": "1-67",
+            "publisher": "Institute of Mathematical Statistics",
+            "title": "The Future of Data Analysis",
+            "type": "article-journal",
+            "volume": "33"
+        },
+        {
+            "DOI": "10.4116/jaqua.44.297",
+            "author": [
+                {
+                    "family": "生形",
+                    "given": "貴男"
+                }
+            ],
+            "container-title": "第四紀研究",
+            "id": "ubukata_2005",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "297-313",
+            "title": "現代形態測定学: 化石,人骨,石器等のかたちの定量・比較ツール",
+            "title-short": "現代形態測定学",
+            "type": "article-journal",
+            "volume": "44"
+        },
+        {
+            "DOI": "10.14825/kaseki.89.0_39",
+            "author": [
+                {
+                    "family": "生形",
+                    "given": "貴男"
+                }
+            ],
+            "container-title": "化石",
+            "id": "ubukata_2011",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "39-54",
+            "title": "生物のかたちの測定と比較",
+            "type": "article-journal",
+            "volume": "89"
+        },
+        {
+            "author": [
+                {
+                    "literal": "（財）富山県文化振興財団埋蔵文化財調査事務所"
+                }
+            ],
+            "collection-title": "富山県文化振興財団埋蔵文化財発掘調査報告",
+            "id": "umegoma_1996",
+            "issued": {
+                "date-parts": [
+                    [
+                        1996,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher-place": "富山",
+            "title": "梅原胡摩堂遺跡発掘調査報告（遺物編）",
+            "type": "book",
+            "volume": "1"
+        },
+        {
+            "author": [
+                {
+                    "family": "海野",
+                    "given": "徹也"
+                }
+            ],
+            "collection-number": "033",
+            "collection-title": "ベルソーブックス",
+            "id": "umino_2010",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "publisher": "成山堂書店",
+            "title": "クロダイの生物学とチヌの釣魚学",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "宇野",
+                    "given": "隆夫"
+                }
+            ],
+            "container-title": "大境",
+            "id": "uno_1986",
+            "issue": "10",
+            "issued": {
+                "date-parts": [
+                    [
+                        1986
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "107-120",
+            "publisher": "富山考古学会",
+            "title": "越中弓庄城跡の土師器：中世の北陸と畿内",
+            "type": "article-journal"
+        },
+        {
+            "ISSN": "2186-0556",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "卜部",
+                    "given": "厚志"
+                },
+                {
+                    "family": "酒井",
+                    "given": "英男"
+                },
+                {
+                    "family": "麻柄",
+                    "given": "一志"
+                }
+            ],
+            "container-title": "大境",
+            "id": "urabe_sakai_magara_2017",
+            "issue": "36",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "31-42",
+            "publisher": "富山考古学会",
+            "title": "富山湾沿岸地域における潟湖の成立年代 : 貝塚および低湿地遺跡の成立に関して",
+            "title-short": "富山湾沿岸地域における潟湖の成立年代",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "内田",
+                    "given": "喜隆"
+                },
+                {
+                    "family": "木村",
+                    "given": "博"
+                },
+                {
+                    "family": "吉松",
+                    "given": "隆司"
+                },
+                {
+                    "family": "河村",
+                    "given": "和寛"
+                }
+            ],
+            "container-title": "平成16年度山口県水産研究センター事業報告",
+            "id": "utida_kimura_2007",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007,
+                        11
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "151-168",
+            "publisher": "山口県水産研究センター",
+            "title": "資源回復計画推進調査事業：(2)市場に水揚げされた主要魚種の体長等に関する調査",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "内田",
+                    "given": "喜隆"
+                },
+                {
+                    "family": "木村",
+                    "given": "博"
+                },
+                {
+                    "family": "村田",
+                    "given": "実"
+                },
+                {
+                    "family": "金井",
+                    "given": "大成"
+                },
+                {
+                    "family": "田原",
+                    "given": "栄一郎"
+                },
+                {
+                    "family": "松尾",
+                    "given": "圭司"
+                }
+            ],
+            "container-title": "平成20年度山口県水産研究センター事業報告",
+            "id": "utida_kimura_2009",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009,
+                        12
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "145-153",
+            "publisher": "山口県水産研究センター",
+            "title": "資源回復計画推進調査事業：(2)市場に水揚げされた主要魚種の体長等に関する調査",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "脇田",
+                    "given": "晴子"
+                }
+            ],
+            "container-title": "概説　中世の土器・陶磁器",
+            "id": "wakita_1995",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "553-574",
+            "publisher": "中世土器研究会",
+            "title": "中世土器の生産と流通",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "中国古船图谱 王冠倬编著 生活・讀書・新知三联书店, 2000.4",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "王",
+                    "given": "冠倬"
+                }
+            ],
+            "id": "wang_2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000,
+                        4
+                    ]
+                ]
+            },
+            "publisher": "生活・讀書・新知三联书店",
+            "title": "中国古船图谱",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1016/j.jasrep.2020.102554",
+            "ISSN": "2352-409X",
+            "abstract": "The emergence of ceramic specialization in past societies is often linked to shifts in the complexity of social structures, because standardized ceramic production can reflect craft specialization and the presence of elite control. Previous work on identifying specialization relies on typological or linear metric analysis. Here we demonstrate how to investigate ceramic standardization by analyzing outlines of ceramic vessels. Outline analysis is useful because, unlike more commonly-used landmark analysis methods, it can effectively quantify shape differences for objects that lack distinctive measurement points needed for landmark analysis. We demonstrate this method using pottery from Kiwulan, a large multi-component Iron Age site (CE 1350–1850) in northeastern Taiwan. To measure ceramic specialization, we quantified pottery standardization by analyzing shape variables with reproducible geometric morphometric methods. We computed coefficients of variation (CVs) for shape coefficients obtained by elliptical Fourier analysis to test for shape standardization. We found significant differences in pottery shape and shape standardization that indicate changes in pottery production resulting from contact with mainland Han Chinese groups in northeastern Taiwan. Our case study, which includes an openly available research compendium of R code, represents an innovative application of outline-based methods in geometric morphometry to answer the anthropological questions of craft specialization.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        11,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Wang",
+                    "given": "Li-Ying"
+                },
+                {
+                    "family": "Marwick",
+                    "given": "Ben"
+                }
+            ],
+            "container-title": "Journal of Archaeological Science: Reports",
+            "id": "Wang_Marwick_2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        10
+                    ]
+                ]
+            },
+            "page": "102554",
+            "title": "Standardization of ceramic shape: A case study of Iron Age pottery from northeastern Taiwan",
+            "title-short": "Standardization of ceramic shape",
+            "type": "article-journal",
+            "volume": "33"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        11,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Wang",
+                    "given": "Li-Ying"
+                },
+                {
+                    "family": "Marwick",
+                    "given": "Ben"
+                }
+            ],
+            "id": "Wang_Marwick_2020_2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "publisher": "https://doi.org/10.17605/OSF.IO/ABVGF",
+            "title": "Compendium of R code and data for Standardization of ceramic shape: A case study from the Iron Age pottery from northeastern Taiwan",
+            "title-short": "Compendium of R code and data for Standardization of ceramic shape",
+            "type": ""
+        },
+        {
+            "DOI": "10.1537/ase1911.74.19",
+            "abstract": "1. In the Jomon Period, Neolithic culture of Japan, 495 fish-hooks have been recovered from 77 sites, of which 430 are one-piece hooks, and 65 two-piece hooks. However, no composite hook has ever been found.2. One-piece hooks are classified into six types: (1) non-barbed; (2) out-barbed; (3) in-barbed; (4) both-barbed; (5) stem-barbed; (6) anker-type, and of these hooks non-barbed and out-barbed are most popular. In other words, it may well be said that these six types can be classified into two groups such as non-barbed (Type 1) and barbed (Type 2-6). In general, it can be said that the former, taking the form of medium size (3-5 cm.), has been found throughout the Jomon Period and widely distributed. The latter, however, has made a remarkable progress since the later phase of the Stage 3 (i, e. Jomon Period is divided into five stages), and includes many large-sized specimens beside the medium-sized ones. At the same time, it must be remembered that the increase of the absolute quantity has become more conspicuous, though its distribution is comparatively limited.3. Two-piece hooks are classified into six types (A-F). Unfortunately, we are obliged to make a study of mainly Types A, E and F because of the lack of the specimens of the other types. Type A found during the Stage 1 comprises chiefly the medium-sized two-piece hooks which are similar to the non-barbed type of one-piece hook in their size, and Type E and F consist of large- or remarkably large-sized specimens. Hence it can be said that Types E and F are a sort of form that promoted progressively the tendency to make larger fish-hooks like the barbed type of one-piece hook.4. A study of fish bones found in the shell mounds provides us with information that fish-hooks were mainly used for the capture of such fishes as Pagrosomus unicolor (QUOY & GAIMARD), Euthynnus pelamys (LINNÉ) and Thynnus thynnus (LINNE), though the last is rare. It seems safe to suppose that the fish-hooks of medium size might correspond to the use of the capture of Pagrosomus unicolor, and those of large size to Thynnus thynnus: in particular the latter seems to have been bartered as a major materials.5. It may be explained that the phenomenon that fishery by angling, which had been developed since the later phase of the Stage 3, was more positively selecting fishing places in the Stage 5 indicates the appearance or development of a group of houses specializing in the fishery.6. 96.6 per cent of fish-hooks are made of deer antler, and the Types E and F of two-piece hook are of ideal perfection of technical development which has succeded in meeting the demand of mass production of the large-sized fish-hooks within the restriction of the material-antler. However, this restriction of the material seems to have been dissolved by the diffusion of Yayoi culture in the succeeding period.7. Such a technical development was made along the Pacific coast of northeast Honshu, where the sign of this advance had been recognized in the later phase of the Stage 3, and especially in this coast the Bay of Sendai must have played a leading part in making a remarkable progress.8. From the extensive point of view, the sites containing the fish-hooks are concentrated along the Pacific coast of central and northeast Honshu, and are very rare in the prefecture bordering the Japan Sea and in southern Honshu and Hokkaido. It is noteworthy that the areas of heaviest concentration of the sites from which the fish-hooks have been recovered corresponds to the areas where the Jomon culture most flourished.",
+            "author": [
+                {
+                    "family": "Watanabe",
+                    "given": "Makoto"
+                }
+            ],
+            "container-title": "Journal of the Anthropological Society of Nippon",
+            "id": "watanabeStudyFishhookJomon1966",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1966
+                    ]
+                ]
+            },
+            "page": "19-46",
+            "title": "A Study of Fish-hook in the Jomon Culture",
+            "type": "article-journal",
+            "volume": "74"
+        },
+        {
+            "DOI": "10.18637/jss.v059.i10",
+            "ISSN": "1548-7660",
+            "abstract": "A huge amount of effort is spent cleaning data to get it ready for analysis, but there has been little research on how to make data cleaning as easy and effective as possible. This paper tackles a small, but important, component of data cleaning: data tidying. Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets. This structure also makes it easier to develop tidy tools for data analysis, tools that both input and output tidy datasets. The advantages of a consistent data structure and matching tools are demonstrated with a case study free from mundane data manipulation chores.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        4
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "wickham_2014",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        9
+                    ]
+                ]
+            },
+            "page": "1-23",
+            "title": "Tidy Data",
+            "type": "article-journal",
+            "volume": "59"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        4
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Navarro",
+                    "given": "Danielle"
+                },
+                {
+                    "family": "Pedersen",
+                    "given": "Thomas Lin"
+                }
+            ],
+            "id": "wickham_2014",
+            "publisher": "https://ggplot2-book.org",
+            "title": "Ggplot2: Elegant Graphics for Data Analysis (3e)",
+            "title-short": "Ggplot2",
+            "type": ""
+        },
+        {
+            "DOI": "10.1007/978-3-319-24277-4",
+            "ISBN": "978-3-319-24277-4",
+            "abstract": "This new edition to the classic book by ggplot2 creator Hadley Wickham highlights compatibility with knitr and RStudio. ggplot2 is a data visualization package for R that helps users create data graphics, including those that are multi-layered, with ease. With ggplot2, it’s easy to: - produce handsome, publication-quality plots with automatic legends created from the plot specification - superimpose multiple layers (points, lines, maps, tiles, box plots) from different data sources with automatically adjusted common scales - add customizable smoothers that use powerful modeling capabilities of R, such as loess, linear models, generalized additive models, and robust regression - save any ggplot2 plot (or part thereof) for later modification or reuse - create custom themes that capture in-house or journal style requirements and that can easily be applied to multiple plots - approach a graph from a visual perspective, thinking about how each component of the data is represented on the final plot This book will be useful to everyone who has struggled with displaying data in an informative and attractive way. Some basic knowledge of R is necessary (e.g., importing data into R). ggplot2 is a mini-language specifically tailored for producing graphics, and you’ll learn everything you need in the book. After reading this book you’ll be able to produce graphics customized precisely for your problems, and you’ll find it easy to get graphics out of your head and on to the screen or page. New to this edition:$<$ - Brings the book up-to-date with ggplot2 1.0, including major updates to the theme system - New scales, stats and geoms added throughout - Additional practice exercises - A revised introduction that focuses on ggplot() instead of qplot() - Updated chapters on data and modeling using tidyr, dplyr and broom",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "collection-title": "Use R!",
+            "edition": "2nd ed. 2016",
+            "id": "wickham_2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "publisher": "Springer International Publishing : Imprint: Springer",
+            "publisher-place": "Cham",
+            "title": "Ggplot2: Elegant Graphics for Data Analysis",
+            "title-short": "Ggplot2",
+            "type": "book"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        4
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                }
+            ],
+            "id": "wickham_2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        1
+                    ]
+                ]
+            },
+            "publisher": "https://r4ds.had.co.nz/",
+            "title": "R for Data Science",
+            "type": ""
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        5,
+                        4
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Çetinkaya-Rundel",
+                    "given": "Mine"
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                }
+            ],
+            "id": "wickham_2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023,
+                        7
+                    ]
+                ]
+            },
+            "publisher": "https://r4ds.hadley.nz/",
+            "title": "R for Data Science (2e)",
+            "type": ""
+        },
+        {
+            "ISBN": "978-1-0981-3494-5",
+            "abstract": "Turn your R code into packages that others can easily install and use. With this fully updated edition, developers and data scientists will learn how to bundle reusable R functions, sample data, and documentation together by applying the package development philosophy used by the team that maintains the \"tidyverse\" suite of packages. In the process, you’ll learn how to automate common development tasks using a set of R packages, including devtools, usethis, testthat, and roxygen2.Authors Hadley Wickham and Jennifer Bryan from Posit (formerly known as RStudio) help you create packages quickly, then teach you how to get better over time. You’ll be able to focus on what you want your package to do as you progressively develop greater mastery of the structure of a package.With this book, you will:Learn the key components of an R package, including code, documentation, and testsStreamline your development process with devtools and the RStudio IDEGet tips on effective habits such as organizing functions into filesGet caught up on important new features in the devtools ecosystemLearn about the art and science of unit testing, using features in the third edition of testthatTurn your existing documentation into a beautiful and user friendly website with pkgdownGain an appreciation of the benefits of modern code hosting platforms, such as GitHub",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Bryan",
+                    "given": "Jenny"
+                }
+            ],
+            "edition": "第2版",
+            "id": "wickham_and_bryan_2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023,
+                        7
+                    ]
+                ]
+            },
+            "publisher": "O’Reilly Media",
+            "title": "R Packages: Organize, Test, Document, and Share Your Code",
+            "title-short": "R Packages",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1080/00031305.1999.10474474",
+            "abstract": "Dot plots represent individual observations in a batch of data with symbols, usually circular dots. They have been used for more than 100 years to depict distributions in detail. Hand-drawn examples show their authors’ efforts to arrange symbols so that they are as near as possible to their proper locations on a scale without overlapping enough to obscure each other. Recent computer programs that attempt to reproduce these historical plots have unfortunately resorted to simple histogram binning instead of using methods that follow the rules for the hand-drawn examples. This article introduces an algorithm that more accurately represents the dot plots cited in the literature.",
+            "author": [
+                {
+                    "family": "Wilkinson",
+                    "given": "Leland"
+                }
+            ],
+            "container-title": "American Statistician",
+            "id": "wilkinson_1999",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1999,
+                        8
+                    ]
+                ]
+            },
+            "page": "276-281",
+            "title": "Dot plots",
+            "type": "article-journal",
+            "volume": "53"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        3,
+                        20
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "中国四国農政局統計部"
+                }
+            ],
+            "id": "yamaguchitoukei_2012",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "title": "山口農林水産統計年報(平成22〜23年)",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "横田",
+                    "given": "洋三"
+                }
+            ],
+            "container-title": "紀要",
+            "id": "yokota_1988",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1988,
+                        3
+                    ]
+                ]
+            },
+            "language": "ja-JP",
+            "page": "77-85",
+            "publisher": "（財）滋賀県文化財保護協会",
+            "title": "中世土師器皿と生産地",
+            "type": "article-journal"
+        },
+        {
+            "abstract": "富山史壇 越中史壇会編 国書刊行会, 1990.9 : [セット] 第1巻 第2巻 第3巻 第4巻 第5巻 第6巻 第7巻 第8巻 第9巻 第10巻",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "collection-number": "194",
+            "editor": [
+                {
+                    "literal": "越中史壇会"
+                }
+            ],
+            "id": "yuezhongshitanhuiFuShanShiTan2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        3
+                    ]
+                ]
+            },
+            "keyword": "文献史学,考古学",
+            "language": "ja-JP",
+            "publisher": "国書刊行会",
+            "title": "富山史壇",
+            "type": "book"
+        },
+        {
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "editor": [
+                {
+                    "literal": "中世土器研究会"
+                }
+            ],
+            "id": "zhongshituqiyanjiuhuiGaiShuoZhongShinoTuQiTaoCiQi1995",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995,
+                        12
+                    ]
+                ]
+            },
+            "keyword": "中世,考古学,陶磁器",
+            "language": "ja-JP",
+            "publisher": "真陽社",
+            "title": "概説中世の土器・陶磁器",
+            "type": "book"
+        },
+        {
+            "abstract": "中近世陶磁器の考古学 佐々木達夫編 ; 佐々木達夫 [ほか執筆] 雄山閣, 2015.11- 第1巻 第2巻 第3巻 第4巻 第5巻 第6巻 第7巻 第8巻 第9巻 第10巻 第11巻",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2022,
+                        1,
+                        13
+                    ]
+                ]
+            },
+            "collection-number": "11",
+            "editor": [
+                {
+                    "family": "佐々木",
+                    "given": "達夫"
+                }
+            ],
+            "id": "zuomuZhongJinShiTaoCiQinoKaoGuXue2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        10
+                    ]
+                ]
+            },
+            "keyword": "中世,考古学,近世,陶磁器",
+            "language": "ja-JP",
+            "publisher": "雄山閣",
+            "title": "中近世陶磁器の考古学",
+            "type": "book"
+        }
+    ],
+    "project_biblios": [
+        "./analysis/templates/mylib.bib"
+    ]
+}

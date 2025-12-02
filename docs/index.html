@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ｒ言語による京都系土師器皿研究</title>
+  <meta name="description" content="Ｒ言語による京都系土師器皿研究" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Ｒ言語による京都系土師器皿研究" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ｒ言語による京都系土師器皿研究" />
+  
+  
+  
+
+<meta name="author" content="松井　広信" />
+
+
+<meta name="date" content="2025-12-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="r言語による京都系土師器皿研究.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><i class="fa fa-check"></i><b>1</b> はじめに</a></li>
+<li class="chapter" data-level="2" data-path="index.html"><a href="#r%E8%A8%80%E8%AA%9E%E3%81%AB%E3%82%88%E3%82%8B%E4%BA%AC%E9%83%BD%E7%B3%BB%E5%9C%9F%E5%B8%AB%E5%99%A8%E7%9A%BF%E7%A0%94%E7%A9%B6"><i class="fa fa-check"></i><b>2</b> R言語による京都系土師器皿研究</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="index.html"><a href="#%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E5%BD%A2%E6%85%8B%E6%B8%AC%E5%AE%9A%E5%AD%A6"><i class="fa fa-check"></i><b>2.1</b> 幾何学的形態測定学</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="index.html"><a href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><i class="fa fa-check"></i><b>2.1.1</b> 主成分分析</a></li>
+<li class="chapter" data-level="2.1.2" data-path="index.html"><a href="#%E5%B9%B3%E5%9D%87%E7%9A%84%E3%81%AA%E5%BD%A2"><i class="fa fa-check"></i><b>2.1.2</b> 平均的な形</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="index.html"><a href="#%E5%8F%A3%E5%BE%84%E5%88%86%E5%B8%83"><i class="fa fa-check"></i><b>2.2</b> 口径分布</a></li>
+<li class="chapter" data-level="2.3" data-path="index.html"><a href="#%E5%AE%9A%E6%80%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96"><i class="fa fa-check"></i><b>2.3</b> 定性データの可視化</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="index.html"><a href="#%E8%80%83%E5%AF%9F"><i class="fa fa-check"></i><b>3</b> 考察</a></li>
+<li class="chapter" data-level="4" data-path="index.html"><a href="#%E7%B5%90%E8%AB%96"><i class="fa fa-check"></i><b>4</b> 結論</a></li>
+<li class="chapter" data-level="5" data-path="index.html"><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><i class="fa fa-check"></i><b>5</b> 参考文献</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ｒ言語による京都系土師器皿研究</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Ｒ言語による京都系土師器皿研究</h1>
+<p class="author"><em>松井　広信</em></p>
+<p class="date"><em>2025-12-07</em></p>
+</div>
+<div id="はじめに" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> はじめに<a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Rは統計解析と可視化に広く利用されるオープンソースのプログラミング言語および環境であり、科学的再現性の確保に大きく寄与している。本稿では、このRを用いて京都系土師器皿の分析事例を紹介する。</p>
+<p>対象とする富山の中世土師器皿は、高梨<span class="citation">（2006）</span>、越前・高梨<span class="citation">（2007）</span>により型式が整理されている。本稿では、石名田木舟遺跡B2・C地区<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>出土資料を新たに「TK」として設定した（表<a href="index.html#fig:type2">1.1</a>）。これらの型式は、調整によって判別することが可能で、その対応関係は表<a href="index.html#tab:type-smooth">1.1</a>に示す。このうちRH・TI・TJが京都の影響を受けた在地型式として理解されるが（広義の京都系土師器皿）、本稿では岩瀬<span class="citation">（2019）</span>の石川県における定義<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>を参考に、TIのみを京都系土師器皿として扱う。</p>
+<p>比較資料として用いる京都の土師器皿については、京都系土師器皿のモデルと考えられるS系列（S・Sb）<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>のみを対象とする。資料の年代観は基本的に平尾<span class="citation">（2019）</span>に準拠するが、京都9B
+段階には1447年の被災資料とされる史跡・名勝嵐山土壙170を追加している<span class="citation">（森島2019）</span>。</p>
+<p>なお、分析は既発表の研究<span class="citation">（松井2019・ 2022）</span>を基礎とし、一部データを追加した。使用したコードは筆者のGitHubに公開予定である。対象遺跡は表<a href="index.html#tab:site-list">1.2</a>に示した。</p>
+<div class="figure"><span style="display:block;" id="fig:type2"></span>
+<img src="analysis/figures_drafts/tab1_type.png" alt="富山県の土師器皿の型式分類（越前・高梨2007にTKを追加）" width="100%" />
+<p class="caption">
+Figure 1.1: 富山県の土師器皿の型式分類（越前・高梨2007にTKを追加）
+</p>
+</div>
+<div class="tabwid"><style>.cl-4fe6814c{}.cl-4fe37be6{font-family:'HiraginoSans-W3';font-size:10pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4fe37bf0{font-family:'HiraginoSans-W3';font-size:8pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4fe37bf1{font-family:'HiraginoSans-W3';font-size:8pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4fe4c0f0{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4fe4c0f1{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1.2;background-color:transparent;}.cl-4fe4c0fa{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1.2;background-color:transparent;}.cl-4fe4cd70{width:0.48in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd7a{width:1.189in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd7b{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd7c{width:3.443in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd7d{width:0.48in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd84{width:1.189in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd85{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd8e{width:3.443in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd8f{width:0.48in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd90{width:1.189in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd91{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd98{width:3.443in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd99{width:0.48in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cd9a{width:1.189in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cda2{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cda3{width:3.443in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cda4{width:0.48in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cda5{width:1.189in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdac{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdad{width:3.443in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdae{width:0.48in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdaf{width:1.189in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdb0{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdb6{width:3.443in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdb7{width:0.48in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdb8{width:1.189in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdb9{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4fe4cdc0{width:3.443in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-4fe6814c'>
+<caption style="display:table-caption;"><span id="tab:type-smooth">Table 1.1: </span><span>型式と主な出土地、調整の関係表</span></caption>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-4fe4cd70"><p class="cl-4fe4c0f0"><span class="cl-4fe37be6">型式</span></p></th><th class="cl-4fe4cd7a"><p class="cl-4fe4c0f0"><span class="cl-4fe37be6">主な出土地</span></p></th><th class="cl-4fe4cd7b"><p class="cl-4fe4c0f0"><span class="cl-4fe37be6">サイズ</span></p></th><th class="cl-4fe4cd7c"><p class="cl-4fe4c0f0"><span class="cl-4fe37be6">調整</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td  rowspan="6"class="cl-4fe4cd7d"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf0">TI</span></p></td><td  rowspan="2"class="cl-4fe4cd84"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">石名田木舟遺跡</span><br><span class="cl-4fe37bf1">F3-SD7003</span></p></td><td class="cl-4fe4cd85"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">小型品</span></p></td><td class="cl-4fe4cd8e"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">体部：の字ナデ、見込：指ナデ、口縁部：横ナデ</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4fe4cd91"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">中大型品</span></p></td><td class="cl-4fe4cd98"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">見込：一方向ナデ、体部：２字ナデ、口縁部：横ナデ</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="2"class="cl-4fe4cd90"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">石名田木舟遺跡</span><br><span class="cl-4fe37bf1">F3-SD7030</span></p></td><td class="cl-4fe4cd91"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">小型品</span></p></td><td class="cl-4fe4cd98"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">体部：２字ナデ、見込：指ナデ、口縁部：横ナデ</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4fe4cd91"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">中大型品</span></p></td><td class="cl-4fe4cd98"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">見込：一方向ナデ、体部：２字ナデ、口縁部：横ナデ</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="2"class="cl-4fe4cd9a"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">富山城跡</span><br><span class="cl-4fe37bf1">RS2-SK705・</span><br><span class="cl-4fe37bf1">RS3-SD54</span></p></td><td class="cl-4fe4cda2"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">小型品</span></p></td><td class="cl-4fe4cda3"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">体部：の字ナデ、口縁部：横ナデ　*見込：無調整</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4fe4cda2"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">中大型品</span></p></td><td class="cl-4fe4cda3"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">体部：２字ナデ、口縁部：横ナデ　*見込：無調整</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="4"class="cl-4fe4cda4"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf0">TJ</span></p></td><td  rowspan="2"class="cl-4fe4cda5"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">仏生寺城跡</span></p></td><td class="cl-4fe4cdac"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">小型品</span></p></td><td class="cl-4fe4cdad"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">見込：一方向ナデ、体部・口縁部：の字ナデ</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4fe4cdb0"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">中大型品</span></p></td><td class="cl-4fe4cdb6"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">見込・体部：一方向ナデ（斜方向ナデが先行する場合もある）、</span><br><span class="cl-4fe37bf1">口縁部：の字ナデ</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="2"class="cl-4fe4cda5"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">新庄城跡</span></p></td><td class="cl-4fe4cdac"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">小型品</span></p></td><td class="cl-4fe4cdad"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">不明</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4fe4cdac"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">中大型品</span></p></td><td class="cl-4fe4cdad"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">見込：一方向ナデ（狭）、（体部：横ナデ）、口縁部：の字ナデ</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="2"class="cl-4fe4cdb7"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf0">TK</span></p></td><td  rowspan="2"class="cl-4fe4cdb8"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">石名田木舟遺跡</span><br><span class="cl-4fe37bf1">B2・C地区</span></p></td><td class="cl-4fe4cdb9"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">小型品</span></p></td><td class="cl-4fe4cdc0"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">見込：体部：Ｄ字ナデ、見込：指ナデ、口縁部：横ナデ　*布目圧痕あり</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4fe4cdb9"><p class="cl-4fe4c0f1"><span class="cl-4fe37bf1">中大型品</span></p></td><td class="cl-4fe4cdc0"><p class="cl-4fe4c0fa"><span class="cl-4fe37bf1">見込：一方向ナデ、体部：Ｄ字ナデ、口縁部：横ナデ　*布目圧痕あり</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-4ff485ee{}.cl-4ff11206{font-family:'HiraginoSans-W3';font-size:10pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4ff11207{font-family:'HiraginoSans-W3';font-size:8pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4ff2c754{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4ff2c755{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1.2;background-color:transparent;}.cl-4ff2c75e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1.2;background-color:transparent;}.cl-4ff2d276{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d280{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d281{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d282{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d283{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d284{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d28a{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d28b{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d28c{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d28d{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d28e{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d28f{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d294{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d295{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d296{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d297{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d298{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d29e{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d29f{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2a0{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2a1{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2a2{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2a3{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2a8{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2a9{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2aa{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2ab{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2ac{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2b2{width:0.673in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2b3{width:2.415in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2b4{width:1.092in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4ff2d2b5{width:2.054in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0.28pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-4ff485ee'>
+<caption style="display:table-caption;"><span id="tab:site-list">Table 1.2: </span><span>分析対象とした遺跡の一覧表</span></caption>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-4ff2d276"><p class="cl-4ff2c754"><span class="cl-4ff11206">所在地</span></p></th><th class="cl-4ff2d280"><p class="cl-4ff2c754"><span class="cl-4ff11206">遺跡</span></p></th><th class="cl-4ff2d281"><p class="cl-4ff2c754"><span class="cl-4ff11206">遺構</span></p></th><th class="cl-4ff2d282"><p class="cl-4ff2c754"><span class="cl-4ff11206">時期</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td  rowspan="3"class="cl-4ff2d283"><p class="cl-4ff2c755"><span class="cl-4ff11207">高岡市</span><br><span class="cl-4ff11207">小矢部市</span></p></td><td  rowspan="3"class="cl-4ff2d284"><p class="cl-4ff2c75e"><span class="cl-4ff11207">石名田木舟遺跡</span></p></td><td class="cl-4ff2d28a"><p class="cl-4ff2c755"><span class="cl-4ff11207">F3-SD7003</span></p></td><td class="cl-4ff2d28b"><p class="cl-4ff2c75e"><span class="cl-4ff11207">15C後半（SD7030より新しい）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d28e"><p class="cl-4ff2c755"><span class="cl-4ff11207">F3-SD7030</span></p></td><td class="cl-4ff2d28f"><p class="cl-4ff2c75e"><span class="cl-4ff11207">15C後半（1488年銘木簡）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d28e"><p class="cl-4ff2c755"><span class="cl-4ff11207">B2・C地区</span></p></td><td class="cl-4ff2d28f"><p class="cl-4ff2c75e"><span class="cl-4ff11207">16世紀中頃〜後半（1583年銘鰐口）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="2"class="cl-4ff2d294"><p class="cl-4ff2c755"><span class="cl-4ff11207">富山市</span></p></td><td  rowspan="2"class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">富山城跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">RS2-SK705</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">16C前半（松井2019）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">RS3-SD54</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">16C中頃（松井2019）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="14"class="cl-4ff2d294"><p class="cl-4ff2c755"><span class="cl-4ff11207">京都市</span></p></td><td class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京三条四坊七町跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK415</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都9C（15C後）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="3"class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京四条二坊十四町跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SE0922</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都9C（15C後）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK2185</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都10A（16C前）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK0366</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都9B（15C中）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京四条三坊九町跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK144B</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都10A（16C前）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  rowspan="2"class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京四条三坊十二町跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK145</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都9B（15C中）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK769</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都9B（15C中）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d29e"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京四条三坊十三町跡</span></p></td><td class="cl-4ff2d29f"><p class="cl-4ff2c755"><span class="cl-4ff11207">溝5下層</span></p></td><td class="cl-4ff2d2a0"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都10B（16C中）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京五条三坊六町跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK499</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都10A（16C前）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京五条三坊九町跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SK8-18</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都10B（16C中）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d2a2"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京五条三坊十町跡</span></p></td><td class="cl-4ff2d2a3"><p class="cl-4ff2c755"><span class="cl-4ff11207">土坑170</span></p></td><td class="cl-4ff2d2a8"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都9C（1493年頃）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d295"><p class="cl-4ff2c75e"><span class="cl-4ff11207">平安京左京六条二坊五町跡・猪熊殿跡・本圀寺跡</span></p></td><td class="cl-4ff2d296"><p class="cl-4ff2c755"><span class="cl-4ff11207">SD166上層</span></p></td><td class="cl-4ff2d297"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都10B（1536年頃）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d2aa"><p class="cl-4ff2c75e"><span class="cl-4ff11207">史跡・名勝嵐山</span></p></td><td class="cl-4ff2d2ab"><p class="cl-4ff2c755"><span class="cl-4ff11207">土壙170</span></p></td><td class="cl-4ff2d2ac"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都9B（1447年頃）</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4ff2d2b3"><p class="cl-4ff2c75e"><span class="cl-4ff11207">山科本願寺跡</span></p></td><td class="cl-4ff2d2b4"><p class="cl-4ff2c755"><span class="cl-4ff11207">土坑2134</span></p></td><td class="cl-4ff2d2b5"><p class="cl-4ff2c75e"><span class="cl-4ff11207">京都10A（1532年頃）</span></p></td></tr></tbody></table></div>
+
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>木舟城跡の城下町遺跡であり、天正13年（1586）を上限とする。<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>岩瀬は京都系土師器皿の特徴を4点提示している。①体部は緩やかに開き、口縁端部をつまみ上げる、または端部内面にヨコナデによる面を形成する。外面は口縁部付近のみをヨコナデする。②内面調整の結果、内底面に凸圏線や凹線が観察される個体がある。内面調整は小型品に「の」字状ナデ、中型品以上に「2」字状ナデを施すものがある。③小・中・大・特大の法量がみられる。小皿にはヘソ皿を含む。④模倣が形骸化したものがみられる。<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>形が明らかに異なるヘソ皿（Sh）は除外した。<a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="r言語による京都系土師器皿研究.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

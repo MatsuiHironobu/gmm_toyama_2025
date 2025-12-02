@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 R言語による京都系土師器皿研究 | Ｒ言語による京都系土師器皿研究</title>
+  <meta name="description" content="2 R言語による京都系土師器皿研究 | Ｒ言語による京都系土師器皿研究" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 R言語による京都系土師器皿研究 | Ｒ言語による京都系土師器皿研究" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 R言語による京都系土師器皿研究 | Ｒ言語による京都系土師器皿研究" />
+  
+  
+  
+
+<meta name="author" content="松井　広信" />
+
+
+<meta name="date" content="2025-12-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="考察.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="analysis.html"><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><i class="fa fa-check"></i><b>1</b> はじめに</a></li>
+<li class="chapter" data-level="2" data-path="analysis.html"><a href="#r%E8%A8%80%E8%AA%9E%E3%81%AB%E3%82%88%E3%82%8B%E4%BA%AC%E9%83%BD%E7%B3%BB%E5%9C%9F%E5%B8%AB%E5%99%A8%E7%9A%BF%E7%A0%94%E7%A9%B6"><i class="fa fa-check"></i><b>2</b> R言語による京都系土師器皿研究</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="analysis.html"><a href="#%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E5%BD%A2%E6%85%8B%E6%B8%AC%E5%AE%9A%E5%AD%A6"><i class="fa fa-check"></i><b>2.1</b> 幾何学的形態測定学</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="analysis.html"><a href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><i class="fa fa-check"></i><b>2.1.1</b> 主成分分析</a></li>
+<li class="chapter" data-level="2.1.2" data-path="analysis.html"><a href="#%E5%B9%B3%E5%9D%87%E7%9A%84%E3%81%AA%E5%BD%A2"><i class="fa fa-check"></i><b>2.1.2</b> 平均的な形</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="analysis.html"><a href="#%E5%8F%A3%E5%BE%84%E5%88%86%E5%B8%83"><i class="fa fa-check"></i><b>2.2</b> 口径分布</a></li>
+<li class="chapter" data-level="2.3" data-path="analysis.html"><a href="#%E5%AE%9A%E6%80%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96"><i class="fa fa-check"></i><b>2.3</b> 定性データの可視化</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="analysis.html"><a href="#%E8%80%83%E5%AF%9F"><i class="fa fa-check"></i><b>3</b> 考察</a></li>
+<li class="chapter" data-level="4" data-path="analysis.html"><a href="#%E7%B5%90%E8%AB%96"><i class="fa fa-check"></i><b>4</b> 結論</a></li>
+<li class="chapter" data-level="5" data-path="analysis.html"><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><i class="fa fa-check"></i><b>5</b> 参考文献</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ｒ言語による京都系土師器皿研究</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r言語による京都系土師器皿研究" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> R言語による京都系土師器皿研究<a href="#r%E8%A8%80%E8%AA%9E%E3%81%AB%E3%82%88%E3%82%8B%E4%BA%AC%E9%83%BD%E7%B3%BB%E5%9C%9F%E5%B8%AB%E5%99%A8%E7%9A%BF%E7%A0%94%E7%A9%B6" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="幾何学的形態測定学" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> 幾何学的形態測定学<a href="#%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E5%BD%A2%E6%85%8B%E6%B8%AC%E5%AE%9A%E5%AD%A6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>「形態測定学」（morphometrics）は資料を計測して定量的に比較する方法で、大きく2つの系譜がある。一つは「伝統的形態測定学」（traditional
+morphometrics）であり、考古学においては土器の器高や立ち上がりの角度、石器の長さや幅といった距離や角度の計測値を用いて、分析する方法である。他方は「幾何学的形態測定学」（geometric
+morphometrics,
+GMM）であり、標識点（landmarks）や輪郭（outlines）を用い、それらの幾何学的属性を保持したまま分析する点に特色がある。GMMの利点は従来の方法に比べ、形の情報を損なわずに定量化できることにある。</p>
+<p>GMMでは「形態」（form）と「形状」（shape）を区別する。位置や回転（向き）によって変化しない幾何学的属性を「形態」と呼び、そのうちサイズ（大きさ）の違いを数学的に処理したものを「形状」と定義する（図<a href="r言語による京都系土師器皿研究.html#fig:whats-shape">2.1</a>）。GMMでは、この「形状」を分析対象とする。</p>
+<p>さらに、GMMは2つの研究手法に大別される。一つは標識点ベースの方法で、資料の相同な点を選択し、その位置関係を比較するものである。他方は輪郭ベースの方法で、資料の輪郭を数値化して比較するものである。本稿で用いる楕円フーリエ解析（Elliptic
+Fourier Analysis,
+EFA）は輪郭ベースの代表的手法である。この方法は、輪郭が閉曲線であることを利用し、周期関数で近似することで形の特徴を抽出するもので、必要に応じて調和数を設定することで、細部の表現を調整することができる。理論的な背景については生形<span class="citation">（2005）</span>や野下・田村<span class="citation">（2017）</span>がまとめた解説を参照されたい。</p>
+<p>楕円フーリエ解析にはRのパッケージMomocs
+ver.1.4.1<span class="citation">（Bonhomme ほか, 2014.）</span>を使用する。Momocsでは2値化した画像から輪郭のデータを抽出することが可能である。画像は報告書等からスキャンした実測図から断面のアウトラインをAdobe
+Photoshopで範囲選択後パスに変換し、黒色で塗りつぶした。解像度が低い場合はAdobe
+IllustratorでトレースしたものをPhotoshopで2値化した。
+輪郭のサイズ・位置・向きの影響を除去するために、Momocsで実測図の中心線と断面図の交点、口縁の端部の3か所にランドマークを設定し（図<a href="r言語による京都系土師器皿研究.html#fig:shape-points">2.2</a>）、一般化プロクラステス分析(Generalized
+Procrustes
+Analysis）で規格化・標準化した。必要な調和数をそれぞれ算出したのち、楕円フーリエ解析をした。得られた結果は、主成分分析を行い可視化したほか、平均的な形を描写して比較した。</p>
+<div class="figure"><span style="display:block;" id="fig:whats-shape"></span>
+<img src="analysis/figures/1_whats_shape.png" alt="「かたち」とは" width="100%" />
+<p class="caption">
+Figure 2.1: 「かたち」とは
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:shape-points"></span>
+<img src="analysis/figures/2_points.png" alt="標識点を設定した輪郭線" width="100%" />
+<p class="caption">
+Figure 2.2: 標識点を設定した輪郭線
+</p>
+</div>
+<div id="主成分分析" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> 主成分分析<a href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>小型品の主成分分析（図<a href="r言語による京都系土師器皿研究.html#fig:small-pca">2.3</a>）では、PC1は相対的な厚さ、PC2は体部～口縁部の外反度合、PC3は腰部の屈曲度合を特徴として捉えている。</p>
+<p>京都では9Bから10B段階にかけて体部〜口縁部の外反度合と腰部の屈曲度合ともに弱くなり、10段階の皿Sの丸底化を指摘する先行研究と一致する<span class="citation">（小森・上村1996、 森島2019）</span>。</p>
+<p>富山では、石名田木舟遺跡において15C後半のF3-SD7030からF3-SD7003にかけて体部〜口縁部の外反度合が減少し、16世紀中頃〜後半のB2・C地区になると厚くなり、体部〜口縁部の外反度合はさらに減少する。この地区では主体となる型式がTIからTKに置き換わるが<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>、このことが形からも理解できる。富山城跡では、RS3-SD54に比べRS2-SK705は厚手であり、この点と後述する調整（図<a href="r言語による京都系土師器皿研究.html#fig:bar-plot">2.8</a>）を根拠に堀内<span class="citation">（2019）</span>の年代観に疑義を呈した<span class="citation">（松井2019）</span>。</p>
+<p>京都と富山を比較すると、石名田木舟遺跡F3-SD7003・F3-SD7030および富山城跡RS3-SD54は、京都9C～10B段階と近似するが、富山城跡RS2-SK705はより隔たっている。特にPC2において、15世紀後半の石名田木舟遺跡F3-SD7030は15世紀後葉の京都9C段階に近接し、後出するF3-SD7003では離れる傾向にある。小型品において両地域の形は完全に一致しないが、外反度合が減少する傾向は共通する。</p>
+<p>中大型品（図<a href="r言語による京都系土師器皿研究.html#fig:large-pca">2.4</a>）では、PC1は相対的な厚さ、PC2は体部（底部）の相対的な長さ、PC3は腰部の屈曲度合を特徴として捉えている。</p>
+<p>京都では9Bから10B段階にかけて体部が短縮し、皿形化（器高の低下、体部～口縁部の矮小化）を指摘している先行研究と一致する<span class="citation">（小森・上村1996）</span>。</p>
+<p>富山では、石名田木舟遺跡でも15C後半のF3-SD7030からF3-SD7003にかけて体部が短縮し、16世紀中頃〜後半のB2・C地区は厚手となる。富山城跡の資料も同様に厚手化する。</p>
+<p>両地域を比較すると、京都9C～10B段階と石名田木舟遺跡F3-SD7003・F3-SD7030が近接し、京都9B段階や石名田木舟遺跡B2・C地区、富山城跡の資料は分離する。小型品と同様に、特にPC2において、15世紀後半の石名田木舟遺跡F3-SD7030は15世紀後葉の京都9C段階に近接し、後出するF3-SD7003では離れる傾向にある。</p>
+<div class="figure"><span style="display:block;" id="fig:small-pca"></span>
+<img src="analysis/figures/3_pca_small_merged.png" alt="小型品の主成分分析の結果。A：PC1 vs PC2、B：PC1 vs PC3。楕円と十字線はそれぞれ50%と90%の信頼区間を示す。" width="100%" />
+<p class="caption">
+Figure 2.3: 小型品の主成分分析の結果。A：PC1 vs PC2、B：PC1 vs PC3。楕円と十字線はそれぞれ50%と90%の信頼区間を示す。
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:large-pca"></span>
+<img src="analysis/figures/4_pca_large_merged.png" alt="中大型の主成分分析の結果。A：PC1 vs PC2、B：PC1 vs PC3。楕円と十字線はそれぞれ50%と90%の信頼区間を示す。" width="100%" />
+<p class="caption">
+Figure 2.4: 中大型の主成分分析の結果。A：PC1 vs PC2、B：PC1 vs PC3。楕円と十字線はそれぞれ50%と90%の信頼区間を示す。
+</p>
+</div>
+</div>
+<div id="平均的な形" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> 平均的な形<a href="#%E5%B9%B3%E5%9D%87%E7%9A%84%E3%81%AA%E5%BD%A2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>主成分分析のほかに、楕円フーリエ解析の結果から平均的な形を描写することもできる。薄板スプライン法（Thin
+Plate Splines,
+TPS）による平均的な形の比較（図<a href="r言語による京都系土師器皿研究.html#fig:mean-shape">2.5</a>）では、小型品において、石名田木舟遺跡F3-SD7030（15世紀後半）は京都9C段階と類似するが、富山城跡RS2-SK705は京都10B段階よりも厚手で異なる。中大型品では、石名田木舟遺跡F3-SD7030が京都9C段階、同遺跡F3-SD7003が京都10A段階と類似する一方、富山城跡の資料は京都10A・10B段階と明確に異なる。</p>
+<div class="figure"><span style="display:block;" id="fig:mean-shape"></span>
+<img src="analysis/figures/5_mshape_final_merged.png" alt="京都と富山の平均的な形の比較（A:小型品、B:中大型品）" width="100%" />
+<p class="caption">
+Figure 2.5: 京都と富山の平均的な形の比較（A:小型品、B:中大型品）
+</p>
+</div>
+</div>
+</div>
+<div id="口径分布" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> 口径分布<a href="#%E5%8F%A3%E5%BE%84%E5%88%86%E5%B8%83" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>図<a href="r言語による京都系土師器皿研究.html#fig:rim-diameter">2.6</a>は京都と富山の口径分布を示したヒストグラムである。富山の分布は京都に比べ、小型品の密度が偏重し、中大型品は密度が低い。富山の小型品の分布は単峰性を示すが、京都9C・10B段階で確認される二峰性の分布であり、両地域に相違がある。</p>
+<p>表<a href="r言語による京都系土師器皿研究.html#tab:summary-table">2.1</a>と図<a href="r言語による京都系土師器皿研究.html#fig:box-plot">2.7</a>は富山の小型品に限定した概要表と箱ひげ図である。富山城跡RS3-SD54と石名田木舟遺跡B2・C地区のCV<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>がそのほかよりも大きく、平均値が同程度であっても四分位範囲が大きいことから、分布にばらつきがある。前者は遺構の性格<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>、後者は包含層を含む地区全体の資料であることから、その結果が反映されている可能性が高い。</p>
+<div class="figure"><span style="display:block;" id="fig:rim-diameter"></span>
+<img src="analysis/figures/6_hist_kyoto_toyama.png" alt="富山と京都の口径分布。ビン幅は0.5。" width="100%" />
+<p class="caption">
+Figure 2.6: 富山と京都の口径分布。ビン幅は0.5。
+</p>
+</div>
+<div class="tabwid"><style>.cl-56519a26{}.cl-564eea7e{font-family:'Helvetica';font-size:10pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-564eea88{font-family:'Helvetica';font-size:10pt;font-weight:bold;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-564eea92{font-family:'Helvetica';font-size:8pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-564eea93{font-family:'Helvetica';font-size:8pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-56500832{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5650083c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-56501336{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56501340{width:0.6in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 0.57pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56501341{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5650134a{width:0.6in;background-color:transparent;vertical-align: middle;border-bottom: 0.57pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5650134b{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5650134c{width:0.6in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56501354{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-56501355{width:0.6in;background-color:transparent;vertical-align: middle;border-bottom: 0.28pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-56519a26'>
+<caption style="display:table-caption;"><span id="tab:summary-table">Table 2.1: </span><span>石名田木舟遺跡と富山城跡の口径概要表</span></caption>
+<thead><tr style="overflow-wrap:break-word;"><th  colspan="6"class="cl-56501336"><p class="cl-56500832"><span class="cl-564eea7e">Diameter（cm）</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-56501341"><p class="cl-56500832"><span class="cl-564eea7e">出土地（時代）</span></p></th><th class="cl-5650134a"><p class="cl-56500832"><span class="cl-564eea88">n</span></p></th><th class="cl-5650134a"><p class="cl-56500832"><span class="cl-564eea88">Mean</span></p></th><th class="cl-5650134a"><p class="cl-56500832"><span class="cl-564eea88">Var</span></p></th><th class="cl-5650134a"><p class="cl-56500832"><span class="cl-564eea88">SD</span></p></th><th class="cl-5650134a"><p class="cl-56500832"><span class="cl-564eea7e">CV</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5650134b"><p class="cl-5650083c"><span class="cl-564eea92">石名田木舟遺跡F3-SD7030</span><br><span class="cl-564eea92">（15C後半（古））</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">112</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">8.8</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.1</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.2</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5650134b"><p class="cl-5650083c"><span class="cl-564eea92">石名田木舟遺跡F3-SD7003</span><br><span class="cl-564eea92">（15C後半（新））</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">52</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">8.7</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.1</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.3</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.04</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5650134b"><p class="cl-5650083c"><span class="cl-564eea92">富山城跡RS3-SD54</span><br><span class="cl-564eea92">（16C前半）</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">25</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">8.8</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.5</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.7</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.08</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5650134b"><p class="cl-5650083c"><span class="cl-564eea92">富山城跡RS2-SK705</span><br><span class="cl-564eea92">（16C中頃）</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">48</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">9.4</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.1</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.3</span></p></td><td class="cl-5650134c"><p class="cl-56500832"><span class="cl-564eea93">0.04</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-56501354"><p class="cl-5650083c"><span class="cl-564eea92">石名田木舟遺跡B2・C</span><br><span class="cl-564eea92">（16C中頃〜後半）</span></p></td><td class="cl-56501355"><p class="cl-56500832"><span class="cl-564eea93">56</span></p></td><td class="cl-56501355"><p class="cl-56500832"><span class="cl-564eea93">9.3</span></p></td><td class="cl-56501355"><p class="cl-56500832"><span class="cl-564eea93">0.4</span></p></td><td class="cl-56501355"><p class="cl-56500832"><span class="cl-564eea93">0.6</span></p></td><td class="cl-56501355"><p class="cl-56500832"><span class="cl-564eea93">0.07</span></p></td></tr></tbody></table></div>
+<div class="figure"><span style="display:block;" id="fig:box-plot"></span>
+<img src="analysis/figures/7_box_plot.png" alt="石名田木舟遺跡と富山城跡の口径分布（箱ひげ図）" width="100%" />
+<p class="caption">
+Figure 2.7: 石名田木舟遺跡と富山城跡の口径分布（箱ひげ図）
+</p>
+</div>
+</div>
+<div id="定性データの可視化" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> 定性データの可視化<a href="#%E5%AE%9A%E6%80%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>資料の観察から得られた所見は「定性データ」と呼ばれる。数値化が難しい多様な特徴を、文章で記録するもので、「定量データ」よりも豊富な情報を持つ。しかし、そのままでは俯瞰的な分析に活用しにくいため、考古学では分類を通じて「記号化」し、数値データと同様に扱える形式へ整理することが一般的である。</p>
+<p>図<a href="r言語による京都系土師器皿研究.html#fig:bar-plot">2.8</a>は、表<a href="index.html#tab:type-smooth">1.1</a>で示した調整の特徴を簡略化し、欠損や摩滅によって「不明・不明瞭」と判断した資料を除いたうえで、各遺跡・遺構における調整の比率を示したものである。</p>
+<p>石名田木舟遺跡ではF3-SD7030とF3-SD7003の小型品で調整の比率が異なり、体部において「2字ナデ」から「の字ナデ」への移行が確認できる。B2・C地区では、小型品と中大型品の体部に共通して「D字ナデ」が施され、見込では小型品で半数、中大型品の全てが「一方向ナデ・指ナデ」を示している。</p>
+<p>富山城跡では、小型品の見込「指ナデ」の比率がRS3-SD54で高い。一方、小型品・大型品ともに見込「無調整」の比率は両遺構で半数以上を占め、特にRS2-SK705で顕著である。RS3-SD54にはRS2-SK705に先行する土師器皿を含まれていると理解できる<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>。</p>
+<div class="figure"><span style="display:block;" id="fig:bar-plot"></span>
+<img src="analysis/figures/8_band.png" alt="石名田木舟遺跡と富山城跡の調整。" width="100%" />
+<p class="caption">
+Figure 2.8: 石名田木舟遺跡と富山城跡の調整。
+</p>
+</div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>TIはB2・C地区で3点しか出土せず、胎土（焼成）や調整が不明瞭で、後段階の様相を示す。紀年銘資料と共伴することから、16世紀第4四半期まで存続していたようである。<a href="r言語による京都系土師器皿研究.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>変動係数(coefficient of
+variance)。標準偏差を平均値で割った値。データのばらつきを相対的に示すもので、単位や平均値が異なるものの比較で用いられる。<a href="r言語による京都系土師器皿研究.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>RS3-SD54は複数の遺構の存在や時期幅があることが示唆されている。<a href="r言語による京都系土師器皿研究.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>註6と同じ。<a href="r言語による京都系土師器皿研究.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="考察.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

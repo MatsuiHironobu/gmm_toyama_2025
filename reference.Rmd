@@ -1,0 +1,12 @@
+
+
+# 参考文献
+
+
+```{r eval=FALSE, include=FALSE}
+# コンソールで以下のコマンドを入力
+bookdown::render_book("index.Rmd")
+
+```
+
+

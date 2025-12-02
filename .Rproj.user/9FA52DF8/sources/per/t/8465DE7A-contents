@@ -1,0 +1,377 @@
+---
+title: "Ｒ言語による京都系土師器皿研究"
+author: "松井　広信"
+date: "2025-12-07"
+bibliography: "./analysis/templates/mylib.bib"
+csl: "./analysis/templates/japanese_or_others.csl"
+---
+
+# はじめに
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  dpi = 200,
+  fig.path = ".analysis/figures/"
+)
+
+# 必要なパッケージを準備
+load_package <- function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {  # パッケージがインストール済みかどうか
+    install.packages(pkg)
+  }
+  suppressPackageStartupMessages(library(pkg, character.only = TRUE))
+}
+
+sapply(c("tidyverse", "Momocs", "here"), load_package)
+
+# システムのフォントを抜き出して、日本語フォントを探す。
+fonts <- systemfonts::system_fonts()
+jpnfont <- "HiraginoSans-W3"
+
+# ggplotのテーマを自作しておく（任意）
+my_theme <- 
+  theme(text = element_text(family = jpnfont,
+                            size = 8),    # 日本語フォントの設定
+        title = element_text(size = 11),   # タイトルの設定
+        # 軸（axis）関係
+        axis.title = element_text(colour = "black",
+                                  size = 9),   # 軸の名称の設定
+        panel.grid.major = element_line(linetype = "solid",
+                                        colour =  "lightgrey",
+                                        linewidth = 0.2),   # 罫線の主線の設定
+        panel.grid.minor = element_line(linetype = "solid",
+                                        colour =  "lightgrey",
+                                        linewidth = 0.2),   # 罫線の副線の設定
+        panel.background = element_blank(),                 # 背景を空白に設定
+        panel.border = element_rect(linetype = "solid",
+                                    linewidth = 0.5,
+                                    fill = NA),
+        # 凡例（legend）関係
+        legend.direction = "horizontal",         # 水平にする
+        legend.position = "bottom",              # 凡例の位置
+        legend.background = element_blank(), 
+        # キャプション（caption）関係
+        plot.caption = element_text(size = 8),
+        # `facet_wrap`等のタイトル
+        strip.background = element_rect(fill = "white")
+        )
+
+
+# mmをptに変換する式
+mm_to_pt <- function(mm) mm * 72 / 25.4
+
+```
+
+
+
+Rは統計解析と可視化に広く利用されるオープンソースのプログラミング言語および環境であり、科学的再現性の確保に大きく寄与している。本稿では、このRを用いて京都系土師器皿の分析事例を紹介する。
+
+対象とする富山の中世土師器皿は、高梨[-@takanashi_2006]、越前・高梨[-@echizen_takanashi_2007]により型式が整理されている。本稿では、石名田木舟遺跡B2・C地区[^1]出土資料を新たに「TK」として設定した（表\@ref(fig:type2)）。これらの型式は、調整によって判別することが可能で、その対応関係は表\@ref(tab:type-smooth)に示す。このうちRH・TI・TJが京都の影響を受けた在地型式として理解されるが（広義の京都系土師器皿）、本稿では岩瀬[-@iwase_2019]の石川県における定義[^2]を参考に、TIのみを京都系土師器皿として扱う。
+
+[^1]: 木舟城跡の城下町遺跡であり、天正13年（1586）を上限とする。
+
+[^2]: 岩瀬は京都系土師器皿の特徴を4点提示している。①体部は緩やかに開き、口縁端部をつまみ上げる、または端部内面にヨコナデによる面を形成する。外面は口縁部付近のみをヨコナデする。②内面調整の結果、内底面に凸圏線や凹線が観察される個体がある。内面調整は小型品に「の」字状ナデ、中型品以上に「2」字状ナデを施すものがある。③小・中・大・特大の法量がみられる。小皿にはヘソ皿を含む。④模倣が形骸化したものがみられる。
+
+比較資料として用いる京都の土師器皿については、京都系土師器皿のモデルと考えられるS系列（S・Sb）[^3]のみを対象とする。資料の年代観は基本的に平尾[-@hirao_2019]に準拠するが、京都9B
+段階には1447年の被災資料とされる史跡・名勝嵐山土壙170を追加している[@morishima_2019]。
+
+[^3]: 形が明らかに異なるヘソ皿（Sh）は除外した。
+
+なお、分析は既発表の研究[@matsui_2019; ・
+-@matsui_2022]を基礎とし、一部データを追加した。使用したコードは筆者のGitHubに公開予定である。対象遺跡は表\@ref(tab:site-list)に示した。
+
+```{r type1, eval=FALSE, include=FALSE, tab.cap='富山県の土師器皿の型式分類（越前・高梨2007にTKを追加）'}
+#### 失敗したが残しておく ####
+# 画像を含む表を作りたかったが、wordで出力するとうまくいかなかった。
+
+library(dplyr)
+library(flextable)
+library(officer)
+
+# # 画像のパスを指定
+# img_files <- c(
+#   "analysis/figures_drafts/fig1-1_RF_Ishinada4764.png",
+#   "analysis/figures_drafts/fig1-2_RH_Ishinada4766.png",
+#   "analysis/figures_drafts/fig1-3_RI_Toyama2005_13.png",
+#   "analysis/figures_drafts/fig1-4_TD_Doujo10025.png",
+#   "analysis/figures_drafts/fig1-5_TG_Doujo10280.png",
+#   "analysis/figures_drafts/fig1-6_TH_Ishinada4768.png",
+#   "analysis/figures_drafts/fig1-7_TI_YatsudukaC76.png",
+#   "analysis/figures_drafts/fig1-8_TJ_Bushouji85.png",
+#   "analysis/figures_drafts/fig1-9_TK_Ishinada2172.png"
+#   )
+
+# データフレームを作成
+type_df <- data.frame(
+  型式分類 = c("RF", "RH", "RI", "TD", "TG", "TH", "TI", "TJ", "TK"),
+  特徴 = c("口径に対する底径の比率が大きく、体部はやや外反し、口縁部は上方へつまみ先細りする。",
+         "ロクロ成形の底部をへらで削り丸底風に仕上げる。体部は直線的に延び口縁部が外反し端部を丸く納める。",
+         "焼成は堅緻で、体部は直線的に延び端部を丸く納める。", "平底で、口縁部を一段ナデ。",
+         "丸底気味の底部から体部が内湾し口縁部は短く外傾する。端部は鋭く納めるものと丸く納めるものが見られる。",
+         "口縁が短く垂直から外反する。端部は丸く納める。丸底と平底が見られる。",
+         "平底で口縁部が外反し端部を内に肥大させながら外反する。丸底と平底が見られ、法量は大中小の３種類ある。",
+         "丸底から体部が内湾気味に立ち上がり端部を外反気味につまみ出す。丸底と平底が見られ、法量は大小の２種類ある。",
+         "丸底と平底があり、底部から体部は緩やかに内湾する。口縁端部はつまみ出し、面を持つものもある。"
+         ), 
+  実測図 = NA,
+  stringsAsFactors = FALSE
+  ) 
+
+# flextableの作成
+ft <- flextable(type_df) %>%
+  # compose(
+  #   j = "実測図",                   # 新しく列を作る
+  #   value = as_paragraph(
+  #     as_image(src = img_files) # 画像を段落に埋め込む
+  #   )
+  # ) %>%
+  autofit() %>% # 列幅を自動調整
+  border_remove() %>%  # 全ての罫線を一旦削除
+  hline_top(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+            part = "all") %>%         # 表の上部の罫線
+  hline(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+        part = "header") %>%          # 列名の下部の罫線
+  hline_bottom(border = fp_border(color = "black", width = mm_to_pt(0.1)), 
+               part = "body") %>%     # 表の下部の罫線
+  border_inner_h(border = fp_border(color = "black", 
+                                    width = mm_to_pt(0.1))) %>%   #内部の横線を設定 
+  fontsize(size = 8, part = "all") %>%     # 全体の文字サイズを設定
+  fontsize(size = 10, part = "header") %>%  # ヘッダーの文字サイズを設定
+  align(j = c("型式分類", "実測図"),
+        align = "center", 
+        part = "body") %>%    # 1列目を中央揃え
+  align(align = "center", 
+        part = "header") %>%  # ヘッダーの1列目を中央揃え
+  bold(part = "header") %>%   # 太字にする
+  bold(j = "型式分類", part = "body") %>%   # 太字にする
+  font(font = jpnfont, part = "all") %>%  # フォントを設定 
+  line_spacing(space = 1.2)
+
+ft
+```
+
+```{r type2, echo=FALSE, fig.cap='富山県の土師器皿の型式分類（越前・高梨2007にTKを追加）', out.width='100%'}
+knitr::include_graphics(here("analysis/figures_drafts/tab1_type.png"))
+```
+
+```{r type-smooth, echo=FALSE, tab.cap='型式と主な出土地、調整の関係表'}
+# 必要なライブラリを読み込む
+library(flextable)
+library(officer)
+
+# データフレームの作成
+smoothing_traces <- data.frame(
+  `型式` = 
+    c("TI", "TI", 
+      "TI", "TI", 
+      "TI", "TI", 
+      "TJ", "TJ", 
+      "TJ", "TJ", 
+      "TK", "TK"),
+  `主な出土地` = 
+    c("石名田木舟遺跡\nF3-SD7003", "石名田木舟遺跡\nF3-SD7003", 
+      "石名田木舟遺跡\nF3-SD7030", "石名田木舟遺跡\nF3-SD7030", 
+      "富山城跡\nRS2-SK705・\nRS3-SD54", "富山城跡\nRS2-SK705・\nRS3-SD54",
+      "仏生寺城跡", "仏生寺城跡",
+      "新庄城跡", "新庄城跡",
+      "石名田木舟遺跡\nB2・C地区", "石名田木舟遺跡\nB2・C地区"),
+  `サイズ` = 
+    c("小型品", "中大型品",
+      "小型品", "中大型品", 
+      "小型品", "中大型品",
+      "小型品", "中大型品", 
+      "小型品", "中大型品",
+      "小型品", "中大型品"),
+  `調整` = c(
+    "体部：の字ナデ、見込：指ナデ、口縁部：横ナデ",
+    "見込：一方向ナデ、体部：２字ナデ、口縁部：横ナデ",
+    "体部：２字ナデ、見込：指ナデ、口縁部：横ナデ",
+    "見込：一方向ナデ、体部：２字ナデ、口縁部：横ナデ",
+    "体部：の字ナデ、口縁部：横ナデ　*見込：無調整",
+    "体部：２字ナデ、口縁部：横ナデ　*見込：無調整",
+    "見込：一方向ナデ、体部・口縁部：の字ナデ",
+    "見込・体部：一方向ナデ（斜方向ナデが先行する場合もある）、\n口縁部：の字ナデ",
+    "不明",
+    "見込：一方向ナデ（狭）、（体部：横ナデ）、口縁部：の字ナデ",
+    "見込：体部：Ｄ字ナデ、見込：指ナデ、口縁部：横ナデ　*布目圧痕あり",
+    "見込：一方向ナデ、体部：Ｄ字ナデ、口縁部：横ナデ　*布目圧痕あり"
+    ),
+  stringsAsFactors = FALSE
+)
+
+# flextableの作成
+smoothing_traces_table <- flextable(smoothing_traces) %>%
+  set_header_labels(
+    `型式` = "型式",
+    `主な出土地` = "主な出土地",
+    `サイズ` = "サイズ",
+    `調整` = "調整"
+  ) %>%
+  merge_v(j = ~ `型式`) %>%  # 同じ型式のセルを縦方向に結合
+  merge_v(j = ~ `主な出土地`) %>%  # 主な出土地も結合
+  autofit() %>%        # 列幅を自動調整
+  border_remove() %>%  # 全ての罫線を一旦削除
+  hline_top(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+            part = "all") %>%         # 表の上部の罫線
+  hline(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+        part = "header") %>%          # 列名の下部の罫線
+  hline_bottom(border = fp_border(color = "black", width = mm_to_pt(0.1)), 
+               part = "body") %>%     # 表の下部の罫線
+  border_inner_h(border = fp_border(color = "black", 
+                                    width = mm_to_pt(0.1))) %>%   #内部の横線を設定 
+  fontsize(size = 8, part = "all") %>%     # 全体の文字サイズを設定
+  fontsize(size = 10, part = "header") %>%  # ヘッダーの文字サイズを設定
+  align(j = c("型式", "サイズ"),
+        align = "center", 
+        part = "body") %>%    # 1列目を中央揃え
+  align(align = "center", 
+        part = "header") %>%  # ヘッダーの1列目を中央揃え
+  bold(part = "header") %>%   # 太字にする
+  bold(j = "型式", part = "body") %>%   # 太字にする
+  font(font = jpnfont, part = "all") %>%  # フォントを設定 
+  line_spacing(space = 1.2)
+
+smoothing_traces_table
+```
+
+```{r site-list, echo=FALSE, tab.cap='分析対象とした遺跡の一覧表'}
+# 必要なライブラリを読み込む
+library(flextable)
+library(officer)
+
+# データフレームの作成
+site_list <- data.frame(
+  `所在地` = 
+    c("高岡市\n小矢部市",
+      "高岡市\n小矢部市",
+      "高岡市\n小矢部市",
+      "富山市",
+      "富山市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市",
+      "京都市"),
+  `遺跡` = 
+    c("石名田木舟遺跡",
+      "石名田木舟遺跡",
+      "石名田木舟遺跡",
+      "富山城跡",
+      "富山城跡",
+      "平安京左京三条四坊七町跡",
+      "平安京左京四条二坊十四町跡",
+      "平安京左京四条二坊十四町跡",
+      "平安京左京四条二坊十四町跡",
+      "平安京左京四条三坊九町跡",
+      "平安京左京四条三坊十二町跡",
+      "平安京左京四条三坊十二町跡",
+      "平安京左京四条三坊十三町跡",
+      "平安京左京五条三坊六町跡",
+      "平安京左京五条三坊九町跡",
+      "平安京左京五条三坊十町跡",
+      "平安京左京六条二坊五町跡・猪熊殿跡・本圀寺跡",
+      "史跡・名勝嵐山",
+      "山科本願寺跡"),
+  `遺構` = 
+    c("F3-SD7003",
+      "F3-SD7030",
+      "B2・C地区",
+      "RS2-SK705",
+      "RS3-SD54",
+      "SK415",
+      "SE0922",
+      "SK2185",
+      "SK0366",
+      "SK144B",
+      "SK145",
+      "SK769",
+      "溝5下層",
+      "SK499",
+      "SK8-18",
+      "土坑170",
+      "SD166上層",
+      "土壙170",
+      "土坑2134"),
+  `時期` = c(
+    "15C後半（SD7030より新しい）",
+    "15C後半（1488年銘木簡）",
+    "16世紀中頃〜後半（1583年銘鰐口）",
+    "16C前半（松井2019）",
+    "16C中頃（松井2019）",
+    "京都9C（15C後）",
+    "京都9C（15C後）",
+    "京都10A（16C前）",
+    "京都9B（15C中）",
+    "京都10A（16C前）",
+    "京都9B（15C中）",
+    "京都9B（15C中）",
+    "京都10B（16C中）",
+    "京都10A（16C前）",
+    "京都10B（16C中）",
+    "京都9C（1493年頃）",
+    "京都10B（1536年頃）",
+    "京都9B（1447年頃）",
+    "京都10A（1532年頃）"
+    ),
+  stringsAsFactors = FALSE
+)
+
+# flextableの作成
+site_table <- flextable(site_list) %>%
+  set_header_labels(
+    `所在地` = "所在地",
+    `遺跡` = "遺跡",
+    `遺構` = "遺構",
+    `時期` = "時期"
+  ) %>%
+  merge_v(j = ~ `遺跡`) %>%  # 同じ遺跡のセルを縦方向に結合
+  merge_v(j = ~ `所在地`) %>%  # 所在地も結合
+  autofit() %>% # 列幅を自動調整
+  border_remove() %>%  # 全ての罫線を一旦削除
+  hline_top(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+            part = "all") %>%      # 表の上部の罫線
+  hline(border = fp_border(color = "black", width = mm_to_pt(0.2)), 
+        part = "header") %>%       # 列名の下部の罫線
+  hline_bottom(border = fp_border(color = "black", width = mm_to_pt(0.1)), 
+               part = "body") %>%  # 表の下部の罫線
+  border_inner_h(border = fp_border(color = "black", 
+                                    width = mm_to_pt(0.1))) %>%   # 内部の横線を設定
+  fontsize(size = 8, part = "all") %>%  # 全体の文字サイズを設定
+  fontsize(size = 10, part = "header") %>%  # ヘッダーの文字サイズを設定
+  align(j = c("所在地", "遺構"),
+        align = "center", 
+        part = "body") %>%  # 1列目を中央揃え
+  align(align = "center", 
+        part = "header") %>%  # ヘッダーの1列目を中央揃え
+  bold(part = "header") %>%   # 太字にする
+  # bold(j = "遺跡", part = "body") %>%   # 太字にする
+  font(font = jpnfont, part = "all") %>%  # フォントを設定 
+  line_spacing(space = 1.2)
+
+site_table
+
+# #### ワードで書き出す場合 ####
+# # Wordファイルを新規作成
+# doc <- read_docx()
+# 
+# # 作成済み flextable を本文に追加
+# doc <- body_add_flextable(doc, site_table)
+# 
+# # Wordファイルとして保存
+# print(doc, target = "site_table.docx")
+```
+
